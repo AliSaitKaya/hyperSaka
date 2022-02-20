@@ -112,15 +112,23 @@ extern void VariableJoystick_OnPointerUp_mFD7BF52D93B0B573E9227D5E971778EC003A1A
 extern void VariableJoystick_HandleInput_m868BD21C589C135310923B8C794AD5BA316C2D3A (void);
 // 0x00000032 System.Void VariableJoystick::.ctor()
 extern void VariableJoystick__ctor_m1E03B9859AAB8461C7A42706AE4E31606969C25F (void);
-// 0x00000033 System.Void move::Start()
+// 0x00000033 System.Void attack::Start()
+extern void attack_Start_mD100C19A5A0C450CB6948A4AC777380D70DF9A4C (void);
+// 0x00000034 System.Void attack::Update()
+extern void attack_Update_m62DFF09503512CC42DDD2CDF5915844A0E3163AC (void);
+// 0x00000035 System.Void attack::Attack()
+extern void attack_Attack_m823084A7450D21C8D31F17596E980DBE08A2BC68 (void);
+// 0x00000036 System.Void attack::.ctor()
+extern void attack__ctor_m0D93581194CAE5950431AC15DD5F3CBE8F74DE06 (void);
+// 0x00000037 System.Void move::Start()
 extern void move_Start_m68C6847F59645AD1B22C2CB5742DB521F7792586 (void);
-// 0x00000034 System.Void move::FixedUpdate()
+// 0x00000038 System.Void move::FixedUpdate()
 extern void move_FixedUpdate_m213E5780C060913D97B39F2E1AEC66A04C9BD193 (void);
-// 0x00000035 System.Void move::movement()
+// 0x00000039 System.Void move::movement()
 extern void move_movement_m07515DDC4F7DB85882E26C61AFA52D393F815932 (void);
-// 0x00000036 System.Void move::.ctor()
+// 0x0000003A System.Void move::.ctor()
 extern void move__ctor_mEA4EAF1DF04BED632395EC3F0721A0273A838739 (void);
-static Il2CppMethodPointer s_methodPointers[54] = 
+static Il2CppMethodPointer s_methodPointers[58] = 
 {
 	JoystickPlayerExample_FixedUpdate_m3D7D2B1BE8C20574423088EF0C338700444B04B2,
 	JoystickPlayerExample__ctor_mEE8014E341485D43F0629DE22DB9F407E47FC49B,
@@ -172,12 +180,16 @@ static Il2CppMethodPointer s_methodPointers[54] =
 	VariableJoystick_OnPointerUp_mFD7BF52D93B0B573E9227D5E971778EC003A1AC2,
 	VariableJoystick_HandleInput_m868BD21C589C135310923B8C794AD5BA316C2D3A,
 	VariableJoystick__ctor_m1E03B9859AAB8461C7A42706AE4E31606969C25F,
+	attack_Start_mD100C19A5A0C450CB6948A4AC777380D70DF9A4C,
+	attack_Update_m62DFF09503512CC42DDD2CDF5915844A0E3163AC,
+	attack_Attack_m823084A7450D21C8D31F17596E980DBE08A2BC68,
+	attack__ctor_m0D93581194CAE5950431AC15DD5F3CBE8F74DE06,
 	move_Start_m68C6847F59645AD1B22C2CB5742DB521F7792586,
 	move_FixedUpdate_m213E5780C060913D97B39F2E1AEC66A04C9BD193,
 	move_movement_m07515DDC4F7DB85882E26C61AFA52D393F815932,
 	move__ctor_mEA4EAF1DF04BED632395EC3F0721A0273A838739,
 };
-static const int32_t s_InvokerIndices[54] = 
+static const int32_t s_InvokerIndices[58] = 
 {
 	1120,
 	1120,
@@ -233,13 +245,17 @@ static const int32_t s_InvokerIndices[54] =
 	1120,
 	1120,
 	1120,
+	1120,
+	1120,
+	1120,
+	1120,
 };
 extern const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	54,
+	58,
 	s_methodPointers,
 	0,
 	NULL,

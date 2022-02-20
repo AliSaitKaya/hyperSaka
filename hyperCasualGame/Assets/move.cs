@@ -26,7 +26,11 @@ public class move : MonoBehaviour
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+        right = Camera.main.transform.right;
+        right.y = 0;
+        right = Vector3.Normalize(right);
+        
+       // right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
     }
 
     private void FixedUpdate()
@@ -36,6 +40,15 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void movement()
     {
+        if (horizontal <= 0.3 && horizontal >= -0.3)
+        {
+            horizontal = 0;
+        }
+        if (vertical <= 0.3 && vertical >= -0.3)
+        {
+            vertical = 0;
+        }
+
         horizontal = joystick.Horizontal;
         vertical = joystick.Vertical;
         Vector3 direction = new Vector3(horizontal, 0, vertical);
@@ -44,7 +57,7 @@ public class move : MonoBehaviour
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
-        transform.forward = heading;
+        transform.forward += heading;
         transform.position += rightMovement;
         transform.position += upMovement;
 
