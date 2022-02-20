@@ -14,7 +14,7 @@ public class move : MonoBehaviour
     public Animator animator;
     GameObject wizard;
     Vector3 forward, right;
-    float moveSpeed = 4f;
+    float moveSpeed = 6f;
     // Start is called before the first frame update
     
     void Start()
