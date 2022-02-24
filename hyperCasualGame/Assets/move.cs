@@ -22,7 +22,7 @@ public class move : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
         wizard = GameObject.FindWithTag("Wizard");
         animator = wizard.GetComponent<Animator>();
-
+        
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);

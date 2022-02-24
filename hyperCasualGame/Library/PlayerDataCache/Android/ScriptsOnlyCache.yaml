@@ -9,10 +9,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -63,25 +61,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1448}
+      Script: {instanceID: 1460}
     - Class: 114
-      Script: {instanceID: 1838}
+      Script: {instanceID: 1850}
     - Class: 114
-      Script: {instanceID: 1946}
+      Script: {instanceID: 1958}
     - Class: 114
-      Script: {instanceID: 2022}
+      Script: {instanceID: 2034}
     - Class: 114
-      Script: {instanceID: 2310}
+      Script: {instanceID: 2322}
     - Class: 114
-      Script: {instanceID: 2422}
+      Script: {instanceID: 2434}
     - Class: 114
-      Script: {instanceID: 2588}
+      Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2772}
+      Script: {instanceID: 2784}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 38004}
+      Script: {instanceID: 4324}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -93,6 +91,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -465,6 +467,12 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
+      Hash: 87423698accc5a995de3d030a16c22d0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraHolder
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -481,6 +489,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 2e4fb5a903777f5e4ac9cd3451a19a73
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Rotator
   - hash:
       serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
@@ -549,6 +563,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 0a6ad6df8c0f07107840d542a52d0347
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: attack
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -573,10 +593,10 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: c852378aa075130267edf7076cf27a0c
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: attack
+    className: cameraShaker
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
