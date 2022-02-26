@@ -5,11 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wizard
-  - circle
-  - left
-  - right
-  - top
-  - bottom
   layers:
   - Default
   - TransparentFX
