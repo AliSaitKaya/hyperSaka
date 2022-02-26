@@ -10,7 +10,8 @@ public class move : MonoBehaviour
     Vector3 FirstPoint;
     Vector3 SecondPoint;
     float xAngle;
-    
+
+    public ParticleSystem walkSmoke;
     public Animator animator;
     GameObject wizard;
     Vector3 forward, right;
@@ -22,8 +23,9 @@ public class move : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
         wizard = GameObject.FindWithTag("Wizard");
         animator = wizard.GetComponent<Animator>();
-        
-        forward = Camera.main.transform.forward;
+        walkSmoke.Stop();
+
+          forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Camera.main.transform.right;
@@ -40,17 +42,21 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void movement()
     {
-        if (horizontal <= 0.3 && horizontal >= -0.3)
-        {
-            horizontal = 0;
-        }
-        if (vertical <= 0.3 && vertical >= -0.3)
-        {
-            vertical = 0;
-        }
+       
 
         horizontal = joystick.Horizontal;
         vertical = joystick.Vertical;
+
+        if (horizontal <= 0.3 && horizontal >= -0.3 && vertical <= 0.3 && vertical >= -0.3)
+        {
+            horizontal = 0;
+            vertical = 0;
+            walkSmoke.Stop();
+        }
+        else if(!walkSmoke.isPlaying)
+        {
+            walkSmoke.Play();
+        }
         Vector3 direction = new Vector3(horizontal, 0, vertical);
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontal;
         Vector3 upMovement = forward * moveSpeed *Time.deltaTime * vertical;
@@ -61,9 +67,10 @@ public class move : MonoBehaviour
         transform.position += rightMovement;
         transform.position += upMovement;
 
-       Camera.main.transform.position = new Vector3(transform.position.x-10, transform.position.y+7, transform.position.z-8);
+        Camera.main.transform.position = new Vector3(transform.position.x-10, transform.position.y+7, transform.position.z-8);
 
         animator.SetFloat("horizontal", horizontal);
         animator.SetFloat("vertical", vertical);
+
     }
 }

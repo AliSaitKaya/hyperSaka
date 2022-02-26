@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - DamageCircle
     - FixedJoystick
     - attack
     - move
@@ -9,8 +10,11 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationBlendTree.Node
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -63,23 +67,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1460}
     - Class: 114
-      Script: {instanceID: 1850}
+      Script: {instanceID: 1856}
     - Class: 114
-      Script: {instanceID: 1958}
+      Script: {instanceID: 1964}
     - Class: 114
-      Script: {instanceID: 2034}
+      Script: {instanceID: 2040}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2328}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 2440}
     - Class: 114
-      Script: {instanceID: 2600}
+      Script: {instanceID: 2480}
     - Class: 114
-      Script: {instanceID: 2784}
+      Script: {instanceID: 2608}
     - Class: 114
-      Script: {instanceID: 2870}
+      Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 4324}
+      Script: {instanceID: 2878}
+    - Class: 114
+      Script: {instanceID: 4334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -95,6 +101,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -185,7 +193,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 30f3213a6e218a461fa00e428f22d3eb
+      Hash: cf0ccde83ecea103a9bdedf4e7df50b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: move
@@ -267,6 +275,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: a57222b96705139d1de8bb8d045c1b99
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DamageCircle
   - hash:
       serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
@@ -363,6 +377,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: cameraShaker
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -591,12 +611,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: cameraShaker
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
