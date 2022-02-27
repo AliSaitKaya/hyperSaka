@@ -11,10 +11,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
     - UnityEditor.Graphs.AnimationBlendTree.Node
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -67,25 +65,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1460}
     - Class: 114
-      Script: {instanceID: 1856}
+      Script: {instanceID: 1462}
     - Class: 114
-      Script: {instanceID: 1964}
+      Script: {instanceID: 1852}
     - Class: 114
-      Script: {instanceID: 2040}
+      Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 2328}
+      Script: {instanceID: 2036}
     - Class: 114
-      Script: {instanceID: 2440}
+      Script: {instanceID: 2324}
     - Class: 114
-      Script: {instanceID: 2480}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2476}
     - Class: 114
-      Script: {instanceID: 2792}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2872}
     - Class: 114
-      Script: {instanceID: 4334}
+      Script: {instanceID: 4328}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -113,6 +111,12 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 748dd2a2a28da4e618912da5ac45684b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: StandaloneInputModule
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
@@ -329,12 +333,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: JoystickSetterExample
-  - hash:
-      serializedVersion: 2
-      Hash: 748dd2a2a28da4e618912da5ac45684b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: StandaloneInputModule
   - hash:
       serializedVersion: 2
       Hash: f7858108331b563fb41b80b729297acd
@@ -583,7 +581,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 0a6ad6df8c0f07107840d542a52d0347
+      Hash: 867abd49e7b01f04457b5a2fd293799d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: attack
