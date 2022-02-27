@@ -18,17 +18,21 @@ public class DamageCircle : MonoBehaviour
     private Vector3 targetCirclePosition;
     private float circleShrinkSpeed;
     private float shrinkTimer;
-     
-private void Awake() {
+    GameObject wizard;
+    public ParticleSystem bloodAnim;
+
+    private void Awake() {
         instance = this;
 
-        circleShrinkSpeed = 20f;
-
+        circleShrinkSpeed = 7f;
+        bloodAnim.Stop();
         circleTransform = GameObject.FindWithTag("circle").transform;
         topTransform = GameObject.FindWithTag("top").transform;
         bottomTransform = GameObject.FindWithTag("bottom").transform;
         leftTransform = GameObject.FindWithTag("left").transform;
         rightTransform = GameObject.FindWithTag("right").transform;
+
+        wizard = GameObject.FindWithTag("Wizard");
 
         SetCircleSize(new Vector3(32, 0, -40), new Vector3(120, 120)); 
 
@@ -36,7 +40,17 @@ private void Awake() {
     }
 
     private void Update() {
-        
+
+        if (IsOutsideCircle(wizard.transform.position) && !bloodAnim.isPlaying) { 
+            Debug.Log("WARNING");
+            bloodAnim.Play();
+        }
+        else
+        {
+            bloodAnim.Stop();
+        }
+           
+
 
         shrinkTimer -= Time.deltaTime;
 
@@ -84,7 +98,7 @@ private void Awake() {
         Vector3 generatedTargetCirclePosition = circlePosition;
             
 
-        float shrinkTime = Random.Range(1f, 6f);
+        float shrinkTime = Random.Range(4f, 8f);
         generatedTargetCirclePosition.x= circlePosition.x+Random.Range(-(circleSize.x)/2,(circleSize.x)/2);
         generatedTargetCirclePosition.z= circlePosition.z+Random.Range(-(circleSize.x)/2,(circleSize.x)/2);
         generatedTargetCirclePosition.y=0;
@@ -127,7 +141,9 @@ private void Awake() {
     }
 
     private bool IsOutsideCircle(Vector3 position) {
+
         return Vector3.Distance(position, circlePosition) > circleSize.x * .5f;
+        
     }
 // player classından burayı cağır !!!
     public static bool IsOutsideCircle_Static(Vector3 position) {
