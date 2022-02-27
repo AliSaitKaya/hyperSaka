@@ -20,10 +20,12 @@ public class DamageCircle : MonoBehaviour
     private float shrinkTimer;
     GameObject wizard;
     public ParticleSystem bloodAnim;
+    public HealthSystem healthObj;
+    
 
-    private void Awake() {
+    public void Awake() {
         instance = this;
-
+        
         circleShrinkSpeed = 7f;
         bloodAnim.Stop();
         circleTransform = GameObject.FindWithTag("circle").transform;
@@ -34,15 +36,16 @@ public class DamageCircle : MonoBehaviour
 
         wizard = GameObject.FindWithTag("Wizard");
 
-        SetCircleSize(new Vector3(32, 0, -40), new Vector3(120, 120)); 
+        SetCircleSize(new Vector3(0, 0.1f, 0), new Vector3(120, 120)); 
 
-        SetTargetCircle(new Vector3(32,0, -40), new Vector3(60, 60), 3f);
+        SetTargetCircle(new Vector3(0,0.1f, 0), new Vector3(60, 60), 3f);
     }
 
-    private void Update() {
+    public void Update() {
 
         if (IsOutsideCircle(wizard.transform.position) && !bloodAnim.isPlaying) { 
             bloodAnim.Play();
+            healthObj.Damage(5);
         }
         else
         {
@@ -88,7 +91,7 @@ public class DamageCircle : MonoBehaviour
         SetTargetCircle(generatedTargetCirclePosition, generatedTargetCircleSize, shrinkTime);
     }
      private void GenerateTargetCircleDeneme() {
-        float shrinkSizeAmount = Random.Range(1f, 10f);
+        float shrinkSizeAmount = Random.Range(8f, 10f);
         Vector3 generatedTargetCircleSize = circleSize - new Vector3(shrinkSizeAmount, shrinkSizeAmount) * 2f;
 
         // Set a minimum size
@@ -98,9 +101,9 @@ public class DamageCircle : MonoBehaviour
             
 
         float shrinkTime = Random.Range(4f, 8f);
-        generatedTargetCirclePosition.x= circlePosition.x+Random.Range(-(circleSize.x)/2,(circleSize.x)/2);
-        generatedTargetCirclePosition.z= circlePosition.z+Random.Range(-(circleSize.x)/2,(circleSize.x)/2);
-        generatedTargetCirclePosition.y=0;
+        generatedTargetCirclePosition.x= circlePosition.x+Random.Range(-(circleSize.x)/5,(circleSize.x)/5);
+        generatedTargetCirclePosition.z= circlePosition.z+Random.Range(-(circleSize.x)/5,(circleSize.x)/5);
+        generatedTargetCirclePosition.y=0.1f;
 
         SetTargetCircle(generatedTargetCirclePosition, generatedTargetCircleSize, shrinkTime);
     }
@@ -113,17 +116,17 @@ public class DamageCircle : MonoBehaviour
         circleTransform.localScale = size;
         
         topTransform.localScale = new Vector3(300,300);
-        topTransform.localPosition = new Vector3(circleTransform.position.x+topTransform.localScale.x*0.5f+size.x*0.5f,0,circleTransform.position.z);
+        topTransform.localPosition = new Vector3(circleTransform.position.x+topTransform.localScale.x*0.5f+size.x*0.5f,topTransform.position.y,circleTransform.position.z);
         
         
         bottomTransform.localScale = new Vector3(300, 300);
-        bottomTransform.localPosition = new Vector3(circleTransform.position.x-bottomTransform.localScale.x*0.5f-size.x*0.5f,0,circleTransform.position.z);
+        bottomTransform.localPosition = new Vector3(circleTransform.position.x-bottomTransform.localScale.x*0.5f-size.x*0.5f,bottomTransform.position.y,circleTransform.position.z);
 
         leftTransform.localScale = new Vector3(300, 300);
-        leftTransform.localPosition = new Vector3(circleTransform.position.x,0,circleTransform.position.z+leftTransform.localScale.y*0.5f+size.y*0.5f);
+        leftTransform.localPosition = new Vector3(circleTransform.position.x,leftTransform.position.y,circleTransform.position.z+leftTransform.localScale.y*0.5f+size.y*0.5f);
 
         rightTransform.localScale = new Vector3(300, 300);
-        rightTransform.localPosition = new Vector3(circleTransform.position.x,0,circleTransform.position.z-rightTransform.localScale.y*0.5f-size.y*0.5f);
+        rightTransform.localPosition = new Vector3(circleTransform.position.x,rightTransform.position.y,circleTransform.position.z-rightTransform.localScale.y*0.5f-size.y*0.5f);
         
      
     }
