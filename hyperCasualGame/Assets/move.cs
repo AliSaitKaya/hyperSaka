@@ -14,7 +14,7 @@ public class move : MonoBehaviour
     public ParticleSystem walkSmoke;
     public Animator animator;
     GameObject wizard;
-    Vector3 forward, right;
+    public static Vector3 forward, right ,heading;
     float moveSpeed = 6f;
     // Start is called before the first frame update
     
@@ -61,7 +61,7 @@ public class move : MonoBehaviour
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontal;
         Vector3 upMovement = forward * moveSpeed *Time.deltaTime * vertical;
 
-        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+        heading = Vector3.Normalize(rightMovement + upMovement);
 
         transform.forward += heading;
         transform.position += rightMovement;

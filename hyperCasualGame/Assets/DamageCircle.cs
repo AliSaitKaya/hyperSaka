@@ -42,7 +42,6 @@ public class DamageCircle : MonoBehaviour
     private void Update() {
 
         if (IsOutsideCircle(wizard.transform.position) && !bloodAnim.isPlaying) { 
-            Debug.Log("WARNING");
             bloodAnim.Play();
         }
         else

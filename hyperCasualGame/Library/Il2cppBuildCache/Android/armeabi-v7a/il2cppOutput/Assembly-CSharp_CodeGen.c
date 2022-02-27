@@ -152,51 +152,57 @@ extern void VariableJoystick_HandleInput_m868BD21C589C135310923B8C794AD5BA316C2D
 extern void VariableJoystick__ctor_m1E03B9859AAB8461C7A42706AE4E31606969C25F (void);
 // 0x00000046 System.Void attack::Start()
 extern void attack_Start_mD100C19A5A0C450CB6948A4AC777380D70DF9A4C (void);
-// 0x00000047 System.Void attack::Update()
+// 0x00000047 System.Void attack::lightningAttackSelect()
+extern void attack_lightningAttackSelect_m56E141B947223BA517897DACA8714152A8DA3603 (void);
+// 0x00000048 System.Void attack::waterAttackSelect()
+extern void attack_waterAttackSelect_m6D27D566747B0B77457DFF440DDE2B909232CA49 (void);
+// 0x00000049 System.Void attack::fireAttackSelect()
+extern void attack_fireAttackSelect_mBC35489D6ECB95A5CA6FF686220C89E152DEEB14 (void);
+// 0x0000004A System.Void attack::Update()
 extern void attack_Update_m62DFF09503512CC42DDD2CDF5915844A0E3163AC (void);
-// 0x00000048 System.Void attack::Attack()
+// 0x0000004B System.Void attack::Attack()
 extern void attack_Attack_m823084A7450D21C8D31F17596E980DBE08A2BC68 (void);
-// 0x00000049 System.Collections.IEnumerator attack::Shake(System.Single,System.Single)
+// 0x0000004C System.Collections.IEnumerator attack::Shake(System.Single,System.Single)
 extern void attack_Shake_m50B9EEA383EE1B738B8EBB3723D67874078E9B2B (void);
-// 0x0000004A System.Void attack::.ctor()
+// 0x0000004D System.Void attack::.ctor()
 extern void attack__ctor_m0D93581194CAE5950431AC15DD5F3CBE8F74DE06 (void);
-// 0x0000004B System.Void attack/<Shake>d__8::.ctor(System.Int32)
-extern void U3CShakeU3Ed__8__ctor_m90628C99BDDBA25A06CB8A9B359F1D7744DC48C8 (void);
-// 0x0000004C System.Void attack/<Shake>d__8::System.IDisposable.Dispose()
-extern void U3CShakeU3Ed__8_System_IDisposable_Dispose_mC882DCEAD1CF22000FCAE1FC83C775478D9938DB (void);
-// 0x0000004D System.Boolean attack/<Shake>d__8::MoveNext()
-extern void U3CShakeU3Ed__8_MoveNext_m7293A414DA993D0728B2C9D1EC876303AF43F139 (void);
-// 0x0000004E System.Object attack/<Shake>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-extern void U3CShakeU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF6D1B5F9E18148AB689F9B7232FF185D2901653A (void);
-// 0x0000004F System.Void attack/<Shake>d__8::System.Collections.IEnumerator.Reset()
-extern void U3CShakeU3Ed__8_System_Collections_IEnumerator_Reset_mA031C429CB5521C05A976D5E86DC3DBDD2F2C8B5 (void);
-// 0x00000050 System.Object attack/<Shake>d__8::System.Collections.IEnumerator.get_Current()
-extern void U3CShakeU3Ed__8_System_Collections_IEnumerator_get_Current_m30E1362CE5A5FB3D90483504C480D9EE22C5108D (void);
-// 0x00000051 System.Collections.IEnumerator cameraShaker::Shake(System.Single,System.Single)
+// 0x0000004E System.Void attack/<Shake>d__18::.ctor(System.Int32)
+extern void U3CShakeU3Ed__18__ctor_m8DB4C593F739ECE2797551FEA1B4251A01F5C58C (void);
+// 0x0000004F System.Void attack/<Shake>d__18::System.IDisposable.Dispose()
+extern void U3CShakeU3Ed__18_System_IDisposable_Dispose_m224226B8C549B2D095A087D3D7AAB01C4896A7D7 (void);
+// 0x00000050 System.Boolean attack/<Shake>d__18::MoveNext()
+extern void U3CShakeU3Ed__18_MoveNext_mF40ADD1C82FDD9E7142A0004CF64AE93C5578D5E (void);
+// 0x00000051 System.Object attack/<Shake>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CShakeU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4EE32AE4592FE462FE34E3AE38E50A8A61239726 (void);
+// 0x00000052 System.Void attack/<Shake>d__18::System.Collections.IEnumerator.Reset()
+extern void U3CShakeU3Ed__18_System_Collections_IEnumerator_Reset_m172DFCFB0E304D306FD0E272899FE49A0B08CF6B (void);
+// 0x00000053 System.Object attack/<Shake>d__18::System.Collections.IEnumerator.get_Current()
+extern void U3CShakeU3Ed__18_System_Collections_IEnumerator_get_Current_m706A2616A0DE84B76860FAC1D3F5E4113D07C28D (void);
+// 0x00000054 System.Collections.IEnumerator cameraShaker::Shake(System.Single,System.Single)
 extern void cameraShaker_Shake_mA0CEFA8338BCDD686C25840BABC80D961209E33E (void);
-// 0x00000052 System.Void cameraShaker::.ctor()
+// 0x00000055 System.Void cameraShaker::.ctor()
 extern void cameraShaker__ctor_m28811CF4CA7502595260A97A76A9CAD393EC78DE (void);
-// 0x00000053 System.Void cameraShaker/<Shake>d__0::.ctor(System.Int32)
+// 0x00000056 System.Void cameraShaker/<Shake>d__0::.ctor(System.Int32)
 extern void U3CShakeU3Ed__0__ctor_m90531A490514EB236D09DAC7B3849112760C5426 (void);
-// 0x00000054 System.Void cameraShaker/<Shake>d__0::System.IDisposable.Dispose()
+// 0x00000057 System.Void cameraShaker/<Shake>d__0::System.IDisposable.Dispose()
 extern void U3CShakeU3Ed__0_System_IDisposable_Dispose_mB7935B4F81BDB935FB89DFD591F8D4DC6C888893 (void);
-// 0x00000055 System.Boolean cameraShaker/<Shake>d__0::MoveNext()
+// 0x00000058 System.Boolean cameraShaker/<Shake>d__0::MoveNext()
 extern void U3CShakeU3Ed__0_MoveNext_m7AFDA19A69278FB7010B6EFBC4F4A763A4A0A747 (void);
-// 0x00000056 System.Object cameraShaker/<Shake>d__0::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x00000059 System.Object cameraShaker/<Shake>d__0::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CShakeU3Ed__0_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m6CACACAD01CEEC44F6773E19EABABDF9AE09128D (void);
-// 0x00000057 System.Void cameraShaker/<Shake>d__0::System.Collections.IEnumerator.Reset()
+// 0x0000005A System.Void cameraShaker/<Shake>d__0::System.Collections.IEnumerator.Reset()
 extern void U3CShakeU3Ed__0_System_Collections_IEnumerator_Reset_m2F5C429A30F92CCDBECF253EC0C39158763E49E4 (void);
-// 0x00000058 System.Object cameraShaker/<Shake>d__0::System.Collections.IEnumerator.get_Current()
+// 0x0000005B System.Object cameraShaker/<Shake>d__0::System.Collections.IEnumerator.get_Current()
 extern void U3CShakeU3Ed__0_System_Collections_IEnumerator_get_Current_mC30D6C884AB59E754395F913D9356C06B9C722E6 (void);
-// 0x00000059 System.Void move::Start()
+// 0x0000005C System.Void move::Start()
 extern void move_Start_m68C6847F59645AD1B22C2CB5742DB521F7792586 (void);
-// 0x0000005A System.Void move::FixedUpdate()
+// 0x0000005D System.Void move::FixedUpdate()
 extern void move_FixedUpdate_m213E5780C060913D97B39F2E1AEC66A04C9BD193 (void);
-// 0x0000005B System.Void move::movement()
+// 0x0000005E System.Void move::movement()
 extern void move_movement_m07515DDC4F7DB85882E26C61AFA52D393F815932 (void);
-// 0x0000005C System.Void move::.ctor()
+// 0x0000005F System.Void move::.ctor()
 extern void move__ctor_mEA4EAF1DF04BED632395EC3F0721A0273A838739 (void);
-static Il2CppMethodPointer s_methodPointers[92] = 
+static Il2CppMethodPointer s_methodPointers[95] = 
 {
 	DamageCircle_Awake_m88321FD01225030B0DC7A96DE83BB53797C5B876,
 	DamageCircle_Update_mE2554D059FD64B3CFB191CCD957A64F9E0679C13,
@@ -268,16 +274,19 @@ static Il2CppMethodPointer s_methodPointers[92] =
 	VariableJoystick_HandleInput_m868BD21C589C135310923B8C794AD5BA316C2D3A,
 	VariableJoystick__ctor_m1E03B9859AAB8461C7A42706AE4E31606969C25F,
 	attack_Start_mD100C19A5A0C450CB6948A4AC777380D70DF9A4C,
+	attack_lightningAttackSelect_m56E141B947223BA517897DACA8714152A8DA3603,
+	attack_waterAttackSelect_m6D27D566747B0B77457DFF440DDE2B909232CA49,
+	attack_fireAttackSelect_mBC35489D6ECB95A5CA6FF686220C89E152DEEB14,
 	attack_Update_m62DFF09503512CC42DDD2CDF5915844A0E3163AC,
 	attack_Attack_m823084A7450D21C8D31F17596E980DBE08A2BC68,
 	attack_Shake_m50B9EEA383EE1B738B8EBB3723D67874078E9B2B,
 	attack__ctor_m0D93581194CAE5950431AC15DD5F3CBE8F74DE06,
-	U3CShakeU3Ed__8__ctor_m90628C99BDDBA25A06CB8A9B359F1D7744DC48C8,
-	U3CShakeU3Ed__8_System_IDisposable_Dispose_mC882DCEAD1CF22000FCAE1FC83C775478D9938DB,
-	U3CShakeU3Ed__8_MoveNext_m7293A414DA993D0728B2C9D1EC876303AF43F139,
-	U3CShakeU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF6D1B5F9E18148AB689F9B7232FF185D2901653A,
-	U3CShakeU3Ed__8_System_Collections_IEnumerator_Reset_mA031C429CB5521C05A976D5E86DC3DBDD2F2C8B5,
-	U3CShakeU3Ed__8_System_Collections_IEnumerator_get_Current_m30E1362CE5A5FB3D90483504C480D9EE22C5108D,
+	U3CShakeU3Ed__18__ctor_m8DB4C593F739ECE2797551FEA1B4251A01F5C58C,
+	U3CShakeU3Ed__18_System_IDisposable_Dispose_m224226B8C549B2D095A087D3D7AAB01C4896A7D7,
+	U3CShakeU3Ed__18_MoveNext_mF40ADD1C82FDD9E7142A0004CF64AE93C5578D5E,
+	U3CShakeU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4EE32AE4592FE462FE34E3AE38E50A8A61239726,
+	U3CShakeU3Ed__18_System_Collections_IEnumerator_Reset_m172DFCFB0E304D306FD0E272899FE49A0B08CF6B,
+	U3CShakeU3Ed__18_System_Collections_IEnumerator_get_Current_m706A2616A0DE84B76860FAC1D3F5E4113D07C28D,
 	cameraShaker_Shake_mA0CEFA8338BCDD686C25840BABC80D961209E33E,
 	cameraShaker__ctor_m28811CF4CA7502595260A97A76A9CAD393EC78DE,
 	U3CShakeU3Ed__0__ctor_m90531A490514EB236D09DAC7B3849112760C5426,
@@ -291,7 +300,7 @@ static Il2CppMethodPointer s_methodPointers[92] =
 	move_movement_m07515DDC4F7DB85882E26C61AFA52D393F815932,
 	move__ctor_mEA4EAF1DF04BED632395EC3F0721A0273A838739,
 };
-static const int32_t s_InvokerIndices[92] = 
+static const int32_t s_InvokerIndices[95] = 
 {
 	1145,
 	1145,
@@ -300,7 +309,7 @@ static const int32_t s_InvokerIndices[92] =
 	665,
 	433,
 	896,
-	1924,
+	1925,
 	1145,
 	1145,
 	1145,
@@ -365,6 +374,9 @@ static const int32_t s_InvokerIndices[92] =
 	1145,
 	1145,
 	1145,
+	1145,
+	1145,
+	1145,
 	495,
 	1145,
 	970,
@@ -391,7 +403,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	92,
+	95,
 	s_methodPointers,
 	0,
 	NULL,
