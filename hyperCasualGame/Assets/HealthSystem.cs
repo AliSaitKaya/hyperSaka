@@ -7,40 +7,56 @@ public class HealthSystem : MonoBehaviour
 {
     //public event EventHandler OnHealthChanged;
     //public event EventHandler OnDead;
-    public Slider HealthSlider;
-    public Text CurrentHealth;
+    Slider HealthSlider;
+    Text CurrentHealth;
+    Text MaxHealth;
     public int healthMax;
     public int health;
+    
     
     //HealthSlider=FindInActiveObjectByName("HealthSlider").GetCompenent<slider>();
     //HealthSlider = GameObject.FindGameObjectsWithTag("Respawn");
     public void Start(){
-    //HealthSlider = GameObject.FindGameObjectWithTag("HealthSlider");
-    
-    
+    //HealthSlider = GameObject.Find("HealthSlider");
+    HealthSystem healthObj=new HealthSystem();
+            
+    HealthSlider = (Slider) FindObjectOfType(typeof (Slider)); // her zaman ilk slider'ı cagırır cok dikkatli olalım :D
+    HealthSlider.value=100f;
+    health=(int) HealthSlider.value;
+                 
+    CurrentHealth = GameObject.FindGameObjectWithTag("CurrentHealth").GetComponent<Text>();
+    MaxHealth = GameObject.FindGameObjectWithTag("MaxHealth").GetComponent<Text>();
+    CurrentHealth.text=""+HealthSlider.value;
+        MaxHealth.text=""+HealthSlider.value;
+    //healthMax=110;
     
     }
     
-    
+   
 
     
-
+/*
     public HealthSystem(int healthMax) {
         this.healthMax = healthMax;
         health = healthMax;
-        HealthSlider.value=health;
-        CurrentHealth.text=""+HealthSlider.value;
+       // HealthSlider.value=50f;
+        CurrentHealth.text="y";
+        MaxHealth.text="z";
         
     }
+    */
+    
         
     public float GetHealthPercent() {
         return (float)health / healthMax;
     }
 
     public void Damage(int amount) {
+        
         health -= amount;
         HealthSlider.value=health;
         CurrentHealth.text=""+HealthSlider.value;
+        
         
         if (health < 0) {
             health = 0;

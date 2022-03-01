@@ -12,6 +12,7 @@ TagManager:
   - bottom
   - HealthSlider
   - CurrentHealth
+  - MaxHealth
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class DamageCircle : MonoBehaviour
     private float shrinkTimer;
     GameObject wizard;
     public ParticleSystem bloodAnim;
-    public HealthSystem healthObj;
+    //public HealthSystem healthObj;
     
 
     public void Awake() {
@@ -45,7 +45,7 @@ public class DamageCircle : MonoBehaviour
 
         if (IsOutsideCircle(wizard.transform.position) && !bloodAnim.isPlaying) { 
             bloodAnim.Play();
-            healthObj.Damage(5);
+            gameObject.GetComponent<HealthSystem>().Damage(5);
         }
         else
         {
