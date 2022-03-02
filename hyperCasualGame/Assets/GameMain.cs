@@ -11,7 +11,7 @@ public class GameMain : MonoBehaviour
     void Start()
     {
         
-        Invoke("PlayerHealth",4);
+        //Invoke("PlayerHealth",4);
         
     }
 
@@ -21,8 +21,8 @@ public class GameMain : MonoBehaviour
         //healthObj.GetComponent<HealthSystem>.Damage(7);
         //healthObj = GameObject.FindObjectOfType(typeof(HealthSystem)) as HealthSystem;
         //healthObj.Damage(7);
-        gameObject.GetComponent<HealthSystem>().Damage(7);
-        Debug.Log("GAMEMAIN");
+       // gameObject.GetComponent<HealthSystem>().Damage(7);
+       // Debug.Log("GAMEMAIN");
     }
     // Update is called once per frame
     void Update()

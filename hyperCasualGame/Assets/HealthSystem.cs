@@ -12,7 +12,9 @@ public class HealthSystem : MonoBehaviour
     Text MaxHealth;
     public int healthMax;
     public int health;
-    
+    public GameObject LevelFailedPanel;
+    GameObject wizard;
+    Animator animator;
     
     //HealthSlider=FindInActiveObjectByName("HealthSlider").GetCompenent<slider>();
     //HealthSlider = GameObject.FindGameObjectsWithTag("Respawn");
@@ -27,9 +29,10 @@ public class HealthSystem : MonoBehaviour
     CurrentHealth = GameObject.FindGameObjectWithTag("CurrentHealth").GetComponent<Text>();
     MaxHealth = GameObject.FindGameObjectWithTag("MaxHealth").GetComponent<Text>();
     CurrentHealth.text=""+HealthSlider.value;
-        MaxHealth.text=""+HealthSlider.value;
-    //healthMax=110;
-    
+    MaxHealth.text=""+HealthSlider.value;
+        //healthMax=110;
+    wizard = GameObject.FindWithTag("Wizard");
+    animator = wizard.GetComponent<Animator>();
     }
     
    
@@ -70,6 +73,8 @@ public class HealthSystem : MonoBehaviour
 
     public void Die() {
         //if (OnDead != null) OnDead(this, EventArgs.Empty);
+        animator.SetBool("die",true);
+        LevelFailedPanel.SetActive(true);
     }
 
     public bool IsDead() {

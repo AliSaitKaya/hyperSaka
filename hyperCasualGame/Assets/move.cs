@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class move : MonoBehaviour
 {
-    protected Joystick joystick;
+    Joystick joystick;
     float horizontal, vertical = 0;
     Vector3 FirstPoint;
     Vector3 SecondPoint;
@@ -25,7 +25,7 @@ public class move : MonoBehaviour
         animator = wizard.GetComponent<Animator>();
         walkSmoke.Stop();
 
-          forward = Camera.main.transform.forward;
+        forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Camera.main.transform.right;
@@ -42,8 +42,6 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void movement()
     {
-       
-
         horizontal = joystick.Horizontal;
         vertical = joystick.Vertical;
 

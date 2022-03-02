@@ -13,6 +13,8 @@ TagManager:
   - HealthSlider
   - CurrentHealth
   - MaxHealth
+  - LevelFailedPanel
+  - enemyWizard
   layers:
   - Default
   - TransparentFX
