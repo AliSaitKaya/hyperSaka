@@ -35,21 +35,36 @@ public class HealthSystem : MonoBehaviour
     animator = wizard.GetComponent<Animator>();
     }
     
-   
+    public void Update()
+    {
+        /*
+        if (DamageCircle.IsOutsideCircle(wizard.transform.position) && !bloodAnim.isPlaying)
+        {
+            bloodAnim.Play();
+            gameObject.GetComponent<HealthSystem>().Damage(5);
+        }
+        else
+        {
+            bloodAnim.Stop();
+        }
+        */
 
-    
-/*
-    public HealthSystem(int healthMax) {
-        this.healthMax = healthMax;
-        health = healthMax;
-       // HealthSlider.value=50f;
-        CurrentHealth.text="y";
-        MaxHealth.text="z";
-        
     }
-    */
-    
-        
+
+
+
+    /*
+        public HealthSystem(int healthMax) {
+            this.healthMax = healthMax;
+            health = healthMax;
+           // HealthSlider.value=50f;
+            CurrentHealth.text="y";
+            MaxHealth.text="z";
+
+        }
+        */
+
+
     public float GetHealthPercent() {
         return (float)health / healthMax;
     }
@@ -66,7 +81,7 @@ public class HealthSystem : MonoBehaviour
         }
         //if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
 
-        if (health <= 0) {
+        if (health <= 0 ) {
             Die();
         }
     }

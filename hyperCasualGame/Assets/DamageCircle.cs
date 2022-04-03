@@ -12,8 +12,8 @@ public class DamageCircle : MonoBehaviour
      private Transform leftTransform;
     private Transform rightTransform;
 
-    private Vector3 circleSize;
-    private Vector3 circlePosition;
+    private static Vector3 circleSize;
+    private static Vector3 circlePosition;
     private Vector3 targetCircleSize;
     private Vector3 targetCirclePosition;
     private float circleShrinkSpeed;
@@ -42,18 +42,6 @@ public class DamageCircle : MonoBehaviour
     }
 
     public void Update() {
-
-        if (IsOutsideCircle(wizard.transform.position) && !bloodAnim.isPlaying) { 
-            bloodAnim.Play();
-            gameObject.GetComponent<HealthSystem>().Damage(5);
-        }
-        else
-        {
-            bloodAnim.Stop();
-        }
-           
-
-
         shrinkTimer -= Time.deltaTime;
 
         if (shrinkTimer < 0) {
@@ -141,14 +129,12 @@ public class DamageCircle : MonoBehaviour
         targetCirclePosition = position;
         targetCircleSize = size;
     }
-
-    private bool IsOutsideCircle(Vector3 position) {
+        
+    public static bool IsOutsideCircle(Vector3 position) {
 
         return Vector3.Distance(position, circlePosition) > circleSize.x * .5f;
         
     }
 // player classından burayı cağır !!!
-    public static bool IsOutsideCircle_Static(Vector3 position) {
-        return instance.IsOutsideCircle(position);
-    }
+
 }

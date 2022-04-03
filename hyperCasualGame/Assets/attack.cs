@@ -80,19 +80,19 @@ public class attack : MonoBehaviour
                 fire.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
                 fire.transform.position += 5 * transform.forward;
                 fire.Play();
-                StartCoroutine(Shake(.15f, 3f));
+                StartCoroutine(Shake(.15f, 2f));
                 break;
             case 1:
                 water.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 water.transform.position += 9 * transform.forward;
                 water.Play();
-                StartCoroutine(Shake(.15f, 3f));
+                StartCoroutine(Shake(.15f, 2f));
                 break;
             case 2:
                 lightning.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 lightning.transform.position += 6 * transform.forward;
                 lightning.Play();
-                StartCoroutine(Shake(.15f, 3f));
+                StartCoroutine(Shake(.15f, 2f));
                 break;
  
         }
