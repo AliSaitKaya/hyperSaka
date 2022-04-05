@@ -4,22 +4,14 @@ ScriptsOnlyBuild:
     - DamageCircle
     - FixedJoystick
     - GameMain
-    - HealthSystem
     - ai
     - attack
+    - enemyHealthSystem1
     - enemyPathMovement
+    - lookAtCam
     - move
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationBlendTree.Node
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -85,55 +77,57 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1462}
     - Class: 114
-      Script: {instanceID: 1710}
+      Script: {instanceID: 1602}
     - Class: 114
-      Script: {instanceID: 1724}
+      Script: {instanceID: 1616}
     - Class: 114
-      Script: {instanceID: 1770}
+      Script: {instanceID: 1662}
     - Class: 114
-      Script: {instanceID: 1780}
+      Script: {instanceID: 1672}
+    - Class: 114
+      Script: {instanceID: 1852}
     - Class: 114
       Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 2068}
+      Script: {instanceID: 2036}
     - Class: 114
-      Script: {instanceID: 2144}
+      Script: {instanceID: 2238}
     - Class: 114
-      Script: {instanceID: 2346}
+      Script: {instanceID: 2326}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 2438}
     - Class: 114
-      Script: {instanceID: 2546}
+      Script: {instanceID: 2478}
     - Class: 114
-      Script: {instanceID: 2586}
+      Script: {instanceID: 2608}
     - Class: 114
-      Script: {instanceID: 2714}
+      Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2756}
+      Script: {instanceID: 2652}
     - Class: 114
-      Script: {instanceID: 2906}
+      Script: {instanceID: 2804}
     - Class: 114
-      Script: {instanceID: 2968}
+      Script: {instanceID: 2866}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2880}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 3138}
     - Class: 114
-      Script: {instanceID: 3546}
+      Script: {instanceID: 3242}
     - Class: 114
-      Script: {instanceID: 3596}
+      Script: {instanceID: 3446}
     - Class: 114
-      Script: {instanceID: 3704}
+      Script: {instanceID: 3604}
     - Class: 114
-      Script: {instanceID: 3838}
+      Script: {instanceID: 3738}
     - Class: 114
-      Script: {instanceID: 4440}
+      Script: {instanceID: 4124}
     - Class: 114
-      Script: {instanceID: 4532}
+      Script: {instanceID: 4342}
     - Class: 114
-      Script: {instanceID: 336804}
+      Script: {instanceID: 4372}
     - Class: 114
-      Script: {instanceID: 977638}
+      Script: {instanceID: 4436}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -169,16 +163,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 748dd2a2a28da4e618912da5ac45684b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: StandaloneInputModule
-  - hash:
-      serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 748dd2a2a28da4e618912da5ac45684b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: StandaloneInputModule
   - hash:
       serializedVersion: 2
       Hash: 824e8d4cb47ffd88ddf959dbd4526585
@@ -355,6 +349,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 6018d439df6c3ec6469992175941789e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemyHealthSystem
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
@@ -365,6 +365,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 2c5f9deb6fd5d4373e2e19a172987feb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ai
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -479,6 +485,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: a26287687bdad13d8b60b237850ab4be
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lookAtCam
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -643,6 +655,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemyHealthSystem1
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -661,6 +679,12 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: aaa7e7fd415114b3b243b3a618492d76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemyPathMovement
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -677,18 +701,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: aaa7e7fd415114b3b243b3a618492d76
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: enemyPathMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 2c5f9deb6fd5d4373e2e19a172987feb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ai
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

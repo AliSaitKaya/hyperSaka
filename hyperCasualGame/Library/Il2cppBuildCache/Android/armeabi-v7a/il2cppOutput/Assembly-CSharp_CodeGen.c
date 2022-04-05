@@ -26,20 +26,20 @@ extern void DamageCircle_SetCircleSize_m2E397908DB2EBA236A698BE84583FD355554D6E8
 extern void DamageCircle_SetTargetCircle_m6985DA2EF9BA51FDE3FCDDE7F79194F454CEEF80 (void);
 // 0x00000007 System.Boolean DamageCircle::IsOutsideCircle(UnityEngine.Vector3)
 extern void DamageCircle_IsOutsideCircle_mD44C47C9E57CD4F1EF449B065B84CC55624F78D7 (void);
-// 0x00000008 System.Boolean DamageCircle::IsOutsideCircle_Static(UnityEngine.Vector3)
-extern void DamageCircle_IsOutsideCircle_Static_m88E5DA2637C266E0B221868D6D22CD89E8E69D25 (void);
-// 0x00000009 System.Void DamageCircle::.ctor()
+// 0x00000008 System.Void DamageCircle::.ctor()
 extern void DamageCircle__ctor_m14650E2DBCF6C20828D5EEB88DBF9B4D2C22BC09 (void);
-// 0x0000000A System.Void GameMain::Start()
+// 0x00000009 System.Void GameMain::Start()
 extern void GameMain_Start_mF35A4D909FCB90F08DF34B9BC16CD82734E89592 (void);
-// 0x0000000B System.Void GameMain::PlayerHealth()
+// 0x0000000A System.Void GameMain::PlayerHealth()
 extern void GameMain_PlayerHealth_mF9196DDBCF11FA4DA299C0E5C0C1FCE0EB044047 (void);
-// 0x0000000C System.Void GameMain::Update()
+// 0x0000000B System.Void GameMain::Update()
 extern void GameMain_Update_mAA4B70FA6FDE52C993990950E9D721CF7FF219E8 (void);
-// 0x0000000D System.Void GameMain::.ctor()
+// 0x0000000C System.Void GameMain::.ctor()
 extern void GameMain__ctor_mAB5AC52AD69AF4E416ED70DFAADD188C5CAC3BA9 (void);
-// 0x0000000E System.Void HealthSystem::Start()
+// 0x0000000D System.Void HealthSystem::Start()
 extern void HealthSystem_Start_m65BB037CAFB535E5E3EFB62B83FC588F421A220F (void);
+// 0x0000000E System.Void HealthSystem::Update()
+extern void HealthSystem_Update_m886D70035579B97B81D6B41144E9062FFA6EF848 (void);
 // 0x0000000F System.Single HealthSystem::GetHealthPercent()
 extern void HealthSystem_GetHealthPercent_m386113975EDB23D3B1AEA5E0D31803DE7CAEAE62 (void);
 // 0x00000010 System.Void HealthSystem::Damage(System.Int32)
@@ -222,23 +222,69 @@ extern void U3CShakeU3Ed__0_System_Collections_Generic_IEnumeratorU3CSystem_Obje
 extern void U3CShakeU3Ed__0_System_Collections_IEnumerator_Reset_m2F5C429A30F92CCDBECF253EC0C39158763E49E4 (void);
 // 0x00000069 System.Object cameraShaker/<Shake>d__0::System.Collections.IEnumerator.get_Current()
 extern void U3CShakeU3Ed__0_System_Collections_IEnumerator_get_Current_mC30D6C884AB59E754395F913D9356C06B9C722E6 (void);
-// 0x0000006A System.Void enemyPathMovement::Awake()
+// 0x0000006A System.Void enemyHealthSystem::Start()
+extern void enemyHealthSystem_Start_m543EE0007871F0CC3B2B99D8E64805B8A48357B2 (void);
+// 0x0000006B System.Single enemyHealthSystem::GetHealthPercent()
+extern void enemyHealthSystem_GetHealthPercent_m49755675C7C75A27B3CA0201BC4CFE703219B29A (void);
+// 0x0000006C System.Void enemyHealthSystem::Damage(System.Int32)
+extern void enemyHealthSystem_Damage_m95212E0C4FD7B26E062C4A08509B6CDE69CF9309 (void);
+// 0x0000006D System.Void enemyHealthSystem::Die()
+extern void enemyHealthSystem_Die_mE7109B277F7937E55D690877CA130348960C24C7 (void);
+// 0x0000006E System.Boolean enemyHealthSystem::IsDead()
+extern void enemyHealthSystem_IsDead_mBC3BE179F84DB549B5C72F678890B90263763F59 (void);
+// 0x0000006F System.Void enemyHealthSystem::Heal(System.Int32)
+extern void enemyHealthSystem_Heal_m1BEA7317BE4D926F3F795BDDF6961BF42A5C3A52 (void);
+// 0x00000070 System.Void enemyHealthSystem::.ctor()
+extern void enemyHealthSystem__ctor_m3284941422CDC55981276E75996E413A9D99CAF1 (void);
+// 0x00000071 System.Void enemyHealthSystem1::Start()
+extern void enemyHealthSystem1_Start_m56FB7863787DA628F9CC5F978D4CAD43BDBD8F4A (void);
+// 0x00000072 System.Void enemyHealthSystem1::Update()
+extern void enemyHealthSystem1_Update_m6204CB4D20BDA2876EA6A422949E51B7BF4531B3 (void);
+// 0x00000073 System.Void enemyHealthSystem1::InvokeDamage()
+extern void enemyHealthSystem1_InvokeDamage_mF257F3AA3CB9BEE6C2E091675B384D6F4B7D3177 (void);
+// 0x00000074 System.Void enemyHealthSystem1::.ctor()
+extern void enemyHealthSystem1__ctor_mBB9596712C5E6CE433214948408C6DAA7FFFD77E (void);
+// 0x00000075 System.Void enemyPathMovement::Awake()
 extern void enemyPathMovement_Awake_m9B0F46F72E5BB92ED3F243006091561F0C3C0151 (void);
-// 0x0000006B System.Boolean enemyPathMovement::RandomPoint(UnityEngine.Vector3,System.Single,UnityEngine.Vector3&)
+// 0x00000076 System.Boolean enemyPathMovement::RandomPoint(UnityEngine.Vector3,System.Single,UnityEngine.Vector3&)
 extern void enemyPathMovement_RandomPoint_m384C5A48C2FE2C91DCF89B25BAFC394E2F4571E9 (void);
-// 0x0000006C UnityEngine.Vector3 enemyPathMovement::GetRandomPoint(UnityEngine.Transform,System.Single)
+// 0x00000077 UnityEngine.Vector3 enemyPathMovement::GetRandomPoint(UnityEngine.Transform,System.Single)
 extern void enemyPathMovement_GetRandomPoint_m3147C4277C2F26076E374C37EC4EF33557D5498B (void);
-// 0x0000006D System.Void enemyPathMovement::.ctor()
+// 0x00000078 System.Void enemyPathMovement::.ctor()
 extern void enemyPathMovement__ctor_mB891C6880444E7833C497171EC0FD6548014DB14 (void);
-// 0x0000006E System.Void move::Start()
+// 0x00000079 System.Void HealthController::.ctor(System.Int32,System.Int32)
+extern void HealthController__ctor_mE7C9A5C8657BF0AA3875B191C910997CF701CCE1 (void);
+// 0x0000007A System.Single HealthController::GetHealthMax()
+extern void HealthController_GetHealthMax_m1AEB454DBA5B8AEA4353044AD37F7C9E7467760A (void);
+// 0x0000007B System.Void HealthController::SetHealthMax(System.Int32)
+extern void HealthController_SetHealthMax_mC15B91DC9C889548E6599409850067A35829C433 (void);
+// 0x0000007C System.Int32 HealthController::GetHealthCurrent()
+extern void HealthController_GetHealthCurrent_m0A98300D4D5C8BDEE92DC8D4D66C409CA4F4B9D7 (void);
+// 0x0000007D System.Void HealthController::SetHealthCurrent(System.Int32)
+extern void HealthController_SetHealthCurrent_m12D6C1AA3D0AE94CCD65B02523F6FDEC3704C042 (void);
+// 0x0000007E System.Boolean HealthController::IsDead()
+extern void HealthController_IsDead_mE7D0AA18C03226E2D5371D73C67C9F7CF86995D6 (void);
+// 0x0000007F System.Void HealthController::SetDie(System.Boolean)
+extern void HealthController_SetDie_m65412C2AC0FCF88E6D6380F06AE6DA3DFC8C576B (void);
+// 0x00000080 System.Single HealthController::GetHealthPercent()
+extern void HealthController_GetHealthPercent_m99966C6902598D1CDD3D406A9D4FBD661B5C03EA (void);
+// 0x00000081 System.Void HealthController::Heal(System.Int32)
+extern void HealthController_Heal_m035C470DC4E78F9E21345281E897BBF99F3A3459 (void);
+// 0x00000082 System.Void HealthController::Damage(System.Int32)
+extern void HealthController_Damage_m72DC74C513F1A4FB7DA30BAAE1154A53B686B832 (void);
+// 0x00000083 System.Void lookAtCam::Update()
+extern void lookAtCam_Update_mAF934688A917A4A8B8DBCA5CEC479C94F24A8A83 (void);
+// 0x00000084 System.Void lookAtCam::.ctor()
+extern void lookAtCam__ctor_m45CD64887991D07DBB6D2052AFE7FC2A77217C51 (void);
+// 0x00000085 System.Void move::Start()
 extern void move_Start_m68C6847F59645AD1B22C2CB5742DB521F7792586 (void);
-// 0x0000006F System.Void move::FixedUpdate()
+// 0x00000086 System.Void move::FixedUpdate()
 extern void move_FixedUpdate_m213E5780C060913D97B39F2E1AEC66A04C9BD193 (void);
-// 0x00000070 System.Void move::movement()
+// 0x00000087 System.Void move::movement()
 extern void move_movement_m07515DDC4F7DB85882E26C61AFA52D393F815932 (void);
-// 0x00000071 System.Void move::.ctor()
+// 0x00000088 System.Void move::.ctor()
 extern void move__ctor_mEA4EAF1DF04BED632395EC3F0721A0273A838739 (void);
-static Il2CppMethodPointer s_methodPointers[113] = 
+static Il2CppMethodPointer s_methodPointers[136] = 
 {
 	DamageCircle_Awake_m88321FD01225030B0DC7A96DE83BB53797C5B876,
 	DamageCircle_Update_mE2554D059FD64B3CFB191CCD957A64F9E0679C13,
@@ -247,13 +293,13 @@ static Il2CppMethodPointer s_methodPointers[113] =
 	DamageCircle_SetCircleSize_m2E397908DB2EBA236A698BE84583FD355554D6E8,
 	DamageCircle_SetTargetCircle_m6985DA2EF9BA51FDE3FCDDE7F79194F454CEEF80,
 	DamageCircle_IsOutsideCircle_mD44C47C9E57CD4F1EF449B065B84CC55624F78D7,
-	DamageCircle_IsOutsideCircle_Static_m88E5DA2637C266E0B221868D6D22CD89E8E69D25,
 	DamageCircle__ctor_m14650E2DBCF6C20828D5EEB88DBF9B4D2C22BC09,
 	GameMain_Start_mF35A4D909FCB90F08DF34B9BC16CD82734E89592,
 	GameMain_PlayerHealth_mF9196DDBCF11FA4DA299C0E5C0C1FCE0EB044047,
 	GameMain_Update_mAA4B70FA6FDE52C993990950E9D721CF7FF219E8,
 	GameMain__ctor_mAB5AC52AD69AF4E416ED70DFAADD188C5CAC3BA9,
 	HealthSystem_Start_m65BB037CAFB535E5E3EFB62B83FC588F421A220F,
+	HealthSystem_Update_m886D70035579B97B81D6B41144E9062FFA6EF848,
 	HealthSystem_GetHealthPercent_m386113975EDB23D3B1AEA5E0D31803DE7CAEAE62,
 	HealthSystem_Damage_m8F75D5037AD5BEF1A0F5071E464E655A16BA0FF3,
 	HealthSystem_Die_m10EE67C97BCB5506840DD454C617509378D5D6AD,
@@ -345,16 +391,39 @@ static Il2CppMethodPointer s_methodPointers[113] =
 	U3CShakeU3Ed__0_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m6CACACAD01CEEC44F6773E19EABABDF9AE09128D,
 	U3CShakeU3Ed__0_System_Collections_IEnumerator_Reset_m2F5C429A30F92CCDBECF253EC0C39158763E49E4,
 	U3CShakeU3Ed__0_System_Collections_IEnumerator_get_Current_mC30D6C884AB59E754395F913D9356C06B9C722E6,
+	enemyHealthSystem_Start_m543EE0007871F0CC3B2B99D8E64805B8A48357B2,
+	enemyHealthSystem_GetHealthPercent_m49755675C7C75A27B3CA0201BC4CFE703219B29A,
+	enemyHealthSystem_Damage_m95212E0C4FD7B26E062C4A08509B6CDE69CF9309,
+	enemyHealthSystem_Die_mE7109B277F7937E55D690877CA130348960C24C7,
+	enemyHealthSystem_IsDead_mBC3BE179F84DB549B5C72F678890B90263763F59,
+	enemyHealthSystem_Heal_m1BEA7317BE4D926F3F795BDDF6961BF42A5C3A52,
+	enemyHealthSystem__ctor_m3284941422CDC55981276E75996E413A9D99CAF1,
+	enemyHealthSystem1_Start_m56FB7863787DA628F9CC5F978D4CAD43BDBD8F4A,
+	enemyHealthSystem1_Update_m6204CB4D20BDA2876EA6A422949E51B7BF4531B3,
+	enemyHealthSystem1_InvokeDamage_mF257F3AA3CB9BEE6C2E091675B384D6F4B7D3177,
+	enemyHealthSystem1__ctor_mBB9596712C5E6CE433214948408C6DAA7FFFD77E,
 	enemyPathMovement_Awake_m9B0F46F72E5BB92ED3F243006091561F0C3C0151,
 	enemyPathMovement_RandomPoint_m384C5A48C2FE2C91DCF89B25BAFC394E2F4571E9,
 	enemyPathMovement_GetRandomPoint_m3147C4277C2F26076E374C37EC4EF33557D5498B,
 	enemyPathMovement__ctor_mB891C6880444E7833C497171EC0FD6548014DB14,
+	HealthController__ctor_mE7C9A5C8657BF0AA3875B191C910997CF701CCE1,
+	HealthController_GetHealthMax_m1AEB454DBA5B8AEA4353044AD37F7C9E7467760A,
+	HealthController_SetHealthMax_mC15B91DC9C889548E6599409850067A35829C433,
+	HealthController_GetHealthCurrent_m0A98300D4D5C8BDEE92DC8D4D66C409CA4F4B9D7,
+	HealthController_SetHealthCurrent_m12D6C1AA3D0AE94CCD65B02523F6FDEC3704C042,
+	HealthController_IsDead_mE7D0AA18C03226E2D5371D73C67C9F7CF86995D6,
+	HealthController_SetDie_m65412C2AC0FCF88E6D6380F06AE6DA3DFC8C576B,
+	HealthController_GetHealthPercent_m99966C6902598D1CDD3D406A9D4FBD661B5C03EA,
+	HealthController_Heal_m035C470DC4E78F9E21345281E897BBF99F3A3459,
+	HealthController_Damage_m72DC74C513F1A4FB7DA30BAAE1154A53B686B832,
+	lookAtCam_Update_mAF934688A917A4A8B8DBCA5CEC479C94F24A8A83,
+	lookAtCam__ctor_m45CD64887991D07DBB6D2052AFE7FC2A77217C51,
 	move_Start_m68C6847F59645AD1B22C2CB5742DB521F7792586,
 	move_FixedUpdate_m213E5780C060913D97B39F2E1AEC66A04C9BD193,
 	move_movement_m07515DDC4F7DB85882E26C61AFA52D393F815932,
 	move__ctor_mEA4EAF1DF04BED632395EC3F0721A0273A838739,
 };
-static const int32_t s_InvokerIndices[113] = 
+static const int32_t s_InvokerIndices[136] = 
 {
 	1147,
 	1147,
@@ -362,8 +431,8 @@ static const int32_t s_InvokerIndices[113] =
 	1147,
 	667,
 	434,
-	898,
 	1932,
+	1147,
 	1147,
 	1147,
 	1147,
@@ -462,8 +531,31 @@ static const int32_t s_InvokerIndices[113] =
 	1147,
 	1116,
 	1147,
+	1137,
+	972,
+	1147,
+	1135,
+	972,
+	1147,
+	1147,
+	1147,
+	1147,
+	1147,
+	1147,
 	375,
 	556,
+	1147,
+	594,
+	1137,
+	972,
+	1105,
+	972,
+	1135,
+	997,
+	1137,
+	972,
+	972,
+	1147,
 	1147,
 	1147,
 	1147,
@@ -475,7 +567,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	113,
+	136,
 	s_methodPointers,
 	0,
 	NULL,
