@@ -14,6 +14,7 @@ public class HealthController : MonoBehaviour
         this.healthMax = healthMax;
         this.healthCurrent = healthCurrent;
         this.die = false;
+        
     }
 
     public float GetHealthMax()
@@ -67,7 +68,10 @@ public class HealthController : MonoBehaviour
         {
             healthCurrent = 0;
             SetDie(true);
+            
         }
+        
+        
             
     }
 }

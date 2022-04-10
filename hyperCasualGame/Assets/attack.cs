@@ -11,6 +11,7 @@ public class attack : MonoBehaviour
     public ParticleSystem fire;
     public ParticleSystem water;
     public ParticleSystem lightning;
+    public ParticleSystem DefaultSkill;
 
     public Button attackButton;
 
@@ -29,10 +30,14 @@ public class attack : MonoBehaviour
         fireAttackButton.onClick.AddListener(fireAttackSelect);
         waterAttackButton.onClick.AddListener(waterAttackSelect);
         lightningAttackButton.onClick.AddListener(lightningAttackSelect);
+        SkillSelectionPanel.SetActive(false);
 
         fire.Stop();
         water.Stop();
         lightning.Stop();
+        DefaultSkill.Stop();
+
+        AttackSelectionIndex = 3; //default skill
     }
 
     private void lightningAttackSelect()
@@ -58,28 +63,53 @@ public class attack : MonoBehaviour
     void Update()
     {
 
-        animator.SetBool("attack", attackStatus);
+        //animator.SetBool("attack", attackStatus);
         attackStatus = false;
 
-        if (!fire.isPlaying)
+        /*if (!fire.isPlaying)
             fire.Stop();
         if (!water.isPlaying)
             water.Stop();
         if (!lightning.isPlaying)
             lightning.Stop();
+        if (!DefaultSkill.isPlaying)
+            DefaultSkill.Stop();*/
 
     }
 
     public void Attack()
     {
+        //print(this.name+"usedattack");
+        
         SkillSelectionPanel.SetActive(true);
         attackStatus = true;
         switch(AttackSelectionIndex)
         {
             case 0:
-                fire.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                fire.transform.position += 5 * transform.forward;
-                fire.Play();
+            if (gameObject.tag=="enemyWizard") 
+            {
+
+            
+                fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+                fire.transform.position += 5 * this.transform.forward;
+                fire.transform.name=gameObject.name;
+            }
+                
+                
+                print(fire.transform.position);
+                
+                if (gameObject.tag=="enemyWizard")
+                    {
+                        //print(fire.transform.name+"usedattack");
+                        break;
+                    }
+                    else if (gameObject.tag=="Wizard")
+                    {
+                        print(fire.transform.name+"usedattack");
+                        fire.Play();
+                    }
+        
+                
                 StartCoroutine(Shake(.15f, 2f));
                 break;
             case 1:
@@ -92,6 +122,12 @@ public class attack : MonoBehaviour
                 lightning.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 lightning.transform.position += 6 * transform.forward;
                 lightning.Play();
+                StartCoroutine(Shake(.15f, 2f));
+                break;
+            case 3:
+                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                DefaultSkill.transform.position += 10 * transform.forward;
+                DefaultSkill.Play();
                 StartCoroutine(Shake(.15f, 2f));
                 break;
  

@@ -13,6 +13,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
     public void Start()
     {
+        
         healthSlider = GetComponentInChildren<Slider>();
         maxHealthText = GetComponentsInChildren<Text>()[2];
         currentHealthText = GetComponentsInChildren<Text>()[0];
@@ -31,6 +32,10 @@ public class enemyHealthSystem1 : MonoBehaviour
     {
         healthSlider.value = healthController.GetHealthCurrent();
         currentHealthText.text = "" + healthController.GetHealthCurrent();
+        if (healthSlider.value<=0)
+        {
+            DeadStatus();
+        }
 
     }
 
@@ -38,5 +43,53 @@ public class enemyHealthSystem1 : MonoBehaviour
     {
         if(DamageCircle.IsOutsideCircle(transform.position) && !healthController.IsDead())
             healthController.Damage(5);
+    }
+     public void DeadStatus()
+    {
+        print(this.name);
+            print("dead");
+            Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "atesnova")
+        {
+            //print("ENTER");
+            //print(other.transform.name);
+            //print(gameObject.name);
+            healthController.Damage(5);
+        }
+       else if (other.gameObject.tag == "DefaultAnim")
+        {
+            //print("ENTERdefaultanim");
+            healthController.Damage(50);
+        }
+    }
+   /* void OnCollisionEnter(Collision other)
+        
+    {
+        print("sa");
+        if (other.gameObject.tag == "atesnova")
+        {
+            print("ENTER");
+            healthController.Damage(5);
+        }
+       else if (other.gameObject.tag == "DefaultAnim")
+        {
+            print("ENTERdefaultanim");
+            healthController.Damage(50);
+        }
+    }*/
+    void OnTriggerStay(Collider other)
+    {
+        //edit gelebilir
+    }
+    void OnTriggerExit(Collider other)
+    {
+       /* if (other.gameObject.tag == "atesnova")
+        {
+            print("EXIT");
+        }*/
     }
 }
