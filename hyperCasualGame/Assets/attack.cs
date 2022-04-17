@@ -86,21 +86,17 @@ public class attack : MonoBehaviour
         switch(AttackSelectionIndex)
         {
             case 0:
-            if (gameObject.tag=="enemyWizard") 
-            {
+            
 
             
                 fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
                 fire.transform.position += 5 * this.transform.forward;
                 fire.transform.name=gameObject.name;
-            }
                 
-                
-                print(fire.transform.position);
-                
-                if (gameObject.tag=="enemyWizard")
+                     if (gameObject.tag=="enemyWizard")
                     {
-                        //print(fire.transform.name+"usedattack");
+                        print(fire.transform.name+"usedattack");
+                        Invoke ("Denemefireball",1);
                         break;
                     }
                     else if (gameObject.tag=="Wizard")
@@ -125,10 +121,14 @@ public class attack : MonoBehaviour
                 StartCoroutine(Shake(.15f, 2f));
                 break;
             case 3:
-                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                DefaultSkill.transform.position += 10 * transform.forward;
+                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                DefaultSkill.transform.localScale=new Vector3(2,2,2);
+                DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                //print(DefaultSkill.transform.rotation);
+                //DefaultSkill.transform.position = new Vector3(11, 1, -12);
+                //DefaultSkill.transform.position += 10 * transform.forward;
                 DefaultSkill.Play();
-                StartCoroutine(Shake(.15f, 2f));
+                //StartCoroutine(Shake(.15f, 2f));
                 break;
  
         }
@@ -153,5 +153,12 @@ public class attack : MonoBehaviour
         }
 
         Camera.main.transform.localPosition = originalPos;
+    }
+
+    public void Denemefireball()
+    {
+        fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+        //fire.transform.position += 5 * this.transform.forward;
+        fire.Play();
     }
 }
