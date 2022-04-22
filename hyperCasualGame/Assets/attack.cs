@@ -91,6 +91,7 @@ public class attack : MonoBehaviour
             
                 fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
                 fire.transform.position += 5 * this.transform.forward;
+                fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
                 fire.transform.name=gameObject.name;
                 
                      if (gameObject.tag=="enemyWizard")
@@ -121,7 +122,8 @@ public class attack : MonoBehaviour
                 StartCoroutine(Shake(.15f, 2f));
                 break;
             case 3:
-                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+
+                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+3);
                 DefaultSkill.transform.localScale=new Vector3(2,2,2);
                 DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                 //print(DefaultSkill.transform.rotation);

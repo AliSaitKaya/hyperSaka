@@ -63,7 +63,15 @@ public class enemyHealthSystem1 : MonoBehaviour
        else if (other.gameObject.tag == "DefaultAnim")
         {
             //print("ENTERdefaultanim");
-            healthController.Damage(50);
+            healthController.Damage(25);
+        }
+
+        if (other.gameObject.tag == "fireballAnim")
+        {
+            //print("ENTER");
+            //print(other.transform.name);
+            //print(gameObject.name);
+            healthController.Damage(15);
         }
     }
    /* void OnCollisionEnter(Collision other)
@@ -85,11 +93,18 @@ public class enemyHealthSystem1 : MonoBehaviour
     {
         //edit gelebilir
     }
-    void OnTriggerExit(Collider other)
+    void OnParticleCollision(GameObject other)
     {
-       /* if (other.gameObject.tag == "atesnova")
-        {
-            print("EXIT");
-        }*/
+        /* if (other.gameObject.tag == "atesnova")
+         {
+             print("EXIT");
+         }*/
+
+        if (other.gameObject.tag == "fireballAnim")
+        {   
+            healthController.Damage(5);
+        }
+           
+
     }
 }

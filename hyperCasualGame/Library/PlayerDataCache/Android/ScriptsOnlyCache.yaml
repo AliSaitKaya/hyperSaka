@@ -12,6 +12,14 @@ ScriptsOnlyBuild:
     - move
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -56,6 +64,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -77,57 +89,57 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1462}
     - Class: 114
-      Script: {instanceID: 1602}
+      Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 1616}
+      Script: {instanceID: 1720}
     - Class: 114
-      Script: {instanceID: 1662}
+      Script: {instanceID: 1766}
     - Class: 114
-      Script: {instanceID: 1672}
+      Script: {instanceID: 1776}
     - Class: 114
-      Script: {instanceID: 1852}
+      Script: {instanceID: 1956}
     - Class: 114
-      Script: {instanceID: 1960}
+      Script: {instanceID: 2064}
     - Class: 114
-      Script: {instanceID: 2036}
+      Script: {instanceID: 2140}
     - Class: 114
-      Script: {instanceID: 2238}
+      Script: {instanceID: 2342}
     - Class: 114
-      Script: {instanceID: 2326}
+      Script: {instanceID: 2430}
     - Class: 114
-      Script: {instanceID: 2438}
+      Script: {instanceID: 2542}
     - Class: 114
-      Script: {instanceID: 2478}
+      Script: {instanceID: 2582}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2744}
     - Class: 114
-      Script: {instanceID: 2652}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2804}
+      Script: {instanceID: 2908}
     - Class: 114
-      Script: {instanceID: 2866}
+      Script: {instanceID: 2970}
     - Class: 114
-      Script: {instanceID: 2880}
-    - Class: 114
-      Script: {instanceID: 3138}
+      Script: {instanceID: 2984}
     - Class: 114
       Script: {instanceID: 3242}
     - Class: 114
-      Script: {instanceID: 3446}
+      Script: {instanceID: 3346}
     - Class: 114
-      Script: {instanceID: 3604}
+      Script: {instanceID: 3550}
     - Class: 114
-      Script: {instanceID: 3738}
+      Script: {instanceID: 3708}
     - Class: 114
-      Script: {instanceID: 4124}
+      Script: {instanceID: 3842}
     - Class: 114
-      Script: {instanceID: 4342}
+      Script: {instanceID: 4228}
     - Class: 114
-      Script: {instanceID: 4372}
+      Script: {instanceID: 4446}
     - Class: 114
-      Script: {instanceID: 4436}
+      Script: {instanceID: 4476}
+    - Class: 114
+      Script: {instanceID: 4540}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -163,16 +175,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
-  - hash:
-      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: StandaloneInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
   - hash:
       serializedVersion: 2
       Hash: 824e8d4cb47ffd88ddf959dbd4526585
@@ -667,7 +679,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 867abd49e7b01f04457b5a2fd293799d
+      Hash: d413be9505a99067d7b64cfb7dcba166
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: attack
