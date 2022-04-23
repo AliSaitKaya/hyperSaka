@@ -53,26 +53,31 @@ public class enemyHealthSystem1 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "atesnova")
+        if (other.gameObject.tag == "tornadoAnim")
         {
             //print("ENTER");
             //print(other.transform.name);
             //print(gameObject.name);
-            healthController.Damage(5);
+            healthController.Damage(10);
         }
-       else if (other.gameObject.tag == "DefaultAnim")
+       else if (other.gameObject.tag == "spikesAnim")
         {
             //print("ENTERdefaultanim");
             healthController.Damage(25);
         }
-
-        if (other.gameObject.tag == "fireballAnim")
+         else if (other.gameObject.tag == "lightningAnim")
+        {
+            //print("ENTERdefaultanim");
+            healthController.Damage(37);
+        }
+       /* if (other.gameObject.tag == "fireballAnim")
         {
             //print("ENTER");
             //print(other.transform.name);
             //print(gameObject.name);
-            healthController.Damage(15);
-        }
+            print("triggerfireball");
+            healthController.Damage(17);
+        }*/
     }
    /* void OnCollisionEnter(Collision other)
         
@@ -102,7 +107,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
         if (other.gameObject.tag == "fireballAnim")
         {   
-            healthController.Damage(5);
+            healthController.Damage(7);
         }
            
 

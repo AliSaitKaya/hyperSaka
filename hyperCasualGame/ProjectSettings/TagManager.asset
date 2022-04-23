@@ -23,6 +23,9 @@ TagManager:
   - atesnova
   - DefaultAnim
   - fireballAnim
+  - tornadoAnim
+  - spikesAnim
+  - lightningAnim
   layers:
   - Default
   - TransparentFX

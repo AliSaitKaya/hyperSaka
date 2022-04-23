@@ -21,6 +21,11 @@ public class attack : MonoBehaviour
     
     public GameObject SkillSelectionPanel ;
     private bool attackStatus = false ;
+    private bool AttackCooldown=false;
+    public Text coolDownText;
+    private float coolDownConstant=1.0f;
+    private float timeLeftCD;
+    private double timeLeftrounded;
     int AttackSelectionIndex = -1;
 
     // Start is called before the first frame update
@@ -80,62 +85,94 @@ public class attack : MonoBehaviour
     public void Attack()
     {
         //print(this.name+"usedattack");
-        
-        SkillSelectionPanel.SetActive(true);
-        attackStatus = true;
-        switch(AttackSelectionIndex)
+        if (AttackCooldown==false)
         {
-            case 0:
-            
+                    SkillSelectionPanel.SetActive(true);
+                    attackStatus = true;
+                    switch(AttackSelectionIndex)
+                {
+                    case 0:
+                    
 
-            
-                fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-                fire.transform.position += 5 * this.transform.forward;
-                fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
-                fire.transform.name=gameObject.name;
-                
-                     if (gameObject.tag=="enemyWizard")
-                    {
-                        print(fire.transform.name+"usedattack");
-                        Invoke ("Denemefireball",1);
-                        break;
-                    }
-                    else if (gameObject.tag=="Wizard")
-                    {
-                        print(fire.transform.name+"usedattack");
+                    
+                        fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+                        fire.transform.position += 5 * this.transform.forward;
+                        
                         fire.Play();
-                    }
-        
+                        //fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
+                        //fire.transform.name=gameObject.name;
+                        
+                            /*if (gameObject.tag=="enemyWizard")
+                            {
+                                print(fire.transform.name+"usedattack");
+                                Invoke ("Denemefireball",1);
+                                break;
+                            }
+                            else if (gameObject.tag=="Wizard")
+                            {
+                                print(fire.transform.name+"usedattack");
+                                fire.Play();
+                            }*/
                 
-                StartCoroutine(Shake(.15f, 2f));
-                break;
-            case 1:
-                water.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                water.transform.position += 9 * transform.forward;
-                water.Play();
-                StartCoroutine(Shake(.15f, 2f));
-                break;
-            case 2:
-                lightning.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                lightning.transform.position += 6 * transform.forward;
-                lightning.Play();
-                StartCoroutine(Shake(.15f, 2f));
-                break;
-            case 3:
+                        
+                        StartCoroutine(Shake(.15f, 2f));
+                        break;
+                    case 1:
+                        water.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                        water.transform.position += 9 * transform.forward;
+                        water.Play();
+                        StartCoroutine(Shake(.15f, 2f));
+                        break;
+                    case 2:
+                        lightning.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                        lightning.transform.position += 6 * transform.forward;
+                        lightning.Play();
+                        StartCoroutine(Shake(.15f, 2f));
+                        break;
+                    case 3:
 
-                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+3);
-                DefaultSkill.transform.localScale=new Vector3(2,2,2);
-                DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-                //print(DefaultSkill.transform.rotation);
-                //DefaultSkill.transform.position = new Vector3(11, 1, -12);
-                //DefaultSkill.transform.position += 10 * transform.forward;
-                DefaultSkill.Play();
-                //StartCoroutine(Shake(.15f, 2f));
-                break;
+                        DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+3);
+                        DefaultSkill.transform.localScale=new Vector3(2,2,2);
+                        DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                        //print(DefaultSkill.transform.rotation);
+                        //DefaultSkill.transform.position = new Vector3(11, 1, -12);
+                        //DefaultSkill.transform.position += 10 * transform.forward;
+                        DefaultSkill.Play();
+                        //StartCoroutine(Shake(.15f, 2f));
+                        break;
+            
+        
+            }
+            Invoke("ResetCooldown",coolDownConstant);
+            InvokeRepeating("CoolDownText",0.0f,0.1f);
+            AttackCooldown=true;
+            attackButton.interactable=false;
+            timeLeftCD=coolDownConstant;
  
         }
         
     }
+     void ResetCooldown()
+     {
+     AttackCooldown = false;
+     attackButton.interactable=true;
+     
+     }
+     void CoolDownText()
+     {
+         timeLeftCD=timeLeftCD-0.1f;
+         timeLeftrounded=System.Math.Round(timeLeftCD,2);
+        coolDownText.text=(timeLeftrounded).ToString();
+        if(timeLeftCD<=0)
+        {
+        CancelInvoke("CoolDownText");
+        timeLeftCD=0.0f;
+        coolDownText.text=" ";
+        }
+        
+        
+
+     }
 
     IEnumerator Shake(float duration, float magnitude)
 
@@ -157,10 +194,10 @@ public class attack : MonoBehaviour
         Camera.main.transform.localPosition = originalPos;
     }
 
-    public void Denemefireball()
+    /*public void Denemefireball()
     {
         fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
         //fire.transform.position += 5 * this.transform.forward;
         fire.Play();
-    }
+    }*/
 }
