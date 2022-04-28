@@ -84,7 +84,7 @@ static const int32_t s_InvokerIndices[17] =
 	981,
 	1147,
 	327,
-	2000,
+	2003,
 };
 extern const CustomAttributesCacheGenerator g_System_Configuration_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_System_Configuration_CodeGenModule;

@@ -166,8 +166,8 @@ static const int32_t s_InvokerIndices[33] =
 	981,
 	1160,
 	1018,
-	1793,
-	1793,
+	1795,
+	1795,
 	999,
 	1008,
 	1008,
@@ -180,7 +180,7 @@ static const int32_t s_InvokerIndices[33] =
 	1008,
 	954,
 	1091,
-	1973,
+	1976,
 	744,
 };
 extern const CustomAttributesCacheGenerator g_UnityEngine_ParticleSystemModule_AttributeGenerators[];

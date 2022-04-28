@@ -90,7 +90,7 @@ public class attack : MonoBehaviour
                     SkillSelectionPanel.SetActive(true);
                     attackStatus = true;
                     switch(AttackSelectionIndex)
-                {
+                    {
                     case 0:
                     
 
@@ -131,8 +131,10 @@ public class attack : MonoBehaviour
                         break;
                     case 3:
 
-                        DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+3);
-                        DefaultSkill.transform.localScale=new Vector3(2,2,2);
+                        DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                        DefaultSkill.transform.position += 1.2f * transform.forward;   //atýlan skill kendi collider ýna çarpýyor diye
+                                                                                       //karakterin yüzünün dönük olduðu yere offset verildi. 
+                        DefaultSkill.transform.localScale = new Vector3(2,2,2);
                         DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                         //print(DefaultSkill.transform.rotation);
                         //DefaultSkill.transform.position = new Vector3(11, 1, -12);
@@ -142,7 +144,7 @@ public class attack : MonoBehaviour
                         break;
             
         
-            }
+                    }
             Invoke("ResetCooldown",coolDownConstant);
             InvokeRepeating("CoolDownText",0.0f,0.1f);
             AttackCooldown=true;
@@ -156,8 +158,8 @@ public class attack : MonoBehaviour
      {
      AttackCooldown = false;
      attackButton.interactable=true;
-     
      }
+
      void CoolDownText()
      {
          timeLeftCD=timeLeftCD-0.1f;
