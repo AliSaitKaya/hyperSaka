@@ -26,6 +26,7 @@ TagManager:
   - tornadoAnim
   - spikesAnim
   - lightningAnim
+  - EnemyCanWalkingCircleArea
   layers:
   - Default
   - TransparentFX

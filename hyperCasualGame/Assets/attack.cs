@@ -97,10 +97,10 @@ public class attack : MonoBehaviour
                     switch(AttackSelectionIndex)
                     {
                     case 0:
-
-                    AddingVectorDeneme=new Vector3(0,0,0);
+                    fireobject.SetActive(true);
+                    AddingVectorDeneme =new Vector3(0,0,0);
                     AddingVectorDeneme.x=this.transform.localRotation.eulerAngles.y;
-                    
+                   
                      
                     //fire.transform.rotation=this.transform.rotation;
                     
@@ -111,10 +111,7 @@ public class attack : MonoBehaviour
                     //fire.transform.rotation.x=this.transform.localRotation.eulerAngles.y;
 
                         fire.Play();
-                        
-                    
-                        
-                        
+                                
                         InvokeRepeating("TornadoMove",0f,0.001f);
                         Invoke("cancelTornado",3f);
                         //fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
@@ -197,7 +194,8 @@ public class attack : MonoBehaviour
      }
      void cancelTornado()
      {
-         CancelInvoke("TornadoMove");
+        fireobject.SetActive(false);
+        CancelInvoke("TornadoMove");
         // print("enter");
      }
      void TornadoMove ()
@@ -217,7 +215,7 @@ public class attack : MonoBehaviour
         //print(AddingVector);
          
          //print(fire.transform.rotation);
-        fire.transform.position=fire.transform.position+(AddingVector/100);
+        fire.transform.position=fire.transform.position+(AddingVector/20);
          //fire.transform.position = new Vector3(fire.transform.position.x+0.01f, fire.transform.position.y, fire.transform.position.z+0.01f);
             
             //fire.Play(true);

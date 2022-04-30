@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class enemyPathMovement : MonoBehaviour
 {
     public static enemyPathMovement Instance;
-    public float Range;
+    public float Range ;
 
     private void Awake()
     {
@@ -38,6 +38,16 @@ public class enemyPathMovement : MonoBehaviour
             return _point;
         }
         return point == null ? Vector3.zero : point.position;
+    }
+
+    public float getRange()
+    {
+        return Range;
+    }
+
+    public void setRange(float Range)
+    {
+        this.Range = Range;
     }
 
 #if UNITY_EDITOR

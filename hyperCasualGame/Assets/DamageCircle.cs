@@ -16,17 +16,17 @@ public class DamageCircle : MonoBehaviour
     private static Vector3 circlePosition;
     private Vector3 targetCircleSize;
     private Vector3 targetCirclePosition;
-    private float circleShrinkSpeed;
+    private float circleShrinkSpeed = 2f;
     private float shrinkTimer;
     GameObject wizard;
     public ParticleSystem bloodAnim;
     //public HealthSystem healthObj;
-    
+    GameObject enemyCanWalkingCircleArea;
+     
 
     public void Awake() {
         instance = this;
-        
-        circleShrinkSpeed = 7f;
+       
         bloodAnim.Stop();
         circleTransform = GameObject.FindWithTag("circle").transform;
         topTransform = GameObject.FindWithTag("top").transform;
@@ -36,9 +36,11 @@ public class DamageCircle : MonoBehaviour
 
         wizard = GameObject.FindWithTag("Wizard");
 
+        enemyCanWalkingCircleArea = GameObject.FindWithTag("EnemyCanWalkingCircleArea");
+
         SetCircleSize(new Vector3(0, 0.1f, 0), new Vector3(120, 120)); 
 
-        SetTargetCircle(new Vector3(0,0.1f, 0), new Vector3(60, 60), 3f);
+        SetTargetCircle(new Vector3(0,0.1f, 0), new Vector3(60, 60), 5f);
     }
 
     public void Update() {
@@ -52,11 +54,14 @@ public class DamageCircle : MonoBehaviour
             Vector3 newCirclePosition = circlePosition + circleMoveDir * Time.deltaTime * circleShrinkSpeed;
 
             SetCircleSize(newCirclePosition, newCircleSize);
+            SetAiCanAttackCirclePosSize(newCirclePosition, newCircleSize/2);
 
             float distanceTestAmount = .1f;
             if (Vector3.Distance(newCircleSize, targetCircleSize) < distanceTestAmount && Vector3.Distance(newCirclePosition, targetCirclePosition) < distanceTestAmount) {
                 GenerateTargetCircleDeneme();
             }
+
+
         }
 
     }
@@ -115,8 +120,7 @@ public class DamageCircle : MonoBehaviour
 
         rightTransform.localScale = new Vector3(300, 300);
         rightTransform.localPosition = new Vector3(circleTransform.position.x,rightTransform.position.y,circleTransform.position.z-rightTransform.localScale.y*0.5f-size.y*0.5f);
-        
-     
+
     }
 
  private void SetTargetCircle(Vector3 position, Vector3 size,float shrinkTimer) {
@@ -127,7 +131,17 @@ public class DamageCircle : MonoBehaviour
         targetCircleTransform.localScale = size;
         
         targetCirclePosition = position;
-        targetCircleSize = size;
+        targetCircleSize = size;  
+
+    }
+
+    private void SetAiCanAttackCirclePosSize(Vector3 position, Vector3 size)
+    {
+
+        enemyCanWalkingCircleArea.transform.position = position;
+
+        Debug.Log("enemy walking around range: " + enemyPathMovement.Instance.getRange());
+        enemyPathMovement.Instance.setRange(size.x -5);
     }
         
     public static bool IsOutsideCircle(Vector3 position) {
