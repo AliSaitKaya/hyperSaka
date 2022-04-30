@@ -27,6 +27,7 @@ TagManager:
   - spikesAnim
   - lightningAnim
   - EnemyCanWalkingCircleArea
+  - Gravestone
   layers:
   - Default
   - TransparentFX

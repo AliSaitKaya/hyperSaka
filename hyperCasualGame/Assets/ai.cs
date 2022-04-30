@@ -28,6 +28,7 @@ public class ai : MonoBehaviour
 
     private void Update()
     {
+
         animator.SetBool("attack", attackStatus);
         attackStatus = false;
 

@@ -2,24 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class enemyHealthSystem1 : MonoBehaviour
 {
-    HealthController healthController = new HealthController(100, 100);
+    HealthController healthController = new HealthController(20, 20);
     Slider healthSlider;
     Text maxHealthText;
     Text currentHealthText;
 
     ParticleSystem bloodingAnim;
+    ParticleSystem explosionAnim;
+    public Animator animator;
+    GameObject gravestone;
+    bool graveStoneControl = true; //sürekli graveStone koymasýn diye
 
-    public void Start()
+    public void Awake()
     {
         healthSlider = GetComponentInChildren<Slider>();
         maxHealthText = GetComponentsInChildren<Text>()[2];
         currentHealthText = GetComponentsInChildren<Text>()[0];
-        bloodingAnim = transform.GetChild(4).GetComponentInChildren<ParticleSystem>();
+        bloodingAnim = GetComponentsInChildren<ParticleSystem>()[1];
+        explosionAnim = GetComponentsInChildren<ParticleSystem>()[2];
 
         bloodingAnim.Stop();
+        explosionAnim.Stop();
+
+        gravestone = GameObject.FindGameObjectWithTag("Gravestone");
+        
 
         //  healthSlider = GameObject.FindGameObjectWithTag("HealthSlider").GetComponent<Slider>();
         //     maxHealthText = GameObject.FindGameObjectWithTag("MaxHealthText").GetComponent<Text>();
@@ -35,13 +45,17 @@ public class enemyHealthSystem1 : MonoBehaviour
     {
         healthSlider.value = healthController.GetHealthCurrent();
         currentHealthText.text = "" + healthController.GetHealthCurrent();
-        if (healthSlider.value<=0)
+
+        if (healthController.IsDead() && graveStoneControl)
         {
             DeadStatus();
+            graveStoneControl = false;
         }
 
         if (!bloodingAnim.isPlaying)
             bloodingAnim.Stop();
+        if (!explosionAnim.isPlaying)
+            explosionAnim.Stop();
     }
 
     public void InvokeDamage()
@@ -50,15 +64,25 @@ public class enemyHealthSystem1 : MonoBehaviour
         { 
             healthController.Damage(5); 
             if(!bloodingAnim.isPlaying)
-                bloodingAnim.Play(); 
+                bloodingAnim.Play();
         }
             
     }
      public void DeadStatus()
     {
-        print(this.name);
-            print("dead");
-            Destroy(gameObject);
+        //TODO ali. Ana karakter ölürse sorun var.
+
+        print(this.name + "is dead");
+
+        animator.SetBool("die", true);
+        Invoke("",2);
+
+        GetComponent<ai>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = false;
+        //Destroy(gameObject);
+
+        GameObject graveStone = GameObject.Instantiate(gravestone);
+        graveStone.transform.position = transform.position;
     }
 
     void OnTriggerEnter(Collider other)
@@ -70,18 +94,21 @@ public class enemyHealthSystem1 : MonoBehaviour
             //print(gameObject.name);
             healthController.Damage(10);
             bloodingAnim.Play();
+            explosionAnim.Play();
         }
        else if (other.gameObject.tag == "spikesAnim")
         {
             //print("ENTERdefaultanim");
             healthController.Damage(25);
             bloodingAnim.Play();
+            explosionAnim.Play();
         }
          else if (other.gameObject.tag == "lightningAnim")
         {
             //print("ENTERdefaultanim");
             healthController.Damage(37);
             bloodingAnim.Play();
+            explosionAnim.Play();
         }
        /* if (other.gameObject.tag == "fireballAnim")
         {
@@ -122,6 +149,7 @@ public class enemyHealthSystem1 : MonoBehaviour
         {   
             healthController.Damage(7);
             bloodingAnim.Play();
+            explosionAnim.Play();
         }
            
 
