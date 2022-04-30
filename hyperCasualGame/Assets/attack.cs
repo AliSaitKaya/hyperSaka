@@ -9,6 +9,7 @@ public class attack : MonoBehaviour
     public Animator animator;
 
     public ParticleSystem fire;
+    public GameObject fireobject;
     public ParticleSystem water;
     public ParticleSystem lightning;
     public ParticleSystem DefaultSkill;
@@ -27,6 +28,10 @@ public class attack : MonoBehaviour
     private float timeLeftCD;
     private double timeLeftrounded;
     int AttackSelectionIndex = -1;
+
+    public static Vector3 AddingVectorDeneme;
+
+    private Vector3 AddingVector;
 
     // Start is called before the first frame update
     void Start()
@@ -71,9 +76,9 @@ public class attack : MonoBehaviour
         //animator.SetBool("attack", attackStatus);
         attackStatus = false;
 
-        /*if (!fire.isPlaying)
-            fire.Stop();
-        if (!water.isPlaying)
+        //if (!fire.isPlaying)
+           // fire.Stop();
+        /*if (!water.isPlaying)
             water.Stop();
         if (!lightning.isPlaying)
             lightning.Stop();
@@ -92,13 +97,26 @@ public class attack : MonoBehaviour
                     switch(AttackSelectionIndex)
                     {
                     case 0:
-                    
 
+                    AddingVectorDeneme=new Vector3(0,0,0);
+                    AddingVectorDeneme.x=this.transform.localRotation.eulerAngles.y;
                     
-                        fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-                        fire.transform.position += 5 * this.transform.forward;
-                        
+                     
+                    //fire.transform.rotation=this.transform.rotation;
+                    
+                    fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+                        //fire.transform.position += 5 * this.transform.forward;
+                    
+                //fire.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                    //fire.transform.rotation.x=this.transform.localRotation.eulerAngles.y;
+
                         fire.Play();
+                        
+                    
+                        
+                        
+                        InvokeRepeating("TornadoMove",0f,0.001f);
+                        Invoke("cancelTornado",3f);
                         //fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
                         //fire.transform.name=gameObject.name;
                         
@@ -132,10 +150,11 @@ public class attack : MonoBehaviour
                     case 3:
 
                         DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                        DefaultSkill.transform.position += 1.2f * transform.forward;   //atýlan skill kendi collider ýna çarpýyor diye
-                                                                                       //karakterin yüzünün dönük olduðu yere offset verildi. 
+                        DefaultSkill.transform.position += 1.2f * transform.forward;   //atï¿½lan skill kendi collider ï¿½na ï¿½arpï¿½yor diye
+                                                                                       //karakterin yï¿½zï¿½nï¿½n dï¿½nï¿½k olduï¿½u yere offset verildi. 
                         DefaultSkill.transform.localScale = new Vector3(2,2,2);
                         DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                        print(DefaultSkill.transform.rotation);
                         //print(DefaultSkill.transform.rotation);
                         //DefaultSkill.transform.position = new Vector3(11, 1, -12);
                         //DefaultSkill.transform.position += 10 * transform.forward;
@@ -158,6 +177,7 @@ public class attack : MonoBehaviour
      {
      AttackCooldown = false;
      attackButton.interactable=true;
+     
      }
 
      void CoolDownText()
@@ -174,6 +194,40 @@ public class attack : MonoBehaviour
         
         
 
+     }
+     void cancelTornado()
+     {
+         CancelInvoke("TornadoMove");
+        // print("enter");
+     }
+     void TornadoMove ()
+     {
+         //fire.Stop();
+         //fireobject.SetActive(false);
+         //fireobject.SetActive(true);
+         //fire.Simulate(2f,true);
+         print(AddingVectorDeneme.x);
+         AddingVector=new Vector3(1f,0,1f);
+         AddingVector.x=AddingVector.x*Mathf.Sin((AddingVectorDeneme.x*Mathf.PI)/180);
+         AddingVector.z=AddingVector.z*Mathf.Cos((AddingVectorDeneme.x*Mathf.PI)/180);
+                    print(Mathf.Sin((AddingVectorDeneme.x*Mathf.PI)/180));
+         
+        //AddingVector.y=this.transform.localRotation.eulerAngles.y;
+       
+        //print(AddingVector);
+         
+         //print(fire.transform.rotation);
+        fire.transform.position=fire.transform.position+(AddingVector/100);
+         //fire.transform.position = new Vector3(fire.transform.position.x+0.01f, fire.transform.position.y, fire.transform.position.z+0.01f);
+            
+            //fire.Play(true);
+         //fire.Stop(true,ParticleSystemStopBehavior.StopEmitting);
+         
+         //fire.transform.position = new Vector3(fire.transform.position.x+1f, fire.transform.position.y, fire.transform.position.z+1f);
+         
+         //print("tornadamove");
+         //print(fire.transform.position);
+         
      }
 
     IEnumerator Shake(float duration, float magnitude)
