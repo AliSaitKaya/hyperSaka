@@ -72,12 +72,11 @@ public class attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //animator.SetBool("attack", attackStatus);
+        animator.SetBool("attack", attackStatus);
         attackStatus = false;
 
         //if (!fire.isPlaying)
-           // fire.Stop();
+        // fire.Stop();
         /*if (!water.isPlaying)
             water.Stop();
         if (!lightning.isPlaying)
@@ -89,6 +88,8 @@ public class attack : MonoBehaviour
 
     public void Attack()
     {
+
+
         //print(this.name+"usedattack");
         if (AttackCooldown==false)
         {
@@ -105,14 +106,14 @@ public class attack : MonoBehaviour
                     //fire.transform.rotation=this.transform.rotation;
                     
                     fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-                        //fire.transform.position += 5 * this.transform.forward;
+                    //fire.transform.position += 5 * this.transform.forward;
                     
-                //fire.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                    //fire.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                     //fire.transform.rotation.x=this.transform.localRotation.eulerAngles.y;
 
                         fire.Play();
                                 
-                        InvokeRepeating("TornadoMove",0f,0.001f);
+                        InvokeRepeating("TornadoMove",0f,0.01f);
                         Invoke("cancelTornado",3f);
                         //fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
                         //fire.transform.name=gameObject.name;
@@ -130,19 +131,16 @@ public class attack : MonoBehaviour
                             }*/
                 
                         
-                        StartCoroutine(Shake(.15f, 2f));
                         break;
                     case 1:
                         water.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                         water.transform.position += 9 * transform.forward;
                         water.Play();
-                        StartCoroutine(Shake(.15f, 2f));
                         break;
                     case 2:
                         lightning.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                         lightning.transform.position += 6 * transform.forward;
                         lightning.Play();
-                        StartCoroutine(Shake(.15f, 2f));
                         break;
                     case 3:
 
@@ -156,11 +154,12 @@ public class attack : MonoBehaviour
                         //DefaultSkill.transform.position = new Vector3(11, 1, -12);
                         //DefaultSkill.transform.position += 10 * transform.forward;
                         DefaultSkill.Play();
-                        //StartCoroutine(Shake(.15f, 2f));
                         break;
             
         
                     }
+            StartCoroutine(Shake(.15f, 2f));
+
             Invoke("ResetCooldown",coolDownConstant);
             InvokeRepeating("CoolDownText",0.0f,0.1f);
             AttackCooldown=true;

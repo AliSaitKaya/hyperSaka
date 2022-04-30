@@ -17,6 +17,8 @@ public class ai : MonoBehaviour
     private float coolDownConstant = 3f;
     private bool AttackCooldown = true;
     int canAttackDistance = 5;  // saldýrabileceði max uzaklýk.
+    private bool attackStatus = false;
+
 
     private void Start()
     {
@@ -26,6 +28,9 @@ public class ai : MonoBehaviour
 
     private void Update()
     {
+        animator.SetBool("attack", attackStatus);
+        attackStatus = false;
+
         distanceTargetPlayer = Vector3.Distance(Target.transform.position, transform.position);
         if (distanceTargetPlayer <= canAttackDistance)
             follow = true;
@@ -40,6 +45,7 @@ public class ai : MonoBehaviour
 
             if (AttackCooldown)
             {
+
                 agent.SetDestination(Target.transform.position);
                 DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 DefaultSkill.transform.position += 1.2f * transform.forward;   //atýlan skill kendi collider ýna çarpýyor diye
@@ -47,7 +53,8 @@ public class ai : MonoBehaviour
                 DefaultSkill.transform.localScale = new Vector3(2, 2, 2);
                 DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
                 DefaultSkill.Play();
-                
+                attackStatus = true;
+
                 AttackCooldown = false;
                 follow = false;
                 Invoke("ResetCooldown", coolDownConstant);
@@ -59,6 +66,7 @@ public class ai : MonoBehaviour
         }else
         {
             animator.SetBool("run", false);
+
         }
 
            

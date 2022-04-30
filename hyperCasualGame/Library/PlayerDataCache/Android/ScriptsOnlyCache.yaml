@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AiCanAttackCircle
     - DamageCircle
     - FixedJoystick
     - GameMain
@@ -15,10 +16,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -101,45 +100,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 2036}
+      Script: {instanceID: 1962}
     - Class: 114
-      Script: {instanceID: 2238}
+      Script: {instanceID: 2038}
     - Class: 114
-      Script: {instanceID: 2326}
+      Script: {instanceID: 2240}
     - Class: 114
-      Script: {instanceID: 2438}
+      Script: {instanceID: 2328}
     - Class: 114
-      Script: {instanceID: 2478}
+      Script: {instanceID: 2440}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2480}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2610}
     - Class: 114
-      Script: {instanceID: 2652}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 2804}
+      Script: {instanceID: 2654}
     - Class: 114
-      Script: {instanceID: 2866}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 2880}
+      Script: {instanceID: 2868}
     - Class: 114
-      Script: {instanceID: 3138}
+      Script: {instanceID: 2882}
     - Class: 114
-      Script: {instanceID: 3242}
+      Script: {instanceID: 3140}
     - Class: 114
-      Script: {instanceID: 3446}
+      Script: {instanceID: 3244}
     - Class: 114
-      Script: {instanceID: 3604}
+      Script: {instanceID: 3448}
     - Class: 114
-      Script: {instanceID: 3738}
+      Script: {instanceID: 3606}
     - Class: 114
-      Script: {instanceID: 4124}
+      Script: {instanceID: 3740}
     - Class: 114
-      Script: {instanceID: 4342}
+      Script: {instanceID: 4126}
     - Class: 114
-      Script: {instanceID: 4372}
+      Script: {instanceID: 4344}
     - Class: 114
-      Script: {instanceID: 4436}
+      Script: {instanceID: 4374}
+    - Class: 114
+      Script: {instanceID: 4438}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -263,6 +264,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: move
+  - hash:
+      serializedVersion: 2
+      Hash: aaa7e7fd415114b3b243b3a618492d76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AiCanAttackCircle
   - hash:
       serializedVersion: 2
       Hash: ce669872a2be11bc686ea22961d8a3bb
@@ -679,7 +686,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 4170ad3a9aeb64572a34e94f3d799bc3
+      Hash: 6d048b77604db2a327a4f6cbdc3edbee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: attack

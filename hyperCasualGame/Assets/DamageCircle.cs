@@ -139,8 +139,6 @@ public class DamageCircle : MonoBehaviour
     {
 
         enemyCanWalkingCircleArea.transform.position = position;
-
-        Debug.Log("enemy walking around range: " + enemyPathMovement.Instance.getRange());
         enemyPathMovement.Instance.setRange(size.x -5);
     }
         

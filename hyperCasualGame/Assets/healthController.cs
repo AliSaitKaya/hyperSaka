@@ -70,8 +70,6 @@ public class HealthController : MonoBehaviour
             SetDie(true);
             
         }
-        
-        
-            
+      
     }
 }

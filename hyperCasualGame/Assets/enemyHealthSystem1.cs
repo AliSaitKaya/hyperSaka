@@ -9,19 +9,22 @@ public class enemyHealthSystem1 : MonoBehaviour
     Slider healthSlider;
     Text maxHealthText;
     Text currentHealthText;
-    
+
+    ParticleSystem bloodingAnim;
 
     public void Start()
     {
-        
         healthSlider = GetComponentInChildren<Slider>();
         maxHealthText = GetComponentsInChildren<Text>()[2];
         currentHealthText = GetComponentsInChildren<Text>()[0];
+        bloodingAnim = transform.GetChild(4).GetComponentInChildren<ParticleSystem>();
+
+        bloodingAnim.Stop();
 
         //  healthSlider = GameObject.FindGameObjectWithTag("HealthSlider").GetComponent<Slider>();
-   //     maxHealthText = GameObject.FindGameObjectWithTag("MaxHealthText").GetComponent<Text>();
-    //    currentHealthText = GameObject.FindGameObjectWithTag("CurrentHealthText").GetComponent<Text>();
-       
+        //     maxHealthText = GameObject.FindGameObjectWithTag("MaxHealthText").GetComponent<Text>();
+        //    currentHealthText = GameObject.FindGameObjectWithTag("CurrentHealthText").GetComponent<Text>();
+
         healthSlider.value = healthController.GetHealthMax();
         maxHealthText.text = "" + healthController.GetHealthMax();
 
@@ -37,12 +40,19 @@ public class enemyHealthSystem1 : MonoBehaviour
             DeadStatus();
         }
 
+        if (!bloodingAnim.isPlaying)
+            bloodingAnim.Stop();
     }
 
     public void InvokeDamage()
     {
         if(DamageCircle.IsOutsideCircle(transform.position) && !healthController.IsDead())
-            healthController.Damage(5);
+        { 
+            healthController.Damage(5); 
+            if(!bloodingAnim.isPlaying)
+                bloodingAnim.Play(); 
+        }
+            
     }
      public void DeadStatus()
     {
@@ -59,16 +69,19 @@ public class enemyHealthSystem1 : MonoBehaviour
             //print(other.transform.name);
             //print(gameObject.name);
             healthController.Damage(10);
+            bloodingAnim.Play();
         }
        else if (other.gameObject.tag == "spikesAnim")
         {
             //print("ENTERdefaultanim");
             healthController.Damage(25);
+            bloodingAnim.Play();
         }
          else if (other.gameObject.tag == "lightningAnim")
         {
             //print("ENTERdefaultanim");
             healthController.Damage(37);
+            bloodingAnim.Play();
         }
        /* if (other.gameObject.tag == "fireballAnim")
         {
@@ -108,8 +121,10 @@ public class enemyHealthSystem1 : MonoBehaviour
         if (other.gameObject.tag == "fireballAnim")
         {   
             healthController.Damage(7);
+            bloodingAnim.Play();
         }
            
 
     }
+
 }
