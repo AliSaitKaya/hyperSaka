@@ -7,12 +7,16 @@ public class attack : MonoBehaviour
 {
     cameraShaker shaker;
     public Animator animator;
+    public ParticleSystem DefaultBall;
+    public ParticleSystem FireBall;
+    public ParticleSystem WaterBall;
+    public ParticleSystem LightningBall;
+    public ParticleSystem Tornado;
 
-    public ParticleSystem fire;
-    public GameObject fireobject;
-    public ParticleSystem water;
-    public ParticleSystem lightning;
-    public ParticleSystem DefaultSkill;
+    public GameObject TornadoObject;
+    
+    
+    
 
     public Button attackButton;
 
@@ -29,9 +33,9 @@ public class attack : MonoBehaviour
     private double timeLeftrounded;
     int AttackSelectionIndex = -1;
 
-    public static Vector3 AddingVectorDeneme;
+    public static Vector3 TornadoRotationCek;
 
-    private Vector3 AddingVector;
+    private Vector3 TornadoAddingVector;
 
     // Start is called before the first frame update
     void Start()
@@ -42,29 +46,32 @@ public class attack : MonoBehaviour
         lightningAttackButton.onClick.AddListener(lightningAttackSelect);
         SkillSelectionPanel.SetActive(false);
 
-        fire.Stop();
-        water.Stop();
-        lightning.Stop();
-        DefaultSkill.Stop();
+        FireBall.Stop();
+        WaterBall.Stop();
+        LightningBall.Stop();
+        DefaultBall.Stop();
 
-        AttackSelectionIndex = 3; //default skill
+        AttackSelectionIndex = 0; //default skill
+        
+        
+    
     }
 
     private void lightningAttackSelect()
     {
-        AttackSelectionIndex = 2;
+        AttackSelectionIndex = 3;
         SkillSelectionPanel.SetActive(false);
     }
 
     private void waterAttackSelect()
     {
-        AttackSelectionIndex = 1;
+        AttackSelectionIndex = 2;
         SkillSelectionPanel.SetActive(false);
     }
 
     private void fireAttackSelect()
     {
-        AttackSelectionIndex = 0;
+        AttackSelectionIndex = 1;
         SkillSelectionPanel.SetActive(false);
     }
 
@@ -97,65 +104,71 @@ public class attack : MonoBehaviour
                     attackStatus = true;
                     switch(AttackSelectionIndex)
                     {
+
                     case 0:
-                    fireobject.SetActive(true);
-                    AddingVectorDeneme =new Vector3(0,0,0);
-                    AddingVectorDeneme.x=this.transform.localRotation.eulerAngles.y;
+
+                    DefaultBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                    DefaultBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+                    
+                    //var DefaultColor=DefaultSkill.main;
+                    //DefaultColor.startColor = new Color( 0.33f,0.64f,0.64f,1f ); renk degistirme lazımsa 
+                    
+                                                                                       
+                    DefaultBall.transform.localScale = new Vector3(2,2,2);
+                    DefaultBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                        
+                    DefaultBall.Play();
+                    break;
+
+                    case 1:
+
+                    FireBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                    FireBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+                                                                            
+                    FireBall.transform.localScale = new Vector3(3,2,3);
+                    FireBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                        
+                    FireBall.Play();
+                        
+                    break;
+
+                    case 2:
+                    WaterBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                    WaterBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+                                                                            
+                    WaterBall.transform.localScale = new Vector3(3,2,3);
+                    WaterBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                        
+                    WaterBall.Play();
+                    break;
+
+                    case 3:
+                    LightningBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                    LightningBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+                                                                            
+                    LightningBall.transform.localScale = new Vector3(3,2,3);
+                    LightningBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+                        
+                    LightningBall.Play();
+                    break;
+
+                    case 4:
+                        TornadoObject.SetActive(true);
+                        TornadoRotationCek =new Vector3(0,0,0);
+                        TornadoRotationCek.x=this.transform.localRotation.eulerAngles.y;
                    
                      
-                    //fire.transform.rotation=this.transform.rotation;
                     
-                    fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-                    fire.transform.position += 2 * transform.forward;
                     
-                    //fire.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-                    //fire.transform.rotation.x=this.transform.localRotation.eulerAngles.y;
+                        Tornado.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+                        Tornado.transform.position += 2 * transform.forward;
+                    
 
-                        fire.Play();
+                        Tornado.Play();
                                 
                         InvokeRepeating("TornadoMove",0f,0.01f);
                         Invoke("cancelTornado",3f);
-                        //fire.transform.position = Vector3.Lerp(this.transform.forward, this.transform.forward, Time.deltaTime * 5);
-                        //fire.transform.name=gameObject.name;
-                        
-                            /*if (gameObject.tag=="enemyWizard")
-                            {
-                                print(fire.transform.name+"usedattack");
-                                Invoke ("Denemefireball",1);
-                                break;
-                            }
-                            else if (gameObject.tag=="Wizard")
-                            {
-                                print(fire.transform.name+"usedattack");
-                                fire.Play();
-                            }*/
-                
-                        
-                        break;
-                    case 1:
-                        water.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                        water.transform.position += 9 * transform.forward;
-                        water.Play();
-                        break;
-                    case 2:
-                        lightning.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                        lightning.transform.position += 6 * transform.forward;
-                        lightning.Play();
-                        break;
-                    case 3:
-
-                        DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                        DefaultSkill.transform.position += 1.2f * transform.forward;   //atilan skill kendi collider �na �arp�yor diye
-                                                                                       //karakterin y�z�n�n d�n�k oldu�u yere offset verildi. 
-                        DefaultSkill.transform.localScale = new Vector3(2,2,2);
-                        DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-                        print(DefaultSkill.transform.rotation);
-                        //print(DefaultSkill.transform.rotation);
-                        //DefaultSkill.transform.position = new Vector3(11, 1, -12);
-                        //DefaultSkill.transform.position += 10 * transform.forward;
-                        DefaultSkill.Play();
-                        break;
-            
+                    break;
         
                     }
             StartCoroutine(Shake(.15f, 2f));
@@ -193,7 +206,7 @@ public class attack : MonoBehaviour
      }
      void cancelTornado()
      {
-        fireobject.SetActive(false);
+        TornadoObject.SetActive(false);
         CancelInvoke("TornadoMove");
         // print("enter");
      }
@@ -203,18 +216,18 @@ public class attack : MonoBehaviour
          //fireobject.SetActive(false);
          //fireobject.SetActive(true);
          //fire.Simulate(2f,true);
-         print(AddingVectorDeneme.x);
-         AddingVector=new Vector3(1f,0,1f);
-         AddingVector.x=AddingVector.x*Mathf.Sin((AddingVectorDeneme.x*Mathf.PI)/180);
-         AddingVector.z=AddingVector.z*Mathf.Cos((AddingVectorDeneme.x*Mathf.PI)/180);
-                    print(Mathf.Sin((AddingVectorDeneme.x*Mathf.PI)/180));
+         print(TornadoRotationCek.x);
+         TornadoAddingVector=new Vector3(1f,0,1f);
+         TornadoAddingVector.x=TornadoAddingVector.x*Mathf.Sin((TornadoRotationCek.x*Mathf.PI)/180);
+         TornadoAddingVector.z=TornadoAddingVector.z*Mathf.Cos((TornadoRotationCek.x*Mathf.PI)/180);
+                    print(Mathf.Sin((TornadoRotationCek.x*Mathf.PI)/180));
          
         //AddingVector.y=this.transform.localRotation.eulerAngles.y;
        
         //print(AddingVector);
          
          //print(fire.transform.rotation);
-        fire.transform.position=fire.transform.position+(AddingVector/20);
+            Tornado.transform.position=Tornado.transform.position+(TornadoAddingVector/20);
          //fire.transform.position = new Vector3(fire.transform.position.x+0.01f, fire.transform.position.y, fire.transform.position.z+0.01f);
             
             //fire.Play(true);

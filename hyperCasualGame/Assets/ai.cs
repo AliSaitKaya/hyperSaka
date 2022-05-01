@@ -16,7 +16,7 @@ public class ai : MonoBehaviour
 
     private float coolDownConstant = 3f;
     private bool AttackCooldown = true;
-    int canAttackDistance = 5;  // saldýrabileceði max uzaklýk.
+    int canAttackDistance = 5;  // saldï¿½rabileceï¿½i max uzaklï¿½k.
     private bool attackStatus = false;
 
 
@@ -49,9 +49,9 @@ public class ai : MonoBehaviour
 
                 agent.SetDestination(Target.transform.position);
                 DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-                DefaultSkill.transform.position += 1.2f * transform.forward;   //atýlan skill kendi collider ýna çarpýyor diye
-                                                                               //karakterin yüzünün dönük olduðu yere offset verildi. 
-                DefaultSkill.transform.localScale = new Vector3(2, 2, 2);
+                DefaultSkill.transform.position += 1.2f * transform.forward;   //atï¿½lan skill kendi collider ï¿½na ï¿½arpï¿½yor diye
+                                                                               //karakterin yï¿½zï¿½nï¿½n dï¿½nï¿½k olduï¿½u yere offset verildi. 
+                DefaultSkill.transform.localScale = new Vector3(4, 2, 4);
                 DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
                 DefaultSkill.Play();
                 attackStatus = true;

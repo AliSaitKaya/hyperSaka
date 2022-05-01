@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class GameMain : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Text DeathLog1;
+    public Text DeathLog2;
+
+    public Text DeathLog3;
+    public Image DeathSkull1;
+    public Image DeathSkull2;
+    public Image DeathSkull3;
     
     
     void Start()
     {
-        
-        //Invoke("PlayerHealth",4);
+        DeathSkull1.enabled=false;
+        DeathSkull2.enabled=false;
+        DeathSkull3.enabled=false;
         
     }
 

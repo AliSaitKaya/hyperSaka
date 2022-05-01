@@ -13,9 +13,11 @@ public class enemyHealthSystem1 : MonoBehaviour
 
     ParticleSystem bloodingAnim;
     ParticleSystem explosionAnim;
+    ParticleSystem freezingAnim;
     public Animator animator;
     GameObject gravestone;
-    bool graveStoneControl = true; //sürekli graveStone koymasýn diye
+    Text deneme;
+    bool graveStoneControl = true; //sï¿½rekli graveStone koymasï¿½n diye
 
     public void Awake()
     {
@@ -24,9 +26,15 @@ public class enemyHealthSystem1 : MonoBehaviour
         currentHealthText = GetComponentsInChildren<Text>()[0];
         bloodingAnim = GetComponentsInChildren<ParticleSystem>()[1];
         explosionAnim = GetComponentsInChildren<ParticleSystem>()[2];
+        freezingAnim = GetComponentsInChildren<ParticleSystem>()[3];
 
+
+        
+
+        HealthUpdate();
         bloodingAnim.Stop();
         explosionAnim.Stop();
+        freezingAnim.Stop();
 
         gravestone = GameObject.FindGameObjectWithTag("Gravestone");
 
@@ -38,6 +46,15 @@ public class enemyHealthSystem1 : MonoBehaviour
 
     public void Update()
     {
+        
+
+        if (!bloodingAnim.isPlaying)
+            bloodingAnim.Stop();
+        if (!explosionAnim.isPlaying)
+            explosionAnim.Stop();
+    }
+    public void HealthUpdate()
+    {
         healthSlider.value = healthController.GetHealthCurrent();
         currentHealthText.text = "" + healthController.GetHealthCurrent();
 
@@ -46,18 +63,13 @@ public class enemyHealthSystem1 : MonoBehaviour
             DeadStatus();
             graveStoneControl = false;
         }
-
-        if (!bloodingAnim.isPlaying)
-            bloodingAnim.Stop();
-        if (!explosionAnim.isPlaying)
-            explosionAnim.Stop();
     }
-
     public void InvokeDamage()
     {
         if(DamageCircle.IsOutsideCircle(transform.position) && !healthController.IsDead())
         { 
-            healthController.Damage(5); 
+            healthController.Damage(5);
+            HealthUpdate(); 
             if(!bloodingAnim.isPlaying)
                 bloodingAnim.Play();
         }
@@ -65,10 +77,13 @@ public class enemyHealthSystem1 : MonoBehaviour
     }
      public void DeadStatus()
     {
-        //TODO ali. Ana karakter ölürse sorun var.
+        //TODO ali. Ana karakter ï¿½lï¿½rse sorun var.
 
         print(this.name + "is dead");
-
+        //GetComponent<GameMain>().DeathLog1.text="asd";
+        //DeathLog1.GetComponent<UnityEngine.UI.Text>().text = "text";
+        DeathLogTexts();
+         
         animator.SetBool("die", true);
         Invoke("",2);
 
@@ -80,6 +95,37 @@ public class enemyHealthSystem1 : MonoBehaviour
         GameObject graveStone = GameObject.Instantiate(gravestone);
         graveStone.transform.position = transform.position;
     }
+    public void DeathLogTexts()
+    {
+        GameObject xd = GameObject.Find("Main Camera");  //game main'den deathlogtextleri cekmek icin yapildi(main cam'de game main)
+        GameMain gameMain = xd.GetComponent<GameMain>();
+        
+        if (gameMain.DeathLog1.text=="")
+        {
+            gameMain.DeathSkull1.enabled=true;
+            gameMain.DeathLog1.text = this.name;
+        }
+        else if (gameMain.DeathLog2.text=="")
+        {
+            gameMain.DeathSkull2.enabled=true;
+            gameMain.DeathLog2.text = this.name;
+        }
+        else if (gameMain.DeathLog3.text=="")
+        {
+            gameMain.DeathSkull3.enabled=true;
+            gameMain.DeathLog3.text = this.name;
+        }
+        else  
+        {
+            gameMain.DeathSkull2.enabled=false;
+            gameMain.DeathSkull3.enabled=false;
+            gameMain.DeathLog1.text = this.name;
+            gameMain.DeathLog2.text = "";
+            gameMain.DeathLog3.text = "";
+
+        }
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -89,6 +135,7 @@ public class enemyHealthSystem1 : MonoBehaviour
             //print(other.transform.name);
             //print(gameObject.name);
             healthController.Damage(10);
+            HealthUpdate();
             bloodingAnim.Play();
             explosionAnim.Play();
         }
@@ -96,6 +143,7 @@ public class enemyHealthSystem1 : MonoBehaviour
         {
             //print("ENTERdefaultanim");
             healthController.Damage(25);
+            HealthUpdate();
             bloodingAnim.Play();
             explosionAnim.Play();
         }
@@ -103,6 +151,7 @@ public class enemyHealthSystem1 : MonoBehaviour
         {
             //print("ENTERdefaultanim");
             healthController.Damage(37);
+            HealthUpdate();
             bloodingAnim.Play();
             explosionAnim.Play();
         }
@@ -141,9 +190,31 @@ public class enemyHealthSystem1 : MonoBehaviour
              print("EXIT");
          }*/
 
-        if (other.gameObject.tag == "fireballAnim")
+        if (other.gameObject.tag == "DefaultBallAnim" || other.gameObject.tag=="DefaultBallAnimAI") 
         {   
-            healthController.Damage(7);
+            healthController.Damage(50);
+            HealthUpdate();
+            bloodingAnim.Play();
+            explosionAnim.Play();
+        }
+        else if (other.gameObject.tag=="FireballAnim")
+        {
+            healthController.Damage(43);
+            HealthUpdate();
+            bloodingAnim.Play();
+            explosionAnim.Play();
+        }
+         else if (other.gameObject.tag=="WaterballAnim")
+        {
+            healthController.Damage(33);
+            HealthUpdate();
+            bloodingAnim.Play();
+            freezingAnim.Play();
+        }
+         else if (other.gameObject.tag=="LightningballAnim")
+        {
+            healthController.Damage(23);
+            HealthUpdate();
             bloodingAnim.Play();
             explosionAnim.Play();
         }

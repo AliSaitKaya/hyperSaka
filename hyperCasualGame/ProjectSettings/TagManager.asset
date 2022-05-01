@@ -22,12 +22,16 @@ TagManager:
   - MaxHealthText
   - atesnova
   - DefaultAnim
-  - fireballAnim
   - tornadoAnim
   - spikesAnim
   - lightningAnim
   - EnemyCanWalkingCircleArea
   - Gravestone
+  - DefaultBallAnim
+  - DefaultBallAnimAI
+  - FireballAnim
+  - WaterballAnim
+  - LightningballAnim
   layers:
   - Default
   - TransparentFX
