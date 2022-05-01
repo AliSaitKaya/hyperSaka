@@ -3,8 +3,10 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AiCanAttackCircle
     - DamageCircle
+    - DeathLogPanelController
     - FixedJoystick
-    - GameMain
+    - HeroHealthSystem
+    - PanelController
     - ai
     - attack
     - enemyHealthSystem1
@@ -16,9 +18,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -88,59 +91,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1462}
     - Class: 114
-      Script: {instanceID: 1602}
+      Script: {instanceID: 1710}
     - Class: 114
-      Script: {instanceID: 1616}
+      Script: {instanceID: 1724}
     - Class: 114
-      Script: {instanceID: 1662}
+      Script: {instanceID: 1770}
     - Class: 114
-      Script: {instanceID: 1672}
-    - Class: 114
-      Script: {instanceID: 1852}
+      Script: {instanceID: 1780}
     - Class: 114
       Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 1962}
+      Script: {instanceID: 2068}
     - Class: 114
-      Script: {instanceID: 2038}
+      Script: {instanceID: 2070}
     - Class: 114
-      Script: {instanceID: 2240}
+      Script: {instanceID: 2146}
     - Class: 114
-      Script: {instanceID: 2328}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 2440}
+      Script: {instanceID: 2548}
     - Class: 114
-      Script: {instanceID: 2480}
+      Script: {instanceID: 2588}
     - Class: 114
-      Script: {instanceID: 2610}
+      Script: {instanceID: 2718}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2750}
     - Class: 114
-      Script: {instanceID: 2654}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2806}
+      Script: {instanceID: 2914}
     - Class: 114
-      Script: {instanceID: 2868}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 2882}
+      Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 3140}
+      Script: {instanceID: 3248}
     - Class: 114
-      Script: {instanceID: 3244}
+      Script: {instanceID: 3352}
     - Class: 114
-      Script: {instanceID: 3450}
+      Script: {instanceID: 3558}
     - Class: 114
-      Script: {instanceID: 3608}
+      Script: {instanceID: 3716}
     - Class: 114
-      Script: {instanceID: 3742}
+      Script: {instanceID: 3850}
     - Class: 114
-      Script: {instanceID: 4128}
+      Script: {instanceID: 4236}
     - Class: 114
-      Script: {instanceID: 4346}
+      Script: {instanceID: 4454}
     - Class: 114
-      Script: {instanceID: 4376}
+      Script: {instanceID: 4484}
     - Class: 114
-      Script: {instanceID: 4440}
+      Script: {instanceID: 4548}
+    - Class: 114
+      Script: {instanceID: 69820}
+    - Class: 114
+      Script: {instanceID: 72280}
+    - Class: 114
+      Script: {instanceID: 935120}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -512,12 +519,6 @@ ScriptsOnlyBuild:
     className: lookAtCam
   - hash:
       serializedVersion: 2
-      Hash: ef3232342789279b816bbd6e1ab334e8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AnimationController
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -692,7 +693,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 6d048b77604db2a327a4f6cbdc3edbee
+      Hash: cd44ef667b318a84287ca3aa5dbc8119
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: attack
@@ -726,6 +727,24 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 7b66c1e496f6ae42b2ed6d806a17ba5f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HeroHealthSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 94f01d1f3d2c56d53b08464e473d28e5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PanelController
+  - hash:
+      serializedVersion: 2
+      Hash: ef373f792ab38df91b5a1cb5a64f412e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeathLogPanelController
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
