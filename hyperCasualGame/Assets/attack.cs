@@ -106,7 +106,7 @@ public class attack : MonoBehaviour
                     //fire.transform.rotation=this.transform.rotation;
                     
                     fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-                    //fire.transform.position += 5 * this.transform.forward;
+                    fire.transform.position += 2 * transform.forward;
                     
                     //fire.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                     //fire.transform.rotation.x=this.transform.localRotation.eulerAngles.y;
@@ -145,7 +145,7 @@ public class attack : MonoBehaviour
                     case 3:
 
                         DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                        DefaultSkill.transform.position += 1.2f * transform.forward;   //at�lan skill kendi collider �na �arp�yor diye
+                        DefaultSkill.transform.position += 1.2f * transform.forward;   //atilan skill kendi collider �na �arp�yor diye
                                                                                        //karakterin y�z�n�n d�n�k oldu�u yere offset verildi. 
                         DefaultSkill.transform.localScale = new Vector3(2,2,2);
                         DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);

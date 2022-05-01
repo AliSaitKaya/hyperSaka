@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class enemyHealthSystem1 : MonoBehaviour
 {
-    HealthController healthController = new HealthController(20, 20);
+    HealthController healthController = new HealthController(100, 100);
     Slider healthSlider;
     Text maxHealthText;
     Text currentHealthText;
@@ -29,11 +29,6 @@ public class enemyHealthSystem1 : MonoBehaviour
         explosionAnim.Stop();
 
         gravestone = GameObject.FindGameObjectWithTag("Gravestone");
-        
-
-        //  healthSlider = GameObject.FindGameObjectWithTag("HealthSlider").GetComponent<Slider>();
-        //     maxHealthText = GameObject.FindGameObjectWithTag("MaxHealthText").GetComponent<Text>();
-        //    currentHealthText = GameObject.FindGameObjectWithTag("CurrentHealthText").GetComponent<Text>();
 
         healthSlider.value = healthController.GetHealthMax();
         maxHealthText.text = "" + healthController.GetHealthMax();
@@ -77,6 +72,7 @@ public class enemyHealthSystem1 : MonoBehaviour
         animator.SetBool("die", true);
         Invoke("",2);
 
+        
         GetComponent<ai>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
         //Destroy(gameObject);
