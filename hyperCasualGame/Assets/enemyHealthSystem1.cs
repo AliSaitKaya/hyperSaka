@@ -80,6 +80,8 @@ public class enemyHealthSystem1 : MonoBehaviour
         //TODO ali. Ana karakter �l�rse sorun var.
 
         print(this.name + "is dead");
+         this.GetComponent<BoxCollider>().enabled = false;
+         this.healthSlider.gameObject.SetActive(false);
         //GetComponent<GameMain>().DeathLog1.text="asd";
         //DeathLog1.GetComponent<UnityEngine.UI.Text>().text = "text";
         DeathLogTexts();
