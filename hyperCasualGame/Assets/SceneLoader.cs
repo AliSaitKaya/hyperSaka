@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
       
       playButton.onClick.AddListener(playButtonFunc);
       //print(SceneManager.GetActiveScene().buildIndex);
-      if (SceneManager.GetActiveScene().buildIndex==2)
+      if (SceneManager.GetActiveScene().buildIndex==5)
       {
           Invoke("LoadNextScene",1);
       }
