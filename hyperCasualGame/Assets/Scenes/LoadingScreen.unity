@@ -601,12 +601,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 82919496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf83a69d76f5bd4386cebfdfe499ef9, type: 3}
+  m_Script: {fileID: 11500000, guid: c6923070581b9bc45a63a90020aabdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArenaSellectionPanel: {fileID: 0}
-  Map1Button: {fileID: 0}
-  PlayButton: {fileID: 0}
 --- !u!1 &93731872
 GameObject:
   m_ObjectHideFlags: 0

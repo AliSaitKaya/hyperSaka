@@ -17,10 +17,10 @@ public class ArenaSellection : MonoBehaviour
       Map1Button.onClick.AddListener(Map1ButtonFunc);
       PlayButton.onClick.AddListener(PlayButtonFunc);
       //print(SceneManager.GetActiveScene().buildIndex);
-      if (SceneManager.GetActiveScene().buildIndex==1)
+     /* if (SceneManager.GetActiveScene().buildIndex==1)
       {
           Invoke("LoadNextScene",1);
-      }
+      }*/
      }
 
     private void Map1ButtonFunc()
