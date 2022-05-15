@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ArenaSellection : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class ArenaSellection : MonoBehaviour
     public  GameObject ArenaSellectionPanel;
     public  Button Map1Button;
     public  Button PlayButton;
+
+    public  GameObject Playobject;
+    
      void Start()
     {
         ArenaSellectionPanel.SetActive(false);
+    
       
       Map1Button.onClick.AddListener(Map1ButtonFunc);
       PlayButton.onClick.AddListener(PlayButtonFunc);
@@ -22,6 +27,8 @@ public class ArenaSellection : MonoBehaviour
           Invoke("LoadNextScene",1);
       }*/
      }
+   
+    
 
     private void Map1ButtonFunc()
     {

@@ -9,6 +9,11 @@ public class LoadingPage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("LoadLevelInvoke",1);
+        
+    }
+    void LoadLevelInvoke ()
+    {
         LoadLevel(2);
     }
     void LoadLevel (int sceneIndex)
@@ -22,6 +27,7 @@ public class LoadingPage : MonoBehaviour
 
         while(!operation.isDone)
         {
+            
             yield return null;
         }
     }
