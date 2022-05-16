@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class DeathLogPanelController : MonoBehaviour
 {
-    public GameObject DeathLogPanel;
 
+    public GameObject DeathLogPanel;
+    
     public Text DeathLogText1;
     public Text DeathLogText2;
     public Text DeathLogText3;
@@ -14,6 +15,7 @@ public class DeathLogPanelController : MonoBehaviour
     public Image DeathSkull1;
     public Image DeathSkull2;
     public Image DeathSkull3;
+
 
     void Start()
     {
@@ -29,7 +31,7 @@ public class DeathLogPanelController : MonoBehaviour
         DeathSkull2.enabled = false;
         DeathSkull3.enabled = false;
     }
-    
+ 
     public void DeadStatus(string name)
     {
         if ( DeathLogText1.text == "")
@@ -59,8 +61,4 @@ public class DeathLogPanelController : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
 }

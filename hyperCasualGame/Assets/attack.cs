@@ -171,7 +171,7 @@ public class attack : MonoBehaviour
                     break;
         
                     }
-            StartCoroutine(Shake(.15f, 2f));
+           // StartCoroutine(Shake(.15f, 2f));  // vibration close
 
             Invoke("ResetCooldown",coolDownConstant);
             InvokeRepeating("CoolDownText",0.0f,0.1f);

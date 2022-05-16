@@ -12,7 +12,7 @@ public class HeroHealthSystem : MonoBehaviour
     Text maxHealthText;
     Text currentHealthText;
 
-    ParticleSystem bloodingAnim;
+    ParticleSystem poisionAnim;
     ParticleSystem explosionAnim;
     ParticleSystem freezingAnim;
     public Animator animator;
@@ -27,12 +27,12 @@ public class HeroHealthSystem : MonoBehaviour
         healthSlider = GetComponentInChildren<Slider>();
         maxHealthText = GetComponentsInChildren<Text>()[2];
         currentHealthText = GetComponentsInChildren<Text>()[0];
-        bloodingAnim = GetComponentsInChildren<ParticleSystem>()[1];
+        poisionAnim = GetComponentsInChildren<ParticleSystem>()[1];
         explosionAnim = GetComponentsInChildren<ParticleSystem>()[2];
         freezingAnim = GetComponentsInChildren<ParticleSystem>()[3];
 
         HealthUpdate();
-        bloodingAnim.Stop();
+        poisionAnim.Stop();
         explosionAnim.Stop();
         freezingAnim.Stop();
 
@@ -47,10 +47,11 @@ public class HeroHealthSystem : MonoBehaviour
 
     public void Update()
     {
+        if (!DamageCircle.IsOutsideCircle(transform.position) && !healthController.IsDead())
+        {
+            poisionAnim.Stop();  // poision kesintisiz olsun diye loop olarak başlatılıp sonra durduruluyor.
+        }
 
-
-        if (!bloodingAnim.isPlaying)
-            bloodingAnim.Stop();
         if (!explosionAnim.isPlaying)
             explosionAnim.Stop();
     }
@@ -71,8 +72,7 @@ public class HeroHealthSystem : MonoBehaviour
         {
             healthController.Damage(5);
             HealthUpdate();
-            if (!bloodingAnim.isPlaying)
-                bloodingAnim.Play();
+            poisionAnim.Play();
         }
 
     }
@@ -109,7 +109,7 @@ public class HeroHealthSystem : MonoBehaviour
             //print(gameObject.name);
             healthController.Damage(10);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "spikesAnim")
@@ -117,7 +117,7 @@ public class HeroHealthSystem : MonoBehaviour
             //print("ENTERdefaultanim");
             healthController.Damage(25);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "lightningAnim")
@@ -125,7 +125,7 @@ public class HeroHealthSystem : MonoBehaviour
             //print("ENTERdefaultanim");
             healthController.Damage(37);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             explosionAnim.Play();
         }
         /* if (other.gameObject.tag == "fireballAnim")
@@ -167,28 +167,28 @@ public class HeroHealthSystem : MonoBehaviour
         {
             healthController.Damage(50);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "FireballAnim")
         {
             healthController.Damage(43);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "WaterballAnim")
         {
             healthController.Damage(33);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             freezingAnim.Play();
         }
         else if (other.gameObject.tag == "LightningballAnim")
         {
             healthController.Damage(23);
             HealthUpdate();
-            bloodingAnim.Play();
+            poisionAnim.Play();
             explosionAnim.Play();
         }
 

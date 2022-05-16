@@ -45,7 +45,7 @@ public class move : MonoBehaviour
         horizontal = joystick.Horizontal;
         vertical = joystick.Vertical;
 
-        if (horizontal <= 0.3 && horizontal >= -0.3 && vertical <= 0.3 && vertical >= -0.3)
+        if (horizontal <= 0.1 && horizontal >= -0.1 && vertical <= 0.1 && vertical >= -0.1)
         {
             horizontal = 0;
             vertical = 0;
