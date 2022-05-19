@@ -5,12 +5,12 @@ using UnityEngine;
 public class PanelController : MonoBehaviour
 {
     public static PanelController Instance;
-    public GameObject _StartPanel;
-    public GameObject _LevelsSelectionPanel;
+    //public GameObject _StartPanel;
+    //public GameObject _LevelsSelectionPanel;
     public GameObject _FailPanel;
     public GameObject _SuccessPanel;
     public GameObject _DeathLogPanel;
-    public GameObject _SettingsPanel;
+    //public GameObject _SettingsPanel;
 
     List<GameObject> Panels = new List<GameObject>();
 
@@ -21,8 +21,8 @@ public class PanelController : MonoBehaviour
 
     public void Start()
     {
-        //  Panels.Add(_StartPanel);
-        Panels.Add(_LevelsSelectionPanel);
+          //Panels.Add(_StartPanel);
+        //Panels.Add(_LevelsSelectionPanel);
         Panels.Add(_FailPanel);
         Panels.Add(_SuccessPanel);
         Panels.Add(_DeathLogPanel);
@@ -32,18 +32,18 @@ public class PanelController : MonoBehaviour
         SetDeathLogPanel(true);
     }
 
-    public void SetStartPanel(bool open)
+    /*public void SetStartPanel(bool open)
     {
         _StartPanel.SetActive(open);
         //TODO ali
-        //Panel açýkken addlistener eklenmeli. kapatýlýnca listenerdan çýkýlmalý. ama nasýl ?
-        //Tüm paneller için aynýsý yapýlmalý. 
-    }
+        //Panel aï¿½ï¿½kken addlistener eklenmeli. kapatï¿½lï¿½nca listenerdan ï¿½ï¿½kï¿½lmalï¿½. ama nasï¿½l ?
+        //Tï¿½m paneller iï¿½in aynï¿½sï¿½ yapï¿½lmalï¿½. 
+    }*/
 
-    public void SetLevelsSelectionPanel(bool open)
+    /*public void SetLevelsSelectionPanel(bool open)
     {
         _LevelsSelectionPanel.SetActive(open);
-    }
+    }*/
 
     public void SetFailPanel(bool open)
     {
@@ -60,10 +60,10 @@ public class PanelController : MonoBehaviour
         _DeathLogPanel.SetActive(open);
     }
 
-    public void SetSettingsPanel(bool open)
+    /*public void SetSettingsPanel(bool open)
     {
         _SettingsPanel.SetActive(open);
-    }
+    }*/
 
     public void SetCloseOpenAllPanels()
     {
