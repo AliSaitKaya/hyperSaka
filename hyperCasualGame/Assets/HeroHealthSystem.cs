@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class HeroHealthSystem : MonoBehaviour
 {
-    HealthController healthController = new HealthController(100, 100);
+    HealthController healthController = new HealthController(300, 300);
 
     Slider healthSlider;
     Text maxHealthText;
@@ -41,8 +41,7 @@ public class HeroHealthSystem : MonoBehaviour
         healthSlider.value = healthController.GetHealthMax();
         maxHealthText.text = "" + healthController.GetHealthMax();
 
-        InvokeRepeating("InvokeDamage", 1, 1);
-
+        InvokeRepeating("InvokeDamage", 1 , 1);
     }
 
     public void Update()
@@ -87,7 +86,6 @@ public class HeroHealthSystem : MonoBehaviour
         GetComponent<attack>().enabled = false;
         GetComponent<NavMeshObstacle>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
-        GetComponent<CapsuleCollider>().enabled = false;
         
         PanelController.Instance.SetCloseOpenAllPanels();
         PanelController.Instance.SetFailPanel(true);
@@ -109,7 +107,6 @@ public class HeroHealthSystem : MonoBehaviour
             //print(gameObject.name);
             healthController.Damage(10);
             HealthUpdate();
-            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "spikesAnim")
@@ -117,7 +114,6 @@ public class HeroHealthSystem : MonoBehaviour
             //print("ENTERdefaultanim");
             healthController.Damage(25);
             HealthUpdate();
-            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "lightningAnim")
@@ -125,7 +121,6 @@ public class HeroHealthSystem : MonoBehaviour
             //print("ENTERdefaultanim");
             healthController.Damage(37);
             HealthUpdate();
-            poisionAnim.Play();
             explosionAnim.Play();
         }
         /* if (other.gameObject.tag == "fireballAnim")
@@ -167,28 +162,24 @@ public class HeroHealthSystem : MonoBehaviour
         {
             healthController.Damage(50);
             HealthUpdate();
-            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "FireballAnim")
         {
             healthController.Damage(43);
             HealthUpdate();
-            poisionAnim.Play();
             explosionAnim.Play();
         }
         else if (other.gameObject.tag == "WaterballAnim")
         {
             healthController.Damage(33);
             HealthUpdate();
-            poisionAnim.Play();
             freezingAnim.Play();
         }
         else if (other.gameObject.tag == "LightningballAnim")
         {
             healthController.Damage(23);
             HealthUpdate();
-            poisionAnim.Play();
             explosionAnim.Play();
         }
 

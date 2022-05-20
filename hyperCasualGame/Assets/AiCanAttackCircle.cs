@@ -6,28 +6,22 @@ using UnityEngine.AI;
 public class AiCanAttackCircle : MonoBehaviour
 {
     public static AiCanAttackCircle Instance;
-    public float Range;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void Update()
-    {
-        
-    }
+    
+  void OnTriggerEnter(Collider other)
+  {
 
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
+    print("triggered.");
+    if (other.CompareTag("enemyWizard") || other.CompareTag("Wizard") || other.CompareTag("enemyWizardCanAttackCollider"))
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, Range);
+        GetComponentInParent<ai>().Target = other.gameObject;
+        print("target changed.");
     }
-#endif
-
-    private void OnDrawGizmosSelected()
-    {
-        
-    }
+  }
+  
 }

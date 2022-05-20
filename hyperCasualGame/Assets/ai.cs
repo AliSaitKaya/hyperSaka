@@ -7,16 +7,12 @@ public class ai : MonoBehaviour
 {
     private NavMeshAgent agent;
 
-    public float radius;
-    private float distanceTargetPlayer;
-    public GameObject Target;
-    bool follow = false;
+    public GameObject Target = null;
     public Animator animator;
     public ParticleSystem DefaultSkill;
 
     private float coolDownConstant = 3f;
     private bool AttackCooldown = true;
-    int canAttackDistance = 5;  // sald�rabilece�i max uzakl�k.
     private bool attackStatus = false;
 
 
@@ -28,28 +24,27 @@ public class ai : MonoBehaviour
 
     private void Update()
     {
-
+        print("" + Target);
         animator.SetBool("attack", attackStatus);
         attackStatus = false;
 
-        distanceTargetPlayer = Vector3.Distance(Target.transform.position, transform.position);
-        if (distanceTargetPlayer <= canAttackDistance)
-            follow = true;
-        if (!agent.hasPath && !follow)
+        if (!agent.hasPath)
         {
             agent.SetDestination(enemyPathMovement.Instance.GetRandomPoint());
             animator.SetBool("run", true);
 
-            follow = false;
-        }else if(follow)
+        }else if(Target != null || !Target.GetComponent<enemyHealthSystem1>().IsDead())
         {
 
             if (AttackCooldown)
             {
 
                 agent.SetDestination(Target.transform.position);
+                transform.LookAt(Target.transform.position);
+
                 DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-                DefaultSkill.transform.position += 1.2f * transform.forward;   //at�lan skill kendi collider �na �arp�yor diye
+
+                DefaultSkill.transform.position += 1.25f * transform.forward;   //at�lan skill kendi collider �na �arp�yor diye
                                                                                //karakterin y�z�n�n d�n�k oldu�u yere offset verildi. 
                 DefaultSkill.transform.localScale = new Vector3(4, 2, 4);
                 DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
@@ -57,7 +52,6 @@ public class ai : MonoBehaviour
                 attackStatus = true;
 
                 AttackCooldown = false;
-                follow = false;
                 Invoke("ResetCooldown", coolDownConstant);
                 
             }
@@ -76,13 +70,5 @@ public class ai : MonoBehaviour
     {
         AttackCooldown = true;
     }
-
-
-#if UNITY_EDITOR
-    private void OnGrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position , radius);
-    }
-#endif
 
 }
