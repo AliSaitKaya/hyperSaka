@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PanelController : MonoBehaviour
 {
@@ -9,7 +11,12 @@ public class PanelController : MonoBehaviour
     //public GameObject _LevelsSelectionPanel;
     public GameObject _FailPanel;
     public GameObject _SuccessPanel;
+    public Button TurnToMenuButton;
+    public Button NextLevelButton;
     public GameObject _DeathLogPanel;
+
+    public  Text AliveCountText;
+    public static int AliveCountNumber;
     //public GameObject _SettingsPanel;
 
     List<GameObject> Panels = new List<GameObject>();
@@ -17,12 +24,16 @@ public class PanelController : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        AliveCountNumber=int.Parse(AliveCountText.text);
+        
     }
 
     public void Start()
     {
           //Panels.Add(_StartPanel);
         //Panels.Add(_LevelsSelectionPanel);
+        TurnToMenuButton.onClick.AddListener(TurnToMenuButtonFunc);
+        NextLevelButton.onClick.AddListener(NextLevelButtonFunc);
         Panels.Add(_FailPanel);
         Panels.Add(_SuccessPanel);
         Panels.Add(_DeathLogPanel);
@@ -30,6 +41,23 @@ public class PanelController : MonoBehaviour
 
         SetCloseOpenAllPanels();
         SetDeathLogPanel(true);
+    }
+    private void TurnToMenuButtonFunc()
+    {
+        print("map1calisti");
+        SceneManager.LoadScene(0);
+        
+    }
+    private void NextLevelButtonFunc()
+    {
+        print("map1calisti");
+        SceneManager.LoadScene(0);
+        
+    }
+
+    public void AliveCountUpdate()
+    {
+        AliveCountText.text=AliveCountNumber.ToString();
     }
 
     /*public void SetStartPanel(bool open)

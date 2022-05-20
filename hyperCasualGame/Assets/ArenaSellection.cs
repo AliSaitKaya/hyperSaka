@@ -10,7 +10,11 @@ public class ArenaSellection : MonoBehaviour
     // Start is called before the first frame update
     public  GameObject ArenaSellectionPanel;
     public  Button Map1Button;
+    public  Button Map2Button;
+    public  Button Map3Button;
+    public  Button Map4Button;
     public  Button PlayButton;
+   
 
     public  GameObject Playobject;
     
@@ -20,7 +24,13 @@ public class ArenaSellection : MonoBehaviour
     
       
       Map1Button.onClick.AddListener(Map1ButtonFunc);
+      Map2Button.onClick.AddListener(Map2ButtonFunc);
       PlayButton.onClick.AddListener(PlayButtonFunc);
+
+       
+      Map2Button.enabled=false;
+      Map3Button.enabled=false;    //save sistemi gelince düzelt burayi
+      Map4Button.enabled=false;
       //print(SceneManager.GetActiveScene().buildIndex);
      /* if (SceneManager.GetActiveScene().buildIndex==1)
       {
@@ -36,10 +46,20 @@ public class ArenaSellection : MonoBehaviour
         LoadNextScene();
         
     }
+    private void Map2ButtonFunc()
+    {
+        print("map2calisti");
+        //LoadNextScene();
+        
+    }
     private void PlayButtonFunc()
     {
         print("playbuttoncalisti");
         ArenaSellectionPanel.SetActive(true);
+        
+        SettingsControl SettingsDeneme=gameObject.GetComponent<SettingsControl>();
+        SettingsDeneme.SettingsPanel.SetActive(false);
+        SettingsDeneme.SettingsButton.gameObject.SetActive(false);
         
         
     }

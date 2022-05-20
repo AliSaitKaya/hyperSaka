@@ -15,6 +15,7 @@ public class DeathLogPanelController : MonoBehaviour
     public Image DeathSkull1;
     public Image DeathSkull2;
     public Image DeathSkull3;
+    
 
 
     void Start()

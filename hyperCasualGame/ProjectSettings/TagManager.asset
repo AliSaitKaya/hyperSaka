@@ -33,6 +33,7 @@ TagManager:
   - WaterballAnim
   - LightningballAnim
   - mainmenumusic
+  - AliveCountText
   layers:
   - Default
   - TransparentFX

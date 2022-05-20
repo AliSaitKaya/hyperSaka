@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class enemyHealthSystem1 : MonoBehaviour
 {
+    public PanelController PanelSc;
     HealthController healthController = new HealthController(100, 100);
     Slider healthSlider;
     Text maxHealthText;
@@ -17,6 +18,8 @@ public class enemyHealthSystem1 : MonoBehaviour
     public Animator animator;
     GameObject gravestone;
     Text deneme;
+
+    public static int AliveCount;
     bool graveStoneControl = true; //s�rekli graveStone koymas�n diye
 
     public void Awake()
@@ -78,7 +81,14 @@ public class enemyHealthSystem1 : MonoBehaviour
      public void DeadStatus()
     {
         //TODO ali. Ana karakter �l�rse sorun var.
-
+        //print(PanelController.AliveCountText.text);
+        PanelController.AliveCountNumber=PanelController.AliveCountNumber-1;
+        PanelSc.AliveCountUpdate();
+        if (PanelController.AliveCountNumber==1)
+        {
+            LevelPassed();
+        }
+           
         print(this.name + "is dead");
          this.GetComponent<BoxCollider>().enabled = false;
          this.healthSlider.gameObject.SetActive(false);
@@ -96,6 +106,16 @@ public class enemyHealthSystem1 : MonoBehaviour
 
         GameObject graveStone = GameObject.Instantiate(gravestone);
         graveStone.transform.position = transform.position;
+
+        if (PanelController.AliveCountNumber==1)            //son büyücü ölünce buraya girsin ?
+        {
+            LevelPassed();
+        }
+    }
+    void LevelPassed()
+    {
+        PanelController.Instance.SetCloseOpenAllPanels();
+        PanelController.Instance.SetSuccessPanel(true);
     }
     public void DeathLogTexts()
     {

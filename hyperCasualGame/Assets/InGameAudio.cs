@@ -6,11 +6,21 @@ public class InGameAudio : MonoBehaviour
 {
     // Start is called before the first frame update
     private AudioSource ingameaudio;
+    
     void Start()
     {
+        
+        
+        
+        
+
          Destroy(GameObject.FindGameObjectWithTag("mainmenumusic"));
+         
+         
          ingameaudio = GetComponent<AudioSource>();
          ingameaudio.Play();
+         ingameaudio.volume=AudioPlayerManager.MusicLevelFromAudioPlayer;
+         
     }
 
     // Update is called once per frame

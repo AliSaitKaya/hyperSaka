@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class SceneInGameManager : MonoBehaviour
 {
-    private AudioSource ingameaudio;
+    //private AudioSource ingameaudio;
     
    //public Button playButton;
      void Start()
     {
 
         //AudioPlayerManager.mainmenuaudio
-        ingameaudio = GetComponent<AudioSource>();
-         ingameaudio.Play();
+        //ingameaudio = GetComponent<AudioSource>();
+         //ingameaudio.Play();
       //playButton.onClick.AddListener(playButtonFunc);
       //print(SceneManager.GetActiveScene().buildIndex);
       if (SceneManager.GetActiveScene().buildIndex==5)
