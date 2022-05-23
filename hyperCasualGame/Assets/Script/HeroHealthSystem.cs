@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class HeroHealthSystem : MonoBehaviour
 {
@@ -67,6 +68,13 @@ public class HeroHealthSystem : MonoBehaviour
     }
     public void InvokeDamage()
     {
+        if(SceneManager.GetActiveScene().name=="MarketScene")
+        {
+            return;
+        }
+        
+
+        
         if (DamageCircle.IsOutsideCircle(transform.position) && !healthController.IsDead())
         {
             healthController.Damage(5);
