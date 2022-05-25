@@ -35,6 +35,9 @@ TagManager:
   - mainmenumusic
   - AliveCountText
   - enemyWizardCanAttackCollider
+  - FullHpPanel
+  - MageBuffPanel
+  - MarketNextScene
   layers:
   - Default
   - TransparentFX

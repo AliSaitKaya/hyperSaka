@@ -15,6 +15,9 @@ public class PanelController : MonoBehaviour
     public Button NextLevelButton;
     public GameObject _DeathLogPanel;
 
+    public GameObject _FullHpPanel;
+    public GameObject _MageBuffPanel;
+
     public  Text AliveCountText;
     public static int AliveCountNumber;
     //public GameObject _SettingsPanel;
@@ -25,6 +28,7 @@ public class PanelController : MonoBehaviour
     {
         Instance = this;
         AliveCountNumber=int.Parse(AliveCountText.text);
+       
         
     }
 
@@ -37,6 +41,9 @@ public class PanelController : MonoBehaviour
         Panels.Add(_FailPanel);
         Panels.Add(_SuccessPanel);
         Panels.Add(_DeathLogPanel);
+
+        Panels.Add(_FullHpPanel);
+        Panels.Add(_MageBuffPanel);
         //   Panels.Add(_SettingsPanel);
 
         SetCloseOpenAllPanels();
@@ -87,6 +94,14 @@ public class PanelController : MonoBehaviour
     {
         _DeathLogPanel.SetActive(open);
     }
+    public void SetFullHpPanel(bool open)
+    {
+        _FullHpPanel.SetActive(open);
+    }
+    public void SetMageBuffPanel(bool open)
+    {
+        _MageBuffPanel.SetActive(open);
+    }
 
     /*public void SetSettingsPanel(bool open)
     {
@@ -99,6 +114,38 @@ public class PanelController : MonoBehaviour
         {
             panel.SetActive(false);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        print("xd");
+        print(other.gameObject.name);
+        if (other.gameObject.tag == "FullHpPanel")
+        {
+            SetCloseOpenAllPanels();
+            SetFullHpPanel(true);
+            
+        }
+        else if (other.gameObject.tag == "MageBuffPanel")
+        {
+            SetCloseOpenAllPanels();
+            SetMageBuffPanel(true);
+            
+        }
+        else if (other.gameObject.tag == "MarketNextScene")
+        {
+            SetCloseOpenAllPanels();
+            print("hey");
+            
+        }
+
+       /* else if (other.gameObject.tag == "MageBuffPanel")
+        {
+            SetMageBuffPanel(true);
+            SetCloseOpenAllPanels();
+        }*/
+       
+       
     }
 
 }

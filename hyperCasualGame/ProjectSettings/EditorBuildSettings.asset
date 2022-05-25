@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScreen.unity
     guid: 40f3bedc01b550948a1c7f2f94bc0733
   - enabled: 1
-    path: Assets/Scenes/InGame.unity
-    guid: 8076a89519997074ca0d68b9babe76f5
+    path: Assets/Scenes/MarketScene.unity
+    guid: 15933fdd05708e8499b586c4f3101fa8
+  - enabled: 1
+    path: Assets/Scenes/Map1ve1.unity
+    guid: d32c61bb6f750e441ab731fcb69403c1
   m_configObjects: {}
