@@ -176,5 +176,13 @@ public class PanelController : MonoBehaviour
        
        
     }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "FullHpPanel" || other.gameObject.tag == "MageBuffPanel")
+        {
+            SetCloseOpenAllPanels();
+
+        }
+    }
 
 }
