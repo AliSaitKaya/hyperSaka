@@ -111,15 +111,22 @@ public class enemyHealthSystem1 : MonoBehaviour
         GameObject graveStone = GameObject.Instantiate(gravestone);
         graveStone.transform.position = transform.position;
 
-        if (PanelController.AliveCountNumber==1)            //son büyücü ölünce buraya girsin ?
-        {
-            LevelPassed();
-        }
+        
     }
     void LevelPassed()
     {
         PanelController.Instance.SetCloseOpenAllPanels();
-        PanelController.Instance.SetSuccessPanel(true);
+        if (ArenaSellection.CurrentStageIndex==3)
+        {
+            ArenaSellection.SavedMapIndex=ArenaSellection.SavedMapIndex+1;
+            print(ArenaSellection.SavedMapIndex);
+            PanelController.Instance.SetMapCompletedPanel(true);
+        }
+        else
+        {
+            PanelController.Instance.SetSuccessPanel(true);
+        }
+        
     }
     public void DeathLogTexts()
     {
