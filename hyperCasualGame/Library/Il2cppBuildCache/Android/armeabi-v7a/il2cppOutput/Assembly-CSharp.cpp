@@ -13948,6 +13948,60 @@ IL_0098:
 		return;
 	}
 }
+// System.Void PanelController::OnTriggerExit(UnityEngine.Collider)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PanelController_OnTriggerExit_m993AFE69981195CA3B6C133C50E9216054CADA4C (PanelController_t680C04009837CA28BD14657765EC2AAE385ED0EA * __this, Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * ___other0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral792FB6EC13A75EC549D7AE0F2170F9DE63B1789A);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA5B7434523C7A6EAB9962726CAEB16EA6CB01666);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// if (other.gameObject.tag == "FullHpPanel" || other.gameObject.tag == "MageBuffPanel")
+		Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * L_0 = ___other0;
+		NullCheck(L_0);
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_1;
+		L_1 = Component_get_gameObject_m55DC35B149AFB9157582755383BA954655FE0C5B(L_0, /*hidden argument*/NULL);
+		NullCheck(L_1);
+		String_t* L_2;
+		L_2 = GameObject_get_tag_mC21F33D368C18A631040F2887036C678B96ABC33(L_1, /*hidden argument*/NULL);
+		bool L_3;
+		L_3 = String_op_Equality_m2B91EE68355F142F67095973D32EB5828B7B73CB(L_2, _stringLiteralA5B7434523C7A6EAB9962726CAEB16EA6CB01666, /*hidden argument*/NULL);
+		if (L_3)
+		{
+			goto IL_002e;
+		}
+	}
+	{
+		Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * L_4 = ___other0;
+		NullCheck(L_4);
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_5;
+		L_5 = Component_get_gameObject_m55DC35B149AFB9157582755383BA954655FE0C5B(L_4, /*hidden argument*/NULL);
+		NullCheck(L_5);
+		String_t* L_6;
+		L_6 = GameObject_get_tag_mC21F33D368C18A631040F2887036C678B96ABC33(L_5, /*hidden argument*/NULL);
+		bool L_7;
+		L_7 = String_op_Equality_m2B91EE68355F142F67095973D32EB5828B7B73CB(L_6, _stringLiteral792FB6EC13A75EC549D7AE0F2170F9DE63B1789A, /*hidden argument*/NULL);
+		if (!L_7)
+		{
+			goto IL_0034;
+		}
+	}
+
+IL_002e:
+	{
+		// SetCloseOpenAllPanels();
+		PanelController_SetCloseOpenAllPanels_mB5C3289166CC60EB22FE8B79CE30F2D95EAA2AB6(__this, /*hidden argument*/NULL);
+	}
+
+IL_0034:
+	{
+		// }
+		return;
+	}
+}
 // System.Void PanelController::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PanelController__ctor_m7F6193FDAB0DF995BF33332880B6E629368C6AD1 (PanelController_t680C04009837CA28BD14657765EC2AAE385ED0EA * __this, const RuntimeMethod* method)
 {
