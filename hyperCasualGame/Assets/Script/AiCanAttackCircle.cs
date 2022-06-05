@@ -16,11 +16,12 @@ public class AiCanAttackCircle : MonoBehaviour
   void OnTriggerEnter(Collider other)
   {
 
-    print("triggered.");
     if (other.CompareTag("enemyWizard") || other.CompareTag("Wizard") || other.CompareTag("enemyWizardCanAttackCollider"))
     {
-        GetComponentInParent<ai>().Target = other.gameObject;
-        print("target changed.");
+            if (other.GetComponent<enemyHealthSystem1>() == null || other.GetComponent<enemyHealthSystem1>().IsDead())
+                GetComponentInParent<ai>().Target = null;
+            else
+                GetComponentInParent<ai>().Target = other.gameObject;
     }
   }
   

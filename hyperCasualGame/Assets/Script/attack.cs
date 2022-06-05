@@ -14,9 +14,9 @@ public class attack : MonoBehaviour
     public ParticleSystem Tornado;
 
     public GameObject TornadoObject;
-    
-    
-    
+    public GameObject BlackHoleBall;
+    public List<GameObject> VFXs = new List<GameObject>();
+
 
     public Button attackButton;
 
@@ -31,7 +31,7 @@ public class attack : MonoBehaviour
     private float coolDownConstant=1.0f;
     private float timeLeftCD;
     private double timeLeftrounded;
-    int AttackSelectionIndex = -1;
+    int AttackSelectionIndex = 0;
 
     public static Vector3 TornadoRotationCek;
 
@@ -59,19 +59,19 @@ public class attack : MonoBehaviour
 
     private void lightningAttackSelect()
     {
-        AttackSelectionIndex = 3;
+        AttackSelectionIndex = 2;
         SkillSelectionPanel.SetActive(false);
     }
 
     private void waterAttackSelect()
     {
-        AttackSelectionIndex = 2;
+        AttackSelectionIndex = 1;
         SkillSelectionPanel.SetActive(false);
     }
 
     private void fireAttackSelect()
     {
-        AttackSelectionIndex = 1;
+        AttackSelectionIndex = 0;
         SkillSelectionPanel.SetActive(false);
     }
 
@@ -95,82 +95,101 @@ public class attack : MonoBehaviour
 
     public void Attack()
     {
-
+        GameObject vfx;
 
         //print(this.name+"usedattack");
         if (AttackCooldown==false)
         {
-                    SkillSelectionPanel.SetActive(true);
-                    attackStatus = true;
-                    switch(AttackSelectionIndex)
-                    {
+            SkillSelectionPanel.SetActive(true);
+            attackStatus = true;
+            
+            //skill seçimi ve seçilen skilin kopyalanması
+            vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
+            vfx.GetComponent<ProjectileMoveScript>().speed = 10;
+            vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            vfx.transform.position += 1.25f * transform.forward;
+            vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
-                    case 0:
+          
+            //switch (AttackSelectionIndex)
+            //        {
 
-                    DefaultBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                    DefaultBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+            //        case 0:
+            //        /*
+            //        DefaultBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+            //        DefaultBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+
+            //        //var DefaultColor=DefaultSkill.main;
+            //        //DefaultColor.startColor = new Color( 0.33f,0.64f,0.64f,1f ); renk degistirme lazımsa 
                     
-                    //var DefaultColor=DefaultSkill.main;
-                    //DefaultColor.startColor = new Color( 0.33f,0.64f,0.64f,1f ); renk degistirme lazımsa 
-                    
-                                                                                       
-                    DefaultBall.transform.localScale = new Vector3(2,2,2);
-                    DefaultBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+
+
+            //        DefaultBall.transform.localScale = new Vector3(2,2,2);
+            //        DefaultBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                         
-                    DefaultBall.Play();
-                    break;
+            //        DefaultBall.Play();
 
-                    case 1:
+            //        */
 
-                    FireBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                    FireBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+            //        break;
+
+            //        case 1:
+            //        /*
+            //        FireBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+            //        FireBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
                                                                             
-                    FireBall.transform.localScale = new Vector3(3,2,3);
-                    FireBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+            //        FireBall.transform.localScale = new Vector3(3,2,3);
+            //        FireBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                         
-                    FireBall.Play();
-                        
-                    break;
+            //        FireBall.Play();
+            //            */
+            //        skillParticleSelection(FireBall);
+            //        break;
 
-                    case 2:
-                    WaterBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                    WaterBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+            //        case 2:
+            //        /*
+            //        WaterBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+            //        WaterBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
                                                                             
-                    WaterBall.transform.localScale = new Vector3(3,2,3);
-                    WaterBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+            //        WaterBall.transform.localScale = new Vector3(3,2,3);
+            //        WaterBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                         
-                    WaterBall.Play();
-                    break;
+            //        WaterBall.Play();
+            //        */
+            //        skillParticleSelection(WaterBall);
+            //        break;
 
-                    case 3:
-                    LightningBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                    LightningBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+            //        case 3:
+            //        /*
+            //        LightningBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+            //        LightningBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
                                                                             
-                    LightningBall.transform.localScale = new Vector3(3,2,3);
-                    LightningBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
+            //        LightningBall.transform.localScale = new Vector3(3,2,3);
+            //        LightningBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
                         
-                    LightningBall.Play();
-                    break;
+            //        LightningBall.Play();
+            //        */
+            //        skillParticleSelection(LightningBall);
+            //        break;
 
-                    case 4:
-                        TornadoObject.SetActive(true);
-                        TornadoRotationCek =new Vector3(0,0,0);
-                        TornadoRotationCek.x=this.transform.localRotation.eulerAngles.y;
+            //        case 4:
+            //            TornadoObject.SetActive(true);
+            //            TornadoRotationCek =new Vector3(0,0,0);
+            //            TornadoRotationCek.x=this.transform.localRotation.eulerAngles.y;
                    
-                     
                     
-                    
-                        Tornado.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-                        Tornado.transform.position += 2 * transform.forward;
+            //            Tornado.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+            //            Tornado.transform.position += 2 * transform.forward;
                     
 
-                        Tornado.Play();
+            //            Tornado.Play();
                                 
-                        InvokeRepeating("TornadoMove",0f,0.01f);
-                        Invoke("cancelTornado",3f);
-                    break;
+            //            InvokeRepeating("TornadoMove",0f,0.01f);
+            //            Invoke("cancelTornado",3f);
+            //        break;
         
-                    }
+            //        }
+        
            // StartCoroutine(Shake(.15f, 2f));  // vibration close
 
             Invoke("ResetCooldown",coolDownConstant);
@@ -181,6 +200,17 @@ public class attack : MonoBehaviour
  
         }
         
+    }
+
+    void skillParticleSelection(ParticleSystem skill)
+    {
+        skill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        skill.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
+
+        skill.transform.localScale = new Vector3(3, 2, 3);
+        skill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+        skill.Play();
     }
      void ResetCooldown()
      {

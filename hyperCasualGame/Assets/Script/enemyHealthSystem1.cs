@@ -106,6 +106,7 @@ public class enemyHealthSystem1 : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
         GetComponentInChildren<AiCanAttackCircle>().enabled = false;
+        GetComponentInChildren<AiCanAttackCircle>().GetComponent<BoxCollider>().enabled = false;
         //Destroy(gameObject);
 
         GameObject graveStone = GameObject.Instantiate(gravestone);
@@ -160,6 +161,11 @@ public class enemyHealthSystem1 : MonoBehaviour
             HealthUpdate();
             explosionAnim.Play();
         }
+
+
+
+
+
        /* if (other.gameObject.tag == "fireballAnim")
         {
             //print("ENTER");
@@ -169,9 +175,35 @@ public class enemyHealthSystem1 : MonoBehaviour
             healthController.Damage(17);
         }*/
     }
-   /* void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
         
     {
+
+        if (other.gameObject.tag == "DefaultBallAnim" || other.gameObject.tag == "DefaultBallAnimAI")
+        {
+            healthController.Damage(50);
+            HealthUpdate();
+            explosionAnim.Play();
+        }
+        else if (other.gameObject.tag == "FireballAnim")
+        {
+            healthController.Damage(43);
+            HealthUpdate();
+            explosionAnim.Play();
+        }
+        else if (other.gameObject.tag == "WaterballAnim")
+        {
+            healthController.Damage(33);
+            HealthUpdate();
+            freezingAnim.Play();
+        }
+        else if (other.gameObject.tag == "LightningballAnim")
+        {
+            healthController.Damage(23);
+            HealthUpdate();
+            explosionAnim.Play();
+        }
+/*
         print("sa");
         if (other.gameObject.tag == "atesnova")
         {
@@ -183,7 +215,8 @@ public class enemyHealthSystem1 : MonoBehaviour
             print("ENTERdefaultanim");
             healthController.Damage(50);
         }
-    }*/
+        */
+    }
     void OnTriggerStay(Collider other)
     {
         //edit gelebilir

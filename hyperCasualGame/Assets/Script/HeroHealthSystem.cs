@@ -83,6 +83,11 @@ public class HeroHealthSystem : MonoBehaviour
         }
 
     }
+    public bool IsDead()
+    {
+        return healthController.IsDead();
+    }
+
     public void DeadStatus()
     {
 
@@ -140,9 +145,10 @@ public class HeroHealthSystem : MonoBehaviour
              healthController.Damage(17);
          }*/
     }
-    /* void OnCollisionEnter(Collision other)
+     void OnCollisionEnter(Collision other)
 
      {
+        /*
          print("sa");
          if (other.gameObject.tag == "atesnova")
          {
@@ -153,8 +159,34 @@ public class HeroHealthSystem : MonoBehaviour
          {
              print("ENTERdefaultanim");
              healthController.Damage(50);
-         }
-     }*/
+         }*/
+
+        if (other.gameObject.tag == "DefaultBallAnim" || other.gameObject.tag == "DefaultBallAnimAI")
+        {
+            healthController.Damage(50);
+            HealthUpdate();
+            explosionAnim.Play();
+        }
+        else if (other.gameObject.tag == "FireballAnim")
+        {
+            healthController.Damage(43);
+            HealthUpdate();
+            explosionAnim.Play();
+        }
+        else if (other.gameObject.tag == "WaterballAnim")
+        {
+            healthController.Damage(33);
+            HealthUpdate();
+            freezingAnim.Play();
+        }
+        else if (other.gameObject.tag == "LightningballAnim")
+        {
+            healthController.Damage(23);
+            HealthUpdate();
+            explosionAnim.Play();
+        }
+
+    }
     void OnTriggerStay(Collider other)
     {
         //edit gelebilir

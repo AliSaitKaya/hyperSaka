@@ -38,6 +38,8 @@ TagManager:
   - FullHpPanel
   - MageBuffPanel
   - MarketNextScene
+  - Bullet
+  - BlackHole
   layers:
   - Default
   - TransparentFX
