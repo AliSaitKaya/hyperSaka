@@ -16,7 +16,7 @@ public class enemyHealthSystem1 : MonoBehaviour
     ParticleSystem explosionAnim;
     ParticleSystem freezingAnim;
     public Animator animator;
-    GameObject gravestone;
+    public GameObject gravestone;
     Text deneme;
 
     public static int AliveCount;
@@ -35,8 +35,6 @@ public class enemyHealthSystem1 : MonoBehaviour
         poisonAnim.Stop();
         explosionAnim.Stop();
         freezingAnim.Stop();
-
-        gravestone = GameObject.FindGameObjectWithTag("Gravestone");
 
         healthSlider.value = healthController.GetHealthMax();
         maxHealthText.text = "" + healthController.GetHealthMax();

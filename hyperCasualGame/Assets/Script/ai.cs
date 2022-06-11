@@ -15,6 +15,9 @@ public class ai : MonoBehaviour
     private float coolDownConstant = 3f;
     private bool AttackCooldown = true;
     private bool attackStatus = false;
+    private bool setDestinationControl = false;
+    private bool setDestinationControlForAttackCooldown = false;
+
     int lastFrameCount;
     Vector3 firstTransformPosition;
     private void Start()
@@ -30,16 +33,16 @@ public class ai : MonoBehaviour
         animator.SetBool("attack", attackStatus);
         attackStatus = false;
 
-        agentCheckStopped();
-        agentCheckDestinationReached();
-        attack();
+        AgentCheckStopped();
+        AgentCheckDestinationReached();
+        Attack();
     }
-    void ResetCooldown()
+    private void ResetCooldown()
     {
         AttackCooldown = true;
     }
 
-    void agentCheckStopped()
+    private void AgentCheckStopped()
     {
 
         // eğer enemy bir yerde 50 frame boyunca takılı kalırsa yeni destination alıyor.
@@ -52,7 +55,7 @@ public class ai : MonoBehaviour
 
     }
 
-    void agentCheckDestinationReached()
+    private void AgentCheckDestinationReached()
     {    
         //hedefe vardığında yeni destination alması için gideceği yere kalan mesafesine bakıyor.
         if (agent.remainingDistance < 1)
@@ -62,39 +65,68 @@ public class ai : MonoBehaviour
 
     }
 
-    void attack()
+    private void Attack()
     {
         GameObject vfx;
 
         int AttackSelectionIndex = Random.Range(0,3); // 0 1 2 sayılarını random çıkarır.
 
-        if (AttackCooldown && Target != null)
+        //enemy savaş halinde circle dışında kalmayıp önceliği circle da kalmasına vermek için bu conditionu yazdık.
+        // kod update de sürekli buraya girmesin diye kontrol için boolean setDestinationControl eklendi.
+        if (DamageCircle.IsOutsideCircle(transform.position) && !setDestinationControl)
         {
-            agent.SetDestination(Target.transform.position);
-            transform.LookAt(Target.transform.position);
-
-
-            vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
-            vfx.GetComponent<ProjectileMoveScript>().speed = 10;
-            vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            vfx.transform.position += 1.25f * transform.forward;
-            vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
-
-
-            /*eski animasyonlu atak
-            DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-
-            DefaultSkill.transform.position += 1.25f * transform.forward;   //at�lan skill kendi collider �na �arp�yor diye
-                                                                            //karakterin y�z�n�n d�n�k oldu�u yere offset verildi. 
-            DefaultSkill.transform.localScale = new Vector3(4, 2, 4);
-            DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
-            DefaultSkill.Play();
-            */
-            attackStatus = true;
-
-            AttackCooldown = false;
-            Invoke("ResetCooldown", coolDownConstant);
+            agent.SetDestination(enemyPathMovement.Instance.GetRandomPoint());
+            setDestinationControl = true;
+            return;
         }
+        else if (!DamageCircle.IsOutsideCircle(transform.position))
+        {
+            setDestinationControl = false;
+        }
+
+
+        if (Target != null)
+        {
+            if (AttackCooldown)
+            {
+                agent.SetDestination(Target.transform.position);
+                transform.LookAt(Target.transform.position);
+
+                //kullanacağı skili prefabtan çekip kopyalıyor.
+                vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
+                vfx.GetComponent<ProjectileMoveScript>().speed = 10;
+                vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                vfx.transform.position += 1.25f * transform.forward;
+                vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+                //skili attıktan sonra hedefin olduğu yerin tam ters yönüne gitmesi için .
+                agent.SetDestination(Target.transform.position * -1);
+
+
+                //eski animasyonlu atak
+                /*
+                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+
+                DefaultSkill.transform.position += 1.25f * transform.forward;   //at�lan skill kendi collider �na �arp�yor diye
+                                                                                //karakterin y�z�n�n d�n�k oldu�u yere offset verildi. 
+                DefaultSkill.transform.localScale = new Vector3(4, 2, 4);
+                DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+                DefaultSkill.Play();
+                */
+                attackStatus = true;
+
+                AttackCooldown = false;
+                setDestinationControlForAttackCooldown = false;
+                Invoke("ResetCooldown", coolDownConstant);
+            }
+            else if(!setDestinationControlForAttackCooldown) //sürekli girmesin diye setDestinationControlForAttackCooldown değişkeni ile kontrol ediyoruz.
+            {
+                //enemy nin görüş alanı içerisinde hedef varsa ve cooldown dolmadıysa ters yönde kaçması için set destination veriyoruz.
+                agent.SetDestination(Target.transform.position * -1);
+                setDestinationControlForAttackCooldown = true;
+            }
+        }
+ 
 
     }
 }

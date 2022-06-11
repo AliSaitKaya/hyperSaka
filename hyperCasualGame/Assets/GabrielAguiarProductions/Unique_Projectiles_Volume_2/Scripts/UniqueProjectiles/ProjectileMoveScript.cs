@@ -76,7 +76,12 @@ public class ProjectileMoveScript : MonoBehaviour {
 				Destroy (muzzleVFX, psChild.main.duration);
 			}
 		}
-	}
+
+ 
+        StartCoroutine(DestroyParticle(1f));
+
+
+    }
 
 	void FixedUpdate () {
         if (target != null)
