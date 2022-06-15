@@ -80,8 +80,8 @@ public class ProjectileMoveScript : MonoBehaviour {
 			}
 		}
 
- 
-        StartCoroutine(DestroyParticle(1f));
+    
+        StartCoroutine(DestroyParticleIfDontHit(1f));
 
 
     }
@@ -171,6 +171,66 @@ public class ProjectileMoveScript : MonoBehaviour {
 		yield return new WaitForSeconds (waitTime);
 		Destroy (gameObject);
 	}
+
+
+    public IEnumerator DestroyParticleIfDontHit(float waitTime)
+    {
+  
+        yield return new WaitForSeconds(waitTime);
+
+        if (trails.Count > 0)
+        {
+            for (int i = 0; i < trails.Count; i++)
+            {
+                trails[i].transform.parent = null;
+                var ps = trails[i].GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    ps.Stop();
+                    Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+                }
+            }
+        }
+
+
+        speed = 0;
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, transform.position);
+        Vector3 pos = transform.position;
+
+        var hitVFX = Instantiate(hitPrefab, pos, rot) as GameObject;
+
+        var psChild = hitVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
+        Destroy(hitVFX, psChild.main.duration);
+  
+
+
+
+
+        if (transform.childCount > 0)
+        {
+            List<Transform> tList = new List<Transform>();
+
+            foreach (Transform t in transform.GetChild(0).transform)
+            {
+                tList.Add(t);
+            }
+
+            while (transform.GetChild(0).localScale.x > 0)
+            {
+                yield return new WaitForSeconds(0.01f);
+                transform.GetChild(0).localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                for (int i = 0; i < tList.Count; i++)
+                {
+                    tList[i].localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(0f);
+        Destroy(gameObject);
+    }
 
     public void SetTarget (GameObject trg, RotateToMouseScript rotateTo)
     {
