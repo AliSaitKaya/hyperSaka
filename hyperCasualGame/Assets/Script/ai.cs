@@ -11,6 +11,7 @@ public class ai : MonoBehaviour
     public Animator animator;
     public ParticleSystem DefaultSkill;
     public List<GameObject> VFXs = new List<GameObject>();
+    public int AiKillCount=0;
 
     private float coolDownConstant = 3f;
     private bool AttackCooldown = true;
@@ -41,6 +42,11 @@ public class ai : MonoBehaviour
     {
         AttackCooldown = true;
     }
+    public void aiKillMethod()
+    {
+        AiKillCount++;
+        print(AiKillCount);
+    }
 
     private void AgentCheckStopped()
     {
@@ -69,7 +75,8 @@ public class ai : MonoBehaviour
     {
         GameObject vfx;
 
-        int AttackSelectionIndex = Random.Range(0,3); // 0 1 2 sayılarını random çıkarır.
+       // int AttackSelectionIndex = Random.Range(0,22); // 0 1 2 .. 21 sayılarını random çıkarır.
+        int AttackSelectionIndex=0; //geçici olarak default atıyorlar sil 
 
         //enemy savaş halinde circle dışında kalmayıp önceliği circle da kalmasına vermek için bu conditionu yazdık.
         // kod update de sürekli buraya girmesin diye kontrol için boolean setDestinationControl eklendi.
@@ -95,6 +102,8 @@ public class ai : MonoBehaviour
                 //kullanacağı skili prefabtan çekip kopyalıyor.
                 vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
                 vfx.GetComponent<ProjectileMoveScript>().speed = 10;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=this.name;
+            //print(vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
                 vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 vfx.transform.position += 1.25f * transform.forward;
                 vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);

@@ -4994,7 +4994,7 @@ GameObject:
   - component: {fileID: 54901962720342750}
   m_Layer: 0
   m_Name: vfx_Projectile_WaterBall01_Red_Mobile
-  m_TagString: FireballAnim
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5038,6 +5038,7 @@ MonoBehaviour:
   speed: 25
   accuracy: 95
   fireRate: 2
+  ProjectileAtanKisi: 
   muzzlePrefab: {fileID: 1400596008876454, guid: b6ee662cfd5347942b137f6b665bdb3f, type: 3}
   hitPrefab: {fileID: 1752193161050688, guid: c8b42fb27a9545c438c238b061a5fc30, type: 3}
   trails:

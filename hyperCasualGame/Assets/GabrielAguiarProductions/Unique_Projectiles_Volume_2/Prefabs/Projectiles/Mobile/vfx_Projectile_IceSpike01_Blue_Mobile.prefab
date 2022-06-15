@@ -5227,7 +5227,7 @@ GameObject:
   - component: {fileID: 54187506388765952}
   m_Layer: 0
   m_Name: vfx_Projectile_IceSpike01_Blue_Mobile
-  m_TagString: LightningballAnim
+  m_TagString: Skill17
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5271,6 +5271,7 @@ MonoBehaviour:
   speed: 25
   accuracy: 95
   fireRate: 2
+  ProjectileAtanKisi: 
   muzzlePrefab: {fileID: 1629254004720096, guid: b85e73b3822d8a74694b6fc83d755acb, type: 3}
   hitPrefab: {fileID: 1639039892610070, guid: 00fbe62cd9178f44f8cb51f188f823ca, type: 3}
   trails:

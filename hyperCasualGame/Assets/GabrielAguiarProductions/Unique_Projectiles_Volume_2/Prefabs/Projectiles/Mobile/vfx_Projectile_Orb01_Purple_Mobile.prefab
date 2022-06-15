@@ -43895,7 +43895,7 @@ GameObject:
   - component: {fileID: 54529575764276070}
   m_Layer: 0
   m_Name: vfx_Projectile_Orb01_Purple_Mobile
-  m_TagString: DefaultBallAnimAI
+  m_TagString: Skill9
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43943,6 +43943,7 @@ MonoBehaviour:
   speed: 25
   accuracy: 95
   fireRate: 2
+  ProjectileAtanKisi: 
   muzzlePrefab: {fileID: 1895758408602300, guid: f66d6fb059857d34885fb5adcdd08f9e, type: 3}
   hitPrefab: {fileID: 1505291119080758, guid: 07251d7a228b3604696f3afbbde7fdc8, type: 3}
   trails:

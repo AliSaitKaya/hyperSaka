@@ -4831,7 +4831,7 @@ GameObject:
   - component: {fileID: 54534298682483880}
   m_Layer: 0
   m_Name: vfx_Projectile_Orb03_Red_Mobile
-  m_TagString: DefaultBallAnimAI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4876,6 +4876,7 @@ MonoBehaviour:
   speed: 22
   accuracy: 95
   fireRate: 2
+  ProjectileAtanKisi: 
   muzzlePrefab: {fileID: 1105539375836436, guid: d697a45902a9b624babee1be11d61d77, type: 3}
   hitPrefab: {fileID: 1964876076570410, guid: 01917fb1b2a1cf442a7d8113b03019af, type: 3}
   trails:

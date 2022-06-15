@@ -15,14 +15,16 @@ public class attack : MonoBehaviour
 
     public GameObject TornadoObject;
     public GameObject BlackHoleBall;
+    public int wizardKillCount=0;
+    public Text wizardKillText;
     public List<GameObject> VFXs = new List<GameObject>();
 
 
     public Button attackButton;
 
-    public Button fireAttackButton;
-    public Button waterAttackButton;
-    public Button lightningAttackButton;
+    public Button FireSelectButton;
+    public Button IceSelectButton;
+    public Button ArcaneSelectButton;
     
     public GameObject SkillSelectionPanel ;
     private bool attackStatus = false ;
@@ -41,9 +43,9 @@ public class attack : MonoBehaviour
     void Start()
     {
         attackButton.onClick.AddListener(Attack);
-        fireAttackButton.onClick.AddListener(fireAttackSelect);
-        waterAttackButton.onClick.AddListener(waterAttackSelect);
-        lightningAttackButton.onClick.AddListener(lightningAttackSelect);
+        FireSelectButton.onClick.AddListener(FireSelect);
+        IceSelectButton.onClick.AddListener(IceSelect);
+        ArcaneSelectButton.onClick.AddListener(ArcaneSelect);
         SkillSelectionPanel.SetActive(false);
 
         FireBall.Stop();
@@ -57,21 +59,22 @@ public class attack : MonoBehaviour
     
     }
 
-    private void lightningAttackSelect()
+    private void ArcaneSelect()
+    {
+        //AttackSelectionIndex = 3;
+        AttackSelectionIndex=AttackSelectionIndex+1;
+        SkillSelectionPanel.SetActive(false);
+    }
+
+    private void IceSelect()
     {
         AttackSelectionIndex = 2;
         SkillSelectionPanel.SetActive(false);
     }
 
-    private void waterAttackSelect()
+    private void FireSelect()
     {
         AttackSelectionIndex = 1;
-        SkillSelectionPanel.SetActive(false);
-    }
-
-    private void fireAttackSelect()
-    {
-        AttackSelectionIndex = 0;
         SkillSelectionPanel.SetActive(false);
     }
 
@@ -106,6 +109,12 @@ public class attack : MonoBehaviour
             //skill seçimi ve seçilen skilin kopyalanması
             vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
             vfx.GetComponent<ProjectileMoveScript>().speed = 10;
+            vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=this.name;
+            //print(vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
+            
+            
+        
+            
             vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
             vfx.transform.position += 1.25f * transform.forward;
             vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
@@ -233,6 +242,13 @@ public class attack : MonoBehaviour
         
         
 
+     }
+
+     public void wizardKillMethod()
+     {
+        wizardKillCount++;
+        print(wizardKillCount);
+        wizardKillText.text=wizardKillCount.ToString();
      }
      void cancelTornado()
      {

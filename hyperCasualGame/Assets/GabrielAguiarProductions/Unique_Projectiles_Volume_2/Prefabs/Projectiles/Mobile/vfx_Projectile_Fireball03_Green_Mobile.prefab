@@ -29156,7 +29156,7 @@ GameObject:
   - component: {fileID: 54412898189999056}
   m_Layer: 0
   m_Name: vfx_Projectile_Fireball03_Green_Mobile
-  m_TagString: FireballAnim
+  m_TagString: Skill15
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29206,6 +29206,7 @@ MonoBehaviour:
   speed: 20
   accuracy: 95
   fireRate: 2
+  ProjectileAtanKisi: 
   muzzlePrefab: {fileID: 1455996714896644, guid: 8821cd44d492d784dbd8a2cd898b9ef7, type: 3}
   hitPrefab: {fileID: 1090680790622714, guid: 3e3b09205b1f12348a2be9e46d0582c9, type: 3}
   trails:

@@ -17,6 +17,9 @@ public class enemyHealthSystem1 : MonoBehaviour
     ParticleSystem freezingAnim;
     public Animator animator;
     public GameObject gravestone;
+
+    public GameObject AttackScripterisim;
+    public GameObject aiScriptErisim;
     Text deneme;
 
     public static int AliveCount;
@@ -176,44 +179,217 @@ public class enemyHealthSystem1 : MonoBehaviour
     void OnCollisionEnter(Collision other)
         
     {
+        switch(other.gameObject.tag)
+        {
+            case "Skill0":
+            
+            healthController.Damage(73);
+            HealthUpdate();
+            freezingAnim.Play();
+            //print("enemywizardcani gitti");
+            if (IsDead())
+            {
+                if (other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=="Wizard")
+                {
+                    AttackScripterisim = GameObject.Find("Wizard");
+                    AttackScripterisim.GetComponent<attack>().wizardKillMethod();
+                }
+                else
+                {
+                    aiScriptErisim=GameObject.Find(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
+                    aiScriptErisim.GetComponent<ai>().aiKillMethod();
+                }
+                //print(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
+            }
+            
 
-        if (other.gameObject.tag == "DefaultBallAnim" || other.gameObject.tag == "DefaultBallAnimAI")
-        {
-            healthController.Damage(50);
+            break;
+
+            case "Skill1":
+
+            healthController.Damage(10);
             HealthUpdate();
-            explosionAnim.Play();
-        }
-        else if (other.gameObject.tag == "FireballAnim")
-        {
-            healthController.Damage(43);
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill2":
+
+            healthController.Damage(10);
             HealthUpdate();
-            explosionAnim.Play();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill3":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill4":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill5":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill6":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill7":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill9":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill10":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill11":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill12":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill13":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill14":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill15":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill16":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill17":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill18":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill19":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill20":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            case "Skill21":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            freezingAnim.Play();
+            
+            break;
+
+            
+
+
         }
-        else if (other.gameObject.tag == "WaterballAnim")
+        /*if (other.gameObject.tag == "Skill0")
         {
             healthController.Damage(33);
             HealthUpdate();
             freezingAnim.Play();
+            print("enemywizardcani gitti");
+            if (IsDead())
+            {
+                print("adamöldüabi");
+            }
+            print(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
+           
         }
-        else if (other.gameObject.tag == "LightningballAnim")
+        else if (other.gameObject.tag == "Skill1")
         {
-            healthController.Damage(23);
+            healthController.Damage(43);
             HealthUpdate();
             explosionAnim.Play();
+            
         }
-/*
-        print("sa");
-        if (other.gameObject.tag == "atesnova")
-        {
-            print("ENTER");
-            healthController.Damage(5);
-        }
-       else if (other.gameObject.tag == "DefaultAnim")
-        {
-            print("ENTERdefaultanim");
-            healthController.Damage(50);
-        }
-        */
+       */
     }
     void OnTriggerStay(Collider other)
     {
@@ -221,37 +397,12 @@ public class enemyHealthSystem1 : MonoBehaviour
     }
     void OnParticleCollision(GameObject other)
     {
-        /* if (other.gameObject.tag == "atesnova")
-         {
-             print("EXIT");
-         }*/
-
-        if (other.gameObject.tag == "DefaultBallAnim" || other.gameObject.tag=="DefaultBallAnimAI") 
-        {   
-            healthController.Damage(50);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-        else if (other.gameObject.tag=="FireballAnim")
-        {
-            healthController.Damage(43);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-         else if (other.gameObject.tag=="WaterballAnim")
-        {
-            healthController.Damage(33);
-            HealthUpdate();
-            freezingAnim.Play();
-        }
-         else if (other.gameObject.tag=="LightningballAnim")
-        {
-            healthController.Damage(23);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-           
-
+        
+    }
+    
+    void KillKimdeKaldi()
+    {
+        
     }
 
 }

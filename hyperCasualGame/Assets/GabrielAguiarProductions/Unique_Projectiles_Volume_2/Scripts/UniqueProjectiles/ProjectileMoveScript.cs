@@ -28,6 +28,7 @@ public class ProjectileMoveScript : MonoBehaviour {
 	[Tooltip("From 0% to 100%")]
 	public float accuracy;
 	public float fireRate;
+    public string ProjectileAtanKisi;
 	public GameObject muzzlePrefab;
 	public GameObject hitPrefab;
 	public List<GameObject> trails;
@@ -42,6 +43,8 @@ public class ProjectileMoveScript : MonoBehaviour {
 
 	void Start () {
         startPos = transform.position;
+        //ProjectileAtanKisi=this.name;
+        //print(ProjectileAtanKisi);
         rb = GetComponent <Rigidbody> ();
 
 		//used to create a radius for the accuracy and have a very unique randomness
