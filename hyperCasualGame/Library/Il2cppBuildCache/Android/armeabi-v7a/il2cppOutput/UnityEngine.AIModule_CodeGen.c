@@ -14,8 +14,8 @@
 
 // 0x00000001 System.Boolean UnityEngine.AI.NavMeshAgent::SetDestination(UnityEngine.Vector3)
 extern void NavMeshAgent_SetDestination_m244EFBCDB717576303DA711EE39572B865F43747 (void);
-// 0x00000002 System.Boolean UnityEngine.AI.NavMeshAgent::get_hasPath()
-extern void NavMeshAgent_get_hasPath_m0FD535ACA98272F1C5082C7EE600ECCB66F044CB (void);
+// 0x00000002 System.Single UnityEngine.AI.NavMeshAgent::get_remainingDistance()
+extern void NavMeshAgent_get_remainingDistance_mB55D92B0CBEA48367C5FC6879FDEE2915FB6CD36 (void);
 // 0x00000003 System.Boolean UnityEngine.AI.NavMeshAgent::SetDestination_Injected(UnityEngine.Vector3&)
 extern void NavMeshAgent_SetDestination_Injected_m41607AA111EE126BBBDCDDF76B7523B0BC369D9A (void);
 // 0x00000004 UnityEngine.Vector3 UnityEngine.AI.NavMeshHit::get_position()
@@ -37,7 +37,7 @@ extern void OnNavMeshPreUpdate_EndInvoke_mA263F64ADF01540E24327DDB24BD334539B1B4
 static Il2CppMethodPointer s_methodPointers[11] = 
 {
 	NavMeshAgent_SetDestination_m244EFBCDB717576303DA711EE39572B865F43747,
-	NavMeshAgent_get_hasPath_m0FD535ACA98272F1C5082C7EE600ECCB66F044CB,
+	NavMeshAgent_get_remainingDistance_mB55D92B0CBEA48367C5FC6879FDEE2915FB6CD36,
 	NavMeshAgent_SetDestination_Injected_m41607AA111EE126BBBDCDDF76B7523B0BC369D9A,
 	NavMeshHit_get_position_m66845935ED76B2480F72EE6628EFD9D6BF35B39A,
 	NavMesh_Internal_CallOnNavMeshPreUpdate_m5C0CEF0AEF92B6BE0368AA5ABC02B4CCDEFA9AD5,
@@ -56,7 +56,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[1] =
 static const int32_t s_InvokerIndices[11] = 
 {
 	911,
-	1154,
+	1156,
 	838,
 	1164,
 	2044,

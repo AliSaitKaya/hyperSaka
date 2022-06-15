@@ -145,45 +145,140 @@ public class HeroHealthSystem : MonoBehaviour
              healthController.Damage(17);
          }*/
     }
-     void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
 
-     {
-        /*
-         print("sa");
-         if (other.gameObject.tag == "atesnova")
-         {
-             print("ENTER");
-             healthController.Damage(5);
-         }
-        else if (other.gameObject.tag == "DefaultAnim")
-         {
-             print("ENTERdefaultanim");
-             healthController.Damage(50);
-         }*/
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Skill0":
 
-        if (other.gameObject.tag == "DefaultBallAnim" || other.gameObject.tag == "DefaultBallAnimAI")
-        {
-            healthController.Damage(50);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-        else if (other.gameObject.tag == "FireballAnim")
-        {
-            healthController.Damage(43);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-        else if (other.gameObject.tag == "WaterballAnim")
-        {
-            healthController.Damage(33);
-            HealthUpdate();
-            freezingAnim.Play();
-        }
-        else if (other.gameObject.tag == "LightningballAnim")
-        {
-            healthController.Damage(23);
-            HealthUpdate();
-            explosionAnim.Play();
+                healthController.Damage(73);
+                HealthUpdate();
+                break;
+
+            case "Skill1":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill2":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill3":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill4":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill5":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill6":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill7":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill9":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill10":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill11":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill12":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill13":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill14":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill15":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill16":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill17":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill18":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill19":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill20":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+            case "Skill21":
+
+                healthController.Damage(10);
+                HealthUpdate();
+                break;
+
+
+
+
         }
 
     }

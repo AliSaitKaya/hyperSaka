@@ -21,12 +21,6 @@ ScriptsOnlyBuild:
     - move
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -1096,7 +1090,7 @@ ScriptsOnlyBuild:
     className: InGameAudio
   - hash:
       serializedVersion: 2
-      Hash: 0dfd53590c91f66a92aefb452d959b41
+      Hash: deb0148a8809b69d2d941c442e9c0d95
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ai
@@ -1324,7 +1318,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 8104cc44c3c32584e1f66b2c8cce9b0d
+      Hash: 56880da2dcffcc8e4bb37575de94c272
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProjectileMoveScript
@@ -1432,7 +1426,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 126024842b0a544a5c5fdccd8f1cac96
+      Hash: 57733c3369aab9cebf549d4eac95d33c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: enemyHealthSystem1
@@ -1444,7 +1438,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: cd44ef667b318a84287ca3aa5dbc8119
+      Hash: 73992b743a08167bb77ce716f40623dd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: attack
@@ -1493,4 +1487,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map1ve2.unity
   - Assets/Scenes/Map1ve3.unity
   - Assets/Scenes/Map2ve1.unity
-  playerPath: C:/Users/kaya/Desktop/hyp.apk
+  playerPath: C:/Users/msi/Desktop/hyp.apk

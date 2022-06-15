@@ -209,160 +209,120 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill2":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill3":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill4":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill5":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill6":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill7":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill9":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill10":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill11":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill12":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill13":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill14":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill15":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill16":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill17":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill18":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill19":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill20":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             case "Skill21":
 
             healthController.Damage(10);
             HealthUpdate();
-            freezingAnim.Play();
-            
             break;
 
             
