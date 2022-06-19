@@ -97,7 +97,7 @@ public class ai : MonoBehaviour
             if (AttackCooldown)
             {
                 agent.SetDestination(Target.transform.position);
-                transform.LookAt(Target.transform.position);
+               // transform.LookAt(Target.transform.position);
 
                 //kullanacağı skili prefabtan çekip kopyalıyor.
                 vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
