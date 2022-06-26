@@ -30,7 +30,7 @@ public class attack : MonoBehaviour
     private bool attackStatus = false ;
     private bool AttackCooldown=false;
     public Text coolDownText;
-    private float coolDownConstant=1.0f;
+    private float coolDownConstant=2f;
     private float timeLeftCD;
     private double timeLeftrounded;
     int AttackSelectionIndex = 0;
@@ -46,12 +46,8 @@ public class attack : MonoBehaviour
         FireSelectButton.onClick.AddListener(FireSelect);
         IceSelectButton.onClick.AddListener(IceSelect);
         ArcaneSelectButton.onClick.AddListener(ArcaneSelect);
-        SkillSelectionPanel.SetActive(false);
 
-        FireBall.Stop();
-        WaterBall.Stop();
-        LightningBall.Stop();
-        DefaultBall.Stop();
+        SkillSelectionPanel.SetActive(false);
 
         AttackSelectionIndex = 0; //default skill
         

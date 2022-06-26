@@ -13,7 +13,7 @@ public class ai : MonoBehaviour
     public List<GameObject> VFXs = new List<GameObject>();
     public int AiKillCount=0;
 
-    private float coolDownConstant = 3f;
+    private float coolDownConstant = 2f;
     private bool AttackCooldown = true;
     private bool attackStatus = false;
     private bool setDestinationControl = false;
@@ -29,7 +29,7 @@ public class ai : MonoBehaviour
         firstTransformPosition = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         animator.SetBool("attack", attackStatus);
         attackStatus = false;
@@ -51,8 +51,8 @@ public class ai : MonoBehaviour
     private void AgentCheckStopped()
     {
 
-        // eğer enemy bir yerde 50 frame boyunca takılı kalırsa yeni destination alıyor.
-        if (Time.frameCount - lastFrameCount > 50 && firstTransformPosition == transform.position)
+        // eğer enemy bir yerde 20 frame boyunca takılı kalırsa yeni destination alıyor.
+        if (Time.frameCount - lastFrameCount > 20 && firstTransformPosition == transform.position)
         {
             lastFrameCount = Time.frameCount;
             agent.SetDestination(enemyPathMovement.Instance.GetRandomPoint());
@@ -60,6 +60,33 @@ public class ai : MonoBehaviour
         }
 
     }
+
+    private IEnumerator RotateWithWait(Quaternion originalRotation, Quaternion
+            finalRotation, float duration)
+    {
+        //Vector3 direction = Target.transform.position - transform.position;
+        //transform.rotation = Quaternion.LookRotation(direction);
+
+        agent.SetDestination(Target.transform.position);
+        if (duration > 0f)
+        {
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+            transform.rotation = originalRotation;
+            yield return null;
+            while (Time.time < endTime)
+            {
+                float progress = (Time.time - startTime) / duration;
+                // progress will equal 0 at startTime, 1 at endTime.
+                transform.rotation = Quaternion.Slerp(originalRotation,
+                finalRotation, progress);
+                yield return null;
+            }
+        }
+        transform.rotation = finalRotation;
+        
+        }
+
 
     private void AgentCheckDestinationReached()
     {    
@@ -97,31 +124,28 @@ public class ai : MonoBehaviour
             if (AttackCooldown)
             {
                 agent.SetDestination(Target.transform.position);
-               // transform.LookAt(Target.transform.position);
+                //   transform.LookAt(Target.transform.position);
+                Vector3 direction = Target.transform.position - transform.position;
+                transform.rotation = Quaternion.LookRotation(direction);
+
+               // StartCoroutine(RotateWithWait(transform.rotation, Quaternion.LookRotation(direction),0.5f));
+               
+                //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 30);
+
 
                 //kullanacağı skili prefabtan çekip kopyalıyor.
                 vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
                 vfx.GetComponent<ProjectileMoveScript>().speed = 10;
                 vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=this.name;
-            //print(vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
                 vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 vfx.transform.position += 1.25f * transform.forward;
                 vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
                 //skili attıktan sonra hedefin olduğu yerin tam ters yönüne gitmesi için .
-                agent.SetDestination(Target.transform.position * -1);
+                 agent.SetDestination(Target.transform.position * -1);
+               // agent.SetDestination(enemyPathMovement.Instance.GetRandomPoint());
 
 
-                //eski animasyonlu atak
-                /*
-                DefaultSkill.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-
-                DefaultSkill.transform.position += 1.25f * transform.forward;   //at�lan skill kendi collider �na �arp�yor diye
-                                                                                //karakterin y�z�n�n d�n�k oldu�u yere offset verildi. 
-                DefaultSkill.transform.localScale = new Vector3(4, 2, 4);
-                DefaultSkill.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
-                DefaultSkill.Play();
-                */
                 attackStatus = true;
 
                 AttackCooldown = false;
@@ -132,6 +156,7 @@ public class ai : MonoBehaviour
             {
                 //enemy nin görüş alanı içerisinde hedef varsa ve cooldown dolmadıysa ters yönde kaçması için set destination veriyoruz.
                 agent.SetDestination(Target.transform.position * -1);
+                //agent.SetDestination(enemyPathMovement.Instance.GetRandomPoint());
                 setDestinationControlForAttackCooldown = true;
             }
         }

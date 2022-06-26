@@ -81,8 +81,8 @@ public class ProjectileMoveScript : MonoBehaviour {
 		}
 
     
-        StartCoroutine(DestroyParticleIfDontHit(1f));
-
+        StartCoroutine(DestroyParticleIfDontHit(1.2f));
+        
 
     }
 
