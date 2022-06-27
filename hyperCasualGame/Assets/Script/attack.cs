@@ -29,10 +29,14 @@ public class attack : MonoBehaviour
     public GameObject SkillSelectionPanel ;
     private bool attackStatus = false ;
     private bool AttackCooldown=false;
+    private int AttackClassLevel;
     public Text coolDownText;
     private float coolDownConstant=2f;
     private float timeLeftCD;
     private double timeLeftrounded;
+    private int FireSelectCounter;
+    private int IceSelectCounter;
+    private int ArcaneSelectCounter;
     int AttackSelectionIndex = 0;
 
     public static Vector3 TornadoRotationCek;
@@ -50,29 +54,176 @@ public class attack : MonoBehaviour
         SkillSelectionPanel.SetActive(false);
 
         AttackSelectionIndex = 0; //default skill
+        AttackClassLevel=0; // 1 2 3 diye artacak. panel her açıldığında.seviye takip.
+        FireSelectCounter=0;
+        IceSelectCounter=0;
+        ArcaneSelectCounter=0;
         
         
     
     }
 
-    private void ArcaneSelect()
+    
+    private void FireSelect()
     {
-        //AttackSelectionIndex = 3;
-        AttackSelectionIndex=AttackSelectionIndex+1;
+        FireSelectCounter++;
+        if (AttackClassLevel==0)
+        {
+            AttackSelectionIndex = 1;
+        }
+        else if (AttackClassLevel==1)
+        {
+            if (FireSelectCounter==2)
+            {
+                AttackSelectionIndex=4;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==1)
+            {
+                AttackSelectionIndex=5;
+            }
+            else if (FireSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=6;
+            }
+        }
+        else if (AttackClassLevel==2)
+        {
+             if (FireSelectCounter==3)
+            {
+                AttackSelectionIndex=17;
+            }
+            else if (FireSelectCounter==2 && IceSelectCounter==1)
+            {
+                AttackSelectionIndex=10;
+            }
+            else if (FireSelectCounter==2 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=11;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=12;
+            }
+            else if (FireSelectCounter==1 && ArcaneSelectCounter==2)
+            {
+                AttackSelectionIndex=14;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==2)
+            {
+                AttackSelectionIndex=15;
+            }
+        }
+        
         SkillSelectionPanel.SetActive(false);
+        AttackClassLevel++;
     }
 
     private void IceSelect()
     {
-        AttackSelectionIndex = 2;
+        IceSelectCounter++;
+        if (AttackClassLevel==0)
+        {
+            AttackSelectionIndex = 2;
+        }
+        else if (AttackClassLevel==1)
+        {
+            if (IceSelectCounter==2)
+            {
+                AttackSelectionIndex=7;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==1)
+            {
+                AttackSelectionIndex=5;
+            }
+            else if (IceSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=8;
+            }
+        }
+        else if (AttackClassLevel==2)
+        {
+             if (IceSelectCounter==3)
+            {
+                AttackSelectionIndex=18;
+            }
+            else if (FireSelectCounter==2 && IceSelectCounter==1)
+            {
+                AttackSelectionIndex=10;
+            }
+            else if (IceSelectCounter==2 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=16;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=12;
+            }
+            else if (IceSelectCounter==1 && ArcaneSelectCounter==2)
+            {
+                AttackSelectionIndex=13;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==2)
+            {
+                AttackSelectionIndex=15;
+            }
+        }
         SkillSelectionPanel.SetActive(false);
+        AttackClassLevel++;
     }
 
-    private void FireSelect()
+    private void ArcaneSelect()
     {
-        AttackSelectionIndex = 1;
+        ArcaneSelectCounter++;
+        if (AttackClassLevel==0)
+        {
+            AttackSelectionIndex = 3;
+        }
+        else if (AttackClassLevel==1)
+        {
+            if (ArcaneSelectCounter==2)
+            {
+                AttackSelectionIndex=9;
+            }
+            else if (FireSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=6;
+            }
+            else if (IceSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=8;
+            }
+        }
+        else if (AttackClassLevel==2)
+        {
+             if (ArcaneSelectCounter==3)
+            {
+                AttackSelectionIndex=19;
+            }
+            else if (FireSelectCounter==2 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=11;
+            }
+            else if (IceSelectCounter==2 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=16;
+            }
+            else if (FireSelectCounter==1 && IceSelectCounter==1 && ArcaneSelectCounter==1)
+            {
+                AttackSelectionIndex=12;
+            }
+            else if (IceSelectCounter==1 && ArcaneSelectCounter==2)
+            {
+                AttackSelectionIndex=13;
+            }
+            else if (FireSelectCounter==1 && ArcaneSelectCounter==2)
+            {
+                AttackSelectionIndex=14;
+            }
+        }
         SkillSelectionPanel.SetActive(false);
+        AttackClassLevel++;
     }
+    
 
 
     // Update is called once per frame
@@ -99,7 +250,7 @@ public class attack : MonoBehaviour
         //print(this.name+"usedattack");
         if (AttackCooldown==false)
         {
-            SkillSelectionPanel.SetActive(true);
+            
             attackStatus = true;
             
             //skill seçimi ve seçilen skilin kopyalanması
@@ -115,7 +266,69 @@ public class attack : MonoBehaviour
             vfx.transform.position += 1.25f * transform.forward;
             vfx.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
-          
+          switch(AttackSelectionIndex)
+          {
+            case 0:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 1:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 2:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 3:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 4:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 5:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 6:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 7:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 8:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 9:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 10:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 11:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 12:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 13:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 14:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 15:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 16:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 17:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 18:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 19:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+          }
             //switch (AttackSelectionIndex)
             //        {
 
@@ -243,6 +456,7 @@ public class attack : MonoBehaviour
      public void wizardKillMethod()
      {
         wizardKillCount++;
+        SkillSelectionPanel.SetActive(true); // 1-3-5 killcountta bir acilacak duzenle
         print(wizardKillCount);
         wizardKillText.text=wizardKillCount.ToString();
      }

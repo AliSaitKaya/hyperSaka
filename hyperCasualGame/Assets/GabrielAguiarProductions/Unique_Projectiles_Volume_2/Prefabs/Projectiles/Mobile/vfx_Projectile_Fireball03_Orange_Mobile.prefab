@@ -14705,7 +14705,7 @@ GameObject:
   - component: {fileID: 54254473567608762}
   m_Layer: 0
   m_Name: vfx_Projectile_Fireball03_Orange_Mobile
-  m_TagString: Skill13
+  m_TagString: fireball3orange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

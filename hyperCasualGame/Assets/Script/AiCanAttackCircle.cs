@@ -32,7 +32,7 @@ public class AiCanAttackCircle : MonoBehaviour
             print("stay "+other.tag);
             print("this.tag " + this.tag);
             */
-            print("this.parent.tag =  " + this.transform.parent.tag);
+            //print("this.parent.tag =  " + this.transform.parent.tag);
             
         }
     }

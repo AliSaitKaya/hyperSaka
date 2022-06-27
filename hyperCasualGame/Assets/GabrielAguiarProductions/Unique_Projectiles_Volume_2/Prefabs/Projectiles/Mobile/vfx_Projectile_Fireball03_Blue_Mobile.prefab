@@ -43718,7 +43718,7 @@ GameObject:
   - component: {fileID: 54922199429888574}
   m_Layer: 0
   m_Name: vfx_Projectile_Fireball03_Blue_Mobile
-  m_TagString: Skill14
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

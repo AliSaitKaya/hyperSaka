@@ -25,6 +25,7 @@ public class ProjectileMoveScript : MonoBehaviour {
     public bool bounce = false;
     public float bounceForce = 10;
     public float speed;
+    public int ProjectileDamage;
 	[Tooltip("From 0% to 100%")]
 	public float accuracy;
 	public float fireRate;

@@ -5227,7 +5227,7 @@ GameObject:
   - component: {fileID: 54187506388765952}
   m_Layer: 0
   m_Name: vfx_Projectile_IceSpike01_Blue_Mobile
-  m_TagString: Skill17
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

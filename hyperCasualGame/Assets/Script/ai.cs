@@ -136,6 +136,7 @@ public class ai : MonoBehaviour
                 //kullanacağı skili prefabtan çekip kopyalıyor.
                 vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
                 vfx.GetComponent<ProjectileMoveScript>().speed = 10;
+                
                 vfx.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=this.name;
                 vfx.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 vfx.transform.position += 1.25f * transform.forward;
@@ -144,7 +145,69 @@ public class ai : MonoBehaviour
                 //skili attıktan sonra hedefin olduğu yerin tam ters yönüne gitmesi için .
                  agent.SetDestination(Target.transform.position * -1);
                // agent.SetDestination(enemyPathMovement.Instance.GetRandomPoint());
-
+        switch(AttackSelectionIndex)
+          {
+            case 0:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 1:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 2:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 3:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 4:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 5:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 6:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 7:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 8:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 9:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 10:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 11:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 12:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 13:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 14:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 15:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 16:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 17:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+            case 18:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+            break;
+            case 19:
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+            break;
+          }
 
                 attackStatus = true;
 

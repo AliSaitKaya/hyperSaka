@@ -14644,7 +14644,7 @@ GameObject:
   - component: {fileID: 54836955965317670}
   m_Layer: 0
   m_Name: vfx_Projectile_Orb01_Red_Mobile
-  m_TagString: Skill7
+  m_TagString: orb1red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

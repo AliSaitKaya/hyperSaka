@@ -113,29 +113,7 @@ public class HeroHealthSystem : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "tornadoAnim")
-        {
-            //print("ENTER");
-            //print(other.transform.name);
-            //print(gameObject.name);
-            healthController.Damage(10);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-        else if (other.gameObject.tag == "spikesAnim")
-        {
-            //print("ENTERdefaultanim");
-            healthController.Damage(25);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
-        else if (other.gameObject.tag == "lightningAnim")
-        {
-            //print("ENTERdefaultanim");
-            healthController.Damage(37);
-            HealthUpdate();
-            explosionAnim.Play();
-        }
+    
         /* if (other.gameObject.tag == "fireballAnim")
          {
              //print("ENTER");
@@ -150,9 +128,9 @@ public class HeroHealthSystem : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case "Skill0":
+            case "defaultskillfinal":
 
-                healthController.Damage(73);
+                healthController.Damage(20);
                 HealthUpdate();
                 break;
 

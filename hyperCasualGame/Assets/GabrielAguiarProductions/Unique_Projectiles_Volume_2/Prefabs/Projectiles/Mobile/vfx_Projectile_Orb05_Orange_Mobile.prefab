@@ -39281,7 +39281,7 @@ GameObject:
   - component: {fileID: 54810175089662816}
   m_Layer: 0
   m_Name: vfx_Projectile_Orb05_Orange_Mobile
-  m_TagString: Skill10
+  m_TagString: orb5orange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14964,7 +14964,7 @@ GameObject:
   - component: {fileID: 54082297258985100}
   m_Layer: 0
   m_Name: vfx_Projectile_Slash01_Orange_Mobile
-  m_TagString: Skill1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

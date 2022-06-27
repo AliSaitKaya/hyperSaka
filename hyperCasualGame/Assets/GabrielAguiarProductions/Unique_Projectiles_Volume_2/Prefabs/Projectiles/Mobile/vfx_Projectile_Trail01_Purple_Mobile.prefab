@@ -4831,7 +4831,7 @@ GameObject:
   - component: {fileID: 135898405161089132}
   m_Layer: 0
   m_Name: vfx_Projectile_Trail01_Purple_Mobile
-  m_TagString: Skill0
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4874,6 +4874,7 @@ MonoBehaviour:
   speed: 25
   accuracy: 95
   fireRate: 2
+  ProjectileAtanKisi: 
   muzzlePrefab: {fileID: 1227067792111776, guid: 4fa138969a8d6af4794f5cbfb3e40abb, type: 3}
   hitPrefab: {fileID: 1958568899816826, guid: 922574f7f2e5e4b46a6b64296d4eac41, type: 3}
   trails:

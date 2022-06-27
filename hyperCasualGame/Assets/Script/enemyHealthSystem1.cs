@@ -20,6 +20,8 @@ public class enemyHealthSystem1 : MonoBehaviour
 
     public GameObject AttackScripterisim;
     public GameObject aiScriptErisim;
+    private int DeadFlag;
+    private int Projectiledangelendamage;
     Text deneme;
 
     public static int AliveCount;
@@ -179,16 +181,131 @@ public class enemyHealthSystem1 : MonoBehaviour
     void OnCollisionEnter(Collision other)
         
     {
+        DeadFlag=0;
+        Projectiledangelendamage=other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileDamage;
         switch(other.gameObject.tag)
         {
-            case "Skill0":
+            case "defaultskillfinal":
             
-            healthController.Damage(73);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
-            freezingAnim.Play();
+            
             //print("enemywizardcani gitti");
+            //print(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
             if (IsDead())
             {
+                DeadFlag=1;
+            }
+            
+
+            break;
+
+            case "orb5orange":
+
+            healthController.Damage(Projectiledangelendamage);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "icespike":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "slashpurple":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "orb4blue":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "blackholered":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "orb1purple":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "fireball3orange":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "orb1red":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "waterballorange":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+            case "waterballblue":
+
+            healthController.Damage(10);
+            HealthUpdate();
+            if (IsDead())
+            {
+                DeadFlag=1;
+            }
+            break;
+
+        
+
+        }
+        if (DeadFlag==1)
+        {
+            print("deadprint");
                 if (other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=="Wizard")
                 {
                     AttackScripterisim = GameObject.Find("Wizard");
@@ -199,157 +316,7 @@ public class enemyHealthSystem1 : MonoBehaviour
                     aiScriptErisim=GameObject.Find(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
                     aiScriptErisim.GetComponent<ai>().aiKillMethod();
                 }
-                //print(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
-            }
-            
-
-            break;
-
-            case "Skill1":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill2":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill3":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill4":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill5":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill6":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill7":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill9":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill10":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill11":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill12":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill13":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill14":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill15":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill16":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill17":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill18":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill19":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill20":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            case "Skill21":
-
-            healthController.Damage(10);
-            HealthUpdate();
-            break;
-
-            
-
-
         }
-        /*if (other.gameObject.tag == "Skill0")
-        {
-            healthController.Damage(33);
-            HealthUpdate();
-            freezingAnim.Play();
-            print("enemywizardcani gitti");
-            if (IsDead())
-            {
-                print("adamöldüabi");
-            }
-            print(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
-           
-        }
-        else if (other.gameObject.tag == "Skill1")
-        {
-            healthController.Damage(43);
-            HealthUpdate();
-            explosionAnim.Play();
-            
-        }
-       */
     }
     void OnTriggerStay(Collider other)
     {
