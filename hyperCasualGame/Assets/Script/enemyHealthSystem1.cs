@@ -212,7 +212,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "icespike":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -222,7 +222,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "slashpurple":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -232,7 +232,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "orb4blue":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -242,7 +242,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "blackholered":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -252,7 +252,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "orb1purple":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -262,7 +262,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "fireball3orange":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -272,7 +272,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "orb1red":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -282,7 +282,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "waterballorange":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {
@@ -292,7 +292,7 @@ public class enemyHealthSystem1 : MonoBehaviour
 
             case "waterballblue":
 
-            healthController.Damage(10);
+            healthController.Damage(Projectiledangelendamage);
             HealthUpdate();
             if (IsDead())
             {

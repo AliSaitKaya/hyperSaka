@@ -252,7 +252,7 @@ public class attack : MonoBehaviour
         {
             
             attackStatus = true;
-            
+            SkillSelectionPanel.SetActive(true); // gecici sil
             //skill seçimi ve seçilen skilin kopyalanması
             vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
             vfx.GetComponent<ProjectileMoveScript>().speed = 10;
@@ -269,64 +269,76 @@ public class attack : MonoBehaviour
           switch(AttackSelectionIndex)
           {
             case 0:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 35;
             break;
             case 1:
                 vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(0.5f,0.5f,0.5f);
             break;
             case 2:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(0.5f,0.5f,0.5f);
             break;
             case 3:
                 vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(0.5f,0.5f,0.5f);
             break;
             case 4:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 75;
+
             break;
             case 5:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 75;
             break;
             case 6:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 75;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(0.7f,0.7f,0.7f);
             break;
             case 7:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 75;
             break;
             case 8:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 75;
             break;
             case 9:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 75;
             break;
             case 10:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(2f,2f,2f);
             break;
             case 11:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(1.5f,1.5f,1.5f);
             break;
             case 12:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
             break;
             case 13:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(2f,2f,2f);
             break;
             case 14:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(2f,2f,2f);
             break;
             case 15:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
             break;
             case 16:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
             break;
             case 17:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(2f,2f,2f);
             break;
             case 18:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 33;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(2f,2f,2f);
             break;
             case 19:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
+                vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(2f,2f,2f);
             break;
           }
             //switch (AttackSelectionIndex)

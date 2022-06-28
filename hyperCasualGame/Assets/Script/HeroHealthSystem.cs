@@ -18,6 +18,7 @@ public class HeroHealthSystem : MonoBehaviour
     ParticleSystem freezingAnim;
     public Animator animator;
     public GameObject enemies;
+    private int projectiledangelendamagehero;
     GameObject gravestone;
     Text deneme;
     bool graveStoneControl = true; //s�rekli graveStone koymas�n diye
@@ -126,138 +127,97 @@ public class HeroHealthSystem : MonoBehaviour
     void OnCollisionEnter(Collision other)
 
     {
-        switch (other.gameObject.tag)
+       //DeadFlag=0;
+        projectiledangelendamagehero=other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileDamage;
+        switch(other.gameObject.tag)
         {
             case "defaultskillfinal":
+            
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            
+            //print("enemywizardcani gitti");
+            //print(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
+            break;
 
-                healthController.Damage(20);
-                HealthUpdate();
-                break;
+            case "orb5orange":
 
-            case "Skill1":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "icespike":
 
-            case "Skill2":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "slashpurple":
 
-            case "Skill3":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "orb4blue":
 
-            case "Skill4":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "blackholered":
 
-            case "Skill5":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "orb1purple":
 
-            case "Skill6":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "fireball3orange":
 
-            case "Skill7":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "orb1red":
 
-            case "Skill9":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "waterballorange":
 
-            case "Skill10":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
+            case "waterballblue":
 
-            case "Skill11":
+            healthController.Damage(projectiledangelendamagehero);
+            HealthUpdate();
+            break;
 
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill12":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill13":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill14":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill15":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill16":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill17":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill18":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill19":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill20":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-            case "Skill21":
-
-                healthController.Damage(10);
-                HealthUpdate();
-                break;
-
-
-
+        
 
         }
+        /*if (DeadFlag==1)
+        {
+            print("deadprint");
+                if (other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi=="Wizard")
+                {
+                    AttackScripterisim = GameObject.Find("Wizard");
+                    AttackScripterisim.GetComponent<attack>().wizardKillMethod();
+                }
+                else
+                {
+                    aiScriptErisim=GameObject.Find(other.gameObject.GetComponent<ProjectileMoveScript>().ProjectileAtanKisi);
+                    aiScriptErisim.GetComponent<ai>().aiKillMethod();
+                }
+        }
+        */
 
     }
     void OnTriggerStay(Collider other)
