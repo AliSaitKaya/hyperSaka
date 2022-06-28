@@ -27,6 +27,12 @@ public class attack : MonoBehaviour
     public Button ArcaneSelectButton;
     
     public GameObject SkillSelectionPanel ;
+    public GameObject HpBuffPanel;
+    public GameObject SpeedBuffPanel;
+    public Button MaxHpBuffButton;
+    public Button CurrentHpBuffButton;
+    public Button SpeedBuffButton;
+    public Button DamageBuffButton;
     private bool attackStatus = false ;
     private bool AttackCooldown=false;
     private int AttackClassLevel;
@@ -51,7 +57,14 @@ public class attack : MonoBehaviour
         IceSelectButton.onClick.AddListener(IceSelect);
         ArcaneSelectButton.onClick.AddListener(ArcaneSelect);
 
+        MaxHpBuffButton.onClick.AddListener(MaxHpBuff);
+        CurrentHpBuffButton.onClick.AddListener(CurrenttHpBuff);
+        SpeedBuffButton.onClick.AddListener(SpeedBuff);
+        DamageBuffButton.onClick.AddListener(DamageBuff);
+
         SkillSelectionPanel.SetActive(false);
+        HpBuffPanel.SetActive(false);
+        SpeedBuffPanel.SetActive(false);
 
         AttackSelectionIndex = 0; //default skill
         AttackClassLevel=0; // 1 2 3 diye artacak. panel her açıldığında.seviye takip.
@@ -252,7 +265,7 @@ public class attack : MonoBehaviour
         {
             
             attackStatus = true;
-            SkillSelectionPanel.SetActive(true); // gecici sil
+            //SkillSelectionPanel.SetActive(true); // gecici sil
             //skill seçimi ve seçilen skilin kopyalanması
             vfx = Instantiate(VFXs[AttackSelectionIndex], transform.position, Quaternion.identity);
             vfx.GetComponent<ProjectileMoveScript>().speed = 10;
@@ -269,10 +282,10 @@ public class attack : MonoBehaviour
           switch(AttackSelectionIndex)
           {
             case 0:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 35;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
             break;
             case 1:
-                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 50;
+                vfx.GetComponent<ProjectileMoveScript>().ProjectileDamage = 100;
                 vfx.GetComponent<ProjectileMoveScript>().projectilescale = new Vector3(0.5f,0.5f,0.5f);
             break;
             case 2:
@@ -468,9 +481,43 @@ public class attack : MonoBehaviour
      public void wizardKillMethod()
      {
         wizardKillCount++;
-        SkillSelectionPanel.SetActive(true); // 1-3-5 killcountta bir acilacak duzenle
+        if (wizardKillCount%2==1)
+        {
+            SkillSelectionPanel.SetActive(true); // 1-3-5 killcountta bir acilacak duzenle
+        }
+        else if (wizardKillCount%4==0)
+        {
+            print("buffspeedpanelaciliyor");
+            SpeedBuffPanel.SetActive(true);
+        }
+        else if((wizardKillCount+2)%4==0)
+        {
+            print("buffhppanelaciliyor");
+            HpBuffPanel.SetActive(true);
+        }
+        
         print(wizardKillCount);
         wizardKillText.text=wizardKillCount.ToString();
+     }
+     private void MaxHpBuff()
+     {
+        print("max hp buff");
+        HpBuffPanel.SetActive(false);
+     }
+     private void CurrenttHpBuff()
+     {
+        print("currenthp buff");
+        HpBuffPanel.SetActive(false);
+     }
+     private void SpeedBuff()
+     {
+        print("speed buff");
+        SpeedBuffPanel.SetActive(false);
+     }
+     private void DamageBuff()
+     {
+        print("damage buff");
+        SpeedBuffPanel.SetActive(false);
      }
      void cancelTornado()
      {
