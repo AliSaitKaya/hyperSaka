@@ -105,8 +105,15 @@ public class LoadingPage : MonoBehaviour
             
         }
 
-         print("siradaki sahne");
+         print("geleceksceneindex");
+         
         print(ArenaSellection.GelecekSceneIndex);
+        print("currentmapindex");
+         
+        print(ArenaSellection.CurrentMapIndex);
+        print("currentstageindex");
+         
+        print(ArenaSellection.CurrentStageIndex);
 
         
         LoadLevel(ArenaSellection.GelecekSceneIndex);

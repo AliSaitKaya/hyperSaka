@@ -7,10 +7,7 @@ public class attack : MonoBehaviour
 {
     cameraShaker shaker;
     public Animator animator;
-    public ParticleSystem DefaultBall;
-    public ParticleSystem FireBall;
-    public ParticleSystem WaterBall;
-    public ParticleSystem LightningBall;
+  
     public ParticleSystem Tornado;
 
     public GameObject TornadoObject;
@@ -52,6 +49,7 @@ public class attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         attackButton.onClick.AddListener(Attack);
         FireSelectButton.onClick.AddListener(FireSelect);
         IceSelectButton.onClick.AddListener(IceSelect);
@@ -374,47 +372,7 @@ public class attack : MonoBehaviour
 
             //        */
 
-            //        break;
-
-            //        case 1:
-            //        /*
-            //        FireBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-            //        FireBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
-                                                                            
-            //        FireBall.transform.localScale = new Vector3(3,2,3);
-            //        FireBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-                        
-            //        FireBall.Play();
-            //            */
-            //        skillParticleSelection(FireBall);
-            //        break;
-
-            //        case 2:
-            //        /*
-            //        WaterBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-            //        WaterBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
-                                                                            
-            //        WaterBall.transform.localScale = new Vector3(3,2,3);
-            //        WaterBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-                        
-            //        WaterBall.Play();
-            //        */
-            //        skillParticleSelection(WaterBall);
-            //        break;
-
-            //        case 3:
-            //        /*
-            //        LightningBall.transform.position = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-            //        LightningBall.transform.position += 1.2f * transform.forward;   //collider carpmaması icin offset
-                                                                            
-            //        LightningBall.transform.localScale = new Vector3(3,2,3);
-            //        LightningBall.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-                        
-            //        LightningBall.Play();
-            //        */
-            //        skillParticleSelection(LightningBall);
-            //        break;
-
+         
             //        case 4:
             //            TornadoObject.SetActive(true);
             //            TornadoRotationCek =new Vector3(0,0,0);

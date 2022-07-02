@@ -199,6 +199,9 @@ public class HeroHealthSystem : MonoBehaviour
             healthController.Damage(projectiledangelendamagehero);
             HealthUpdate();
             break;
+            default:
+            //hicbirine girmezse buraya mi girecek ?
+            break;
 
         
 

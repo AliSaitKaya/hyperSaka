@@ -14,8 +14,8 @@ public class PanelController : MonoBehaviour
     public Button MenuButton;
     
     public GameObject _DeathLogPanel;
-    public GameObject _FullHpPanel;
-    public GameObject _MageBuffPanel;
+    
+    
     public GameObject _MapCompletedPanel;
     public GameObject _MenuPanel;
     public GameObject _FailPanel;
@@ -53,8 +53,6 @@ public class PanelController : MonoBehaviour
         Panels.Add(_DeathLogPanel);
         Panels.Add(_MapCompletedPanel);
 
-        Panels.Add(_FullHpPanel);
-        Panels.Add(_MageBuffPanel);
         //   Panels.Add(_SettingsPanel);
         Panels.Add(_MenuPanel);
 
@@ -94,6 +92,7 @@ public class PanelController : MonoBehaviour
 
         
         ArenaSellection.GelecekSceneIndex=2;//markete gecirme kodu
+        _SuccessPanel.SetActive(false);
         SceneManager.LoadScene(1);
         
     }
@@ -134,14 +133,7 @@ public class PanelController : MonoBehaviour
     {
         _DeathLogPanel.SetActive(open);
     }
-    public void SetFullHpPanel(bool open)
-    {
-        _FullHpPanel.SetActive(open);
-    }
-    public void SetMageBuffPanel(bool open)
-    {
-        _MageBuffPanel.SetActive(open);
-    }
+    
 
     public void SetMenuPanel(bool open)
     {
@@ -161,47 +153,6 @@ public class PanelController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        print("xd");
-        print(other.gameObject.name);
-        if (other.gameObject.tag == "FullHpPanel")
-        {
-            SetCloseOpenAllPanels();
-            SetFullHpPanel(true);
-            
-        }
-        else if (other.gameObject.tag == "MageBuffPanel")
-        {
-            SetCloseOpenAllPanels();
-            SetMageBuffPanel(true);
-            
-        }
-        else if (other.gameObject.tag == "MarketNextScene")
-        {
-            SetCloseOpenAllPanels();
-            print("hey");
-            ArenaSellection.GelecekSceneIndex=100;
-            SceneManager.LoadScene(1);
-            
-            
-        }
-
-       /* else if (other.gameObject.tag == "MageBuffPanel")
-        {
-            SetMageBuffPanel(true);
-            SetCloseOpenAllPanels();
-        }*/
-       
-       
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "FullHpPanel" || other.gameObject.tag == "MageBuffPanel")
-        {
-            SetCloseOpenAllPanels();
-
-        }
-    }
+    
 
 }
