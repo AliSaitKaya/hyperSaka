@@ -67,6 +67,12 @@ public class HeroHealthSystem : MonoBehaviour
             graveStoneControl = false;
         }
     }
+    public void Heal(int HealNumber)
+    {
+        healthController.Heal(HealNumber);
+        HealthUpdate();
+    }
+
     public void InvokeDamage()
     {
         if(SceneManager.GetActiveScene().name=="MarketScene")

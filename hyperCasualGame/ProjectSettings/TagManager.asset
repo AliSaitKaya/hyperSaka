@@ -51,6 +51,7 @@ TagManager:
   - waterballblue
   - waterballorange
   - defaultskillfinal
+  - heart
   layers:
   - Default
   - TransparentFX

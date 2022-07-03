@@ -17,6 +17,7 @@ public class enemyHealthSystem1 : MonoBehaviour
     ParticleSystem freezingAnim;
     public Animator animator;
     public GameObject gravestone;
+    public GameObject heart;
 
     public GameObject AttackScripterisim;
     public GameObject aiScriptErisim;
@@ -73,6 +74,12 @@ public class enemyHealthSystem1 : MonoBehaviour
             graveStoneControl = false;
         }
     }
+    public void Heal(int HealNumber)
+    {
+        healthController.Heal(HealNumber);
+        HealthUpdate();
+    }
+
     public void InvokeDamage()
     {
         if(DamageCircle.IsOutsideCircle(transform.position) && !healthController.IsDead())
@@ -115,7 +122,9 @@ public class enemyHealthSystem1 : MonoBehaviour
         GameObject graveStone = GameObject.Instantiate(gravestone);
         graveStone.transform.position = transform.position;
 
-        
+        GameObject heartCopy = GameObject.Instantiate(heart);
+        heartCopy.transform.position = transform.position;
+
     }
     void LevelPassed()
     {

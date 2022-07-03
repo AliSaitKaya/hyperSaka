@@ -52,13 +52,14 @@ public class HealthController
         return (float) healthCurrent / healthMax;
     }
 
-    public void Heal(int amount)
+    public int Heal(int amount)
     {
         healthCurrent += amount;
         if (healthCurrent >= healthMax)
         {
             healthCurrent = healthMax;
         }
+        return healthCurrent;
     }
 
     public void Damage(int amount)
