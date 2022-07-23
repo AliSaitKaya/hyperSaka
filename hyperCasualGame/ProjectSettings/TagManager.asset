@@ -52,6 +52,8 @@ TagManager:
   - waterballorange
   - defaultskillfinal
   - heart
+  - FullHpCollider
+  - MageBuffCollider
   layers:
   - Default
   - TransparentFX

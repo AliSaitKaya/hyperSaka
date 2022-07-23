@@ -117,10 +117,14 @@ public class enemyHealthSystem1 : MonoBehaviour
         GetComponent<BoxCollider>().enabled = false;
         GetComponentInChildren<AiCanAttackCircle>().enabled = false;
         GetComponentInChildren<AiCanAttackCircle>().GetComponent<BoxCollider>().enabled = false;
+        GetComponentInChildren<Animator>().enabled = false;
         //Destroy(gameObject);
 
+        /*
+         * GraveStone kopyası çıkarma
         GameObject graveStone = GameObject.Instantiate(gravestone);
         graveStone.transform.position = transform.position;
+        */
 
         GameObject heartCopy = GameObject.Instantiate(heart);
         heartCopy.transform.position = transform.position;

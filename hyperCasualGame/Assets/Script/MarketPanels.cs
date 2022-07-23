@@ -6,30 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class MarketPanels : MonoBehaviour
 {
-    public static MarketPanels Instance;
-
     public GameObject _FullHpPanel;
-    public GameObject _MageBuffPanel;
-    
+    public GameObject _MageBuffPanel; 
 
     List<GameObject> Panels = new List<GameObject>();
-
-    bool toggleOpenMenuControl = true;
-    public void Awake()
-    {
-        Instance = this;
-
-    }
 
     public void Start()
     {
         //hpaddbutton buff ad button ekle
 
-
         Panels.Add(_FullHpPanel);
         Panels.Add(_MageBuffPanel);
-    
-
 
         SetCloseOpenAllPanels();
     
@@ -55,26 +42,24 @@ public class MarketPanels : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("xd");
         print(other.gameObject.name);
-        if (this.gameObject.tag=="FullHpPanel" && other.gameObject.tag == "Wizard")
+        if (this.gameObject.tag=="FullHpCollider" && other.gameObject.tag == "Wizard")
         {
             print("hppanelacilsin");
             SetCloseOpenAllPanels();
             SetFullHpPanel(true);
             
         }
-        else if (this.gameObject.tag=="MageBuffPanel" && other.gameObject.tag == "Wizard")
+        if (this.gameObject.tag=="MageBuffCollider" && other.gameObject.tag == "Wizard")
         {
             print("magebuffpanel");
             SetCloseOpenAllPanels();
             SetMageBuffPanel(true);
             
         }
-        else if (this.gameObject.tag=="MarketNextScene" && other.gameObject.tag == "Wizard")
+         if (this.gameObject.tag=="MarketNextScene" && other.gameObject.tag == "Wizard")
         {
             SetCloseOpenAllPanels();
-            print("hey");
             ArenaSellection.GelecekSceneIndex=100;
             SceneManager.LoadScene(1);
             

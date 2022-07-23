@@ -129,7 +129,6 @@ public class LoadingPage : MonoBehaviour
 
         while(!operation.isDone)
         {
-            
             yield return null;
         }
     }
